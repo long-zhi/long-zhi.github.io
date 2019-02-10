@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A website for A-RSnippet Hexo Theme">
+    <meta name="author" content="Yingjie Hu">
+    <meta name="keyword" content="hexo, hexo theme, A-RSnippet, responsive, bootstrap">
+    <link rel="canonical" href="http://yoursite.com/tutorial/">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="A-RSnippet &lt;a class=&#34;github-button&#34; href=&#34;https://github.com/huyingjie/hexo-theme-A-RSnippet&#34; data-icon=&#34;octicon-star&#34; data-show-count=&#34;true&#34; aria-label=&#34;Star huyingjie/hexo-theme-A-RSnippet on GitHub&#34;&gt;Star&lt;/a&gt;" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <title>
+        
+        Tutorial: How to Use Hexo&#39;s A-Snippet Theme｜An A-RSnippet Hexo Theme
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/css/highlight.css">
+    
+
+    
+      <script id="dsq-count-scr" src="//hexo-a-rsnippet.disqus.com/count.js" async></script>
+    
+
+
+    
+      <meta name="google-site-verification" content="wtCjI-zcpr2FYwWS3sI4OWzMK9e7VomDrZyxpVUUIng">
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-38355881-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- user customization -->
+    <link rel="stylesheet" href="/css/arsnippet.css">
+    <script src="/js/arsnippet.css.js"></script>
+</head>
+
+<style>
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/">
+            A-RSnippet <a class="github-button" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star</a>
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/tutorial/">Tutorial</a>
+                </li>
+              
+                <li>
+                  <a href="/leetcode-category/">LeetCode-category</a>
+                </li>
+              
+                <li>
+                  <a href="/leetcode-tag/">LeetCode-tag</a>
+                </li>
+              
+                <li>
+                  <a href="/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/portfolio-slim/">projects</a>
+                </li>
+              
+                <li>
+                  <a href="/support/">support</a>
+                </li>
+              
+                <li>
+                  <a href="/atom.xml">RSS</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('candle-animation.gif');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Tutorial: How to Use Hexo&#39;s A-Snippet Theme</h1>
+                        
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: Yingjie Hu</span>
+                               <span class="meta-item">Date: Jan 25, 2018</span>
+                               
+                                 <span class="meta-item">Updated On: Feb 10, 2019</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/categories/#tutorial" title="tutorial">tutorial</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
+                              
+                              <a class="tag" href="/tags/#tutorial" title="tutorial">tutorial</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+            <div class="text-center"><div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5272bc2a7b3c1ddc" async="async"></script>
+</div>
+</div><hr>
+          
+          <div class="subscribe"><a href="http://eepurl.com/dh6iCD" target="_blank">Get Updated for Each Release!</a></div><p>
+          </p><p align="center">The goal of A-RSnippet theme is to be comprehensive.</p>
+
+<div align="center"><br><a href="https://github.com/huyingjie/hexo-theme-A-RSnippet/tree/master" target="_blank"><img src="https://travis-ci.org/huyingjie/hexo-theme-A-RSnippet.svg?branch=master" style="display:inline"></a> <a href="https://discord.gg/CB6CPzq" target="_blank"><img src="https://img.shields.io/discord/405912462031060992.svg" style="display:inline"></a> <a href="http://hexo.io" target="_blank"><img src="https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg" style="display:inline"></a> <a href="https://github.com/huyingjie/hexo-theme-A-RSnippet" target="_blank"><img src="https://img.shields.io/badge/Release-v0.1.0-red.svg"></a> <a href="https://github.com/huyingjie/hexo-theme-A-RSnippet/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-GPL3-pink.svg" style="display:inline"></a></div>
+
+<div align="center" style="padding-top:20px"><br>    <sub>Created and Maintained By <a href="http://yingjiehu.com" target="_blank">Yingjie Hu</a> with ❤️ &nbsp;Follow me on <a href="https://twitter.com/yingjieYJH" target="_blank">Twitter</a>.</sub><br></div>
+
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>The goal of Hexo A-RSnippet theme is to achieve as many functionalities as possible. There are many features on my todo list. For example, there will be more than one style to show your projects on the portfolio page.</p>
+<p>If you like A-RSnippet theme, please star the repo ⭐️ . It is the easiest way to support me.</p>
+<p>You can get updated for each new version release if you <a href="https://yingjiehu.us17.list-manage.com/subscribe?u=3fe3112157572128dc2da2663&amp;id=dee20b94d7" target="_blank" rel="noopener">subscribe to the newsletter</a>.</p>
+<h2 id="Live-Website"><a href="#Live-Website" class="headerlink" title="Live Website"></a>Live Website</h2><p><img src="A-RSnippet.png" alt=""></p>
+<ul>
+<li><a href="http://arsnippet.yingjiehu.com" target="_blank" rel="noopener">Official Hexo A-RSnippet theme website</a></li>
+<li>Please fork the repo and add your site here.</li>
+</ul>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>Bootstrap</li>
+<li>Fully responsive: smartphone, tablet, laptop, to desktop computer<ul>
+<li>Images</li>
+<li>Tables</li>
+<li>Responsive YouTube and Vimeo videos</li>
+</ul>
+</li>
+<li>Comments - Disqus</li>
+<li>Analytics - Google, Baidu Analytics.</li>
+<li>Webmaster verification<ul>
+<li>Google</li>
+<li>Bing</li>
+<li>Yandex</li>
+</ul>
+</li>
+<li>Code Syntax Highlight</li>
+<li>Table of Contents</li>
+<li>Custom Single Page<ul>
+<li>Pages</li>
+<li>Tags page</li>
+<li>Project Portfolio page</li>
+<li>A list to show a specific category or tag for LeetCode problem list</li>
+</ul>
+</li>
+<li>Support Latex through MathJax</li>
+<li>Cover image for posts and pages</li>
+<li>Sharing - addthis</li>
+<li>Navigation menu</li>
+<li>Social Accounts configuration (more in the future)</li>
+</ul>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>Please go to <a href="http://arsnippet.yingjiehu.com/tutorial" target="_blank" rel="noopener">http://arsnippet.yingjiehu.com/tutorial</a> for the latest tutorial.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ol>
+<li><code>cd root_of_site_folder</code></li>
+<li><code>git clone https://github.com/huyingjie/hexo-theme-A-RSnippet.git themes/a-rsnippet</code></li>
+<li>Replace <code>_config.yml</code> in the root folder of the website with <code>_config.yml</code> in the <code>a-rsnippet</code> theme folder.</li>
+</ol>
+<h2 id="Update-Theme"><a href="#Update-Theme" class="headerlink" title="Update Theme"></a>Update Theme</h2><p>Steps</p>
+<ol>
+<li><p>Execute the following command to update the theme.</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/a-rsnippet</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Compare the <code>_config</code> file the theme and your site <code>_config</code> file and edit when necessary.</p>
+</li>
+<li>Modify the version number in your <code>_config</code> file.</li>
+</ol>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><ol>
+<li>Copy the content of <code>source</code> folder in the <code>exampleSite</code> folder to your <code>source</code> folder</li>
+<li>Create a new post: <code>hexo new post &quot;post name&quot;</code></li>
+<li>Create a new page: <code>hexo new page &quot;page name&quot;</code></li>
+<li>Run the website: <code>hexo server</code> or <code>hexo s</code></li>
+</ol>
+<h2 id="Code-for-An-Example-Website"><a href="#Code-for-An-Example-Website" class="headerlink" title="Code for An Example Website"></a>Code for An Example Website</h2><p>There is an <code>exampleSite</code> folder in the theme folder.</p>
+<div class="text-center"><br><img src="exampleSite.png" alt=""><br></div>
+
+<p>The <code>scaffolds</code> folder contains files with empty front-matter of all layouts used on the site.</p>
+<p>You can copy the files and folders in the <code>exampleSite</code> folder to your root of the website.</p>
+<h2 id="External-Libraries-Used"><a href="#External-Libraries-Used" class="headerlink" title="External Libraries Used"></a>External Libraries Used</h2><ul>
+<li><a href="http://fontawesome.io/icons/" target="_blank" rel="noopener">Font Awesome 4</a></li>
+<li><a href="http://getbootstrap.com/docs/3.3/" target="_blank" rel="noopener">Bootstrap 3</a></li>
+<li><a href="https://jquery.com/" target="_blank" rel="noopener">jQuery 3.2.1</a></li>
+<li><a href="https://jqueryui.com/" target="_blank" rel="noopener">jQuery UI 1.12.1</a></li>
+<li><a href="https://highlightjs.org/" target="_blank" rel="noopener">Highlight.js</a></li>
+</ul>
+<h2 id="Customize-the-Theme"><a href="#Customize-the-Theme" class="headerlink" title="Customize the Theme"></a>Customize the Theme</h2><p><strong>Every time you change something in the <code>_config</code> file, run <code>hexo s</code> again.</strong></p>
+<p><strong>Every time you change something in the <code>source</code> folder, run <code>hexo g &amp;&amp; hexo s</code>.</strong></p>
+<p><strong>Please try not editing code in the theme as hard as you can.</strong></p>
+<p>Replacing the theme folder is the only way to update any Hexo theme. If you edit any file in the theme folder, it will not be easy for you to update A-RSnippet theme in the future.</p>
+<p>If you want to customize the theme, please try using following methods. There is an example site in the theme folder.</p>
+<ol>
+<li><p>Use external libraries included in the theme.</p>
+<ul>
+<li><p>Use HTML and CSS to add Bootstrap style directly to the posts. MarkDown does not support adding classes.</p>
+<ul>
+<li><a href="https://getbootstrap.com/docs/3.3/components/" target="_blank" rel="noopener">Bootstrap component</a></li>
+<li><a href="https://v4-alpha.getbootstrap.com/utilities/colors/" target="_blank" rel="noopener">Colors</a></li>
+</ul>
+</li>
+<li><p>Use <a href="http://fontawesome.io/icons/" target="_blank" rel="noopener">Font Awesome 4</a> to add icons in the posts</p>
+</li>
+</ul>
+</li>
+<li><p>Add additional JavaScript and CSS to the <code>arsnippet.css</code> and <code>arsnippet.js</code> respectively. Their positions are as follows:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">your_site_folder</span><br><span class="line">| -- source</span><br><span class="line">| -- css</span><br><span class="line">        | -- arsnippet.css</span><br><span class="line">| -- js</span><br><span class="line">        | -- arsnippet.js</span><br></pre></td></tr></table></figure>
+<p> You can see the example in the <code>exampleSite</code> folder.</p>
+</li>
+<li><p>Add additional images</p>
+<ol>
+<li>Create a folder inside the <code>source</code> folder</li>
+<li><p>Add any image file inside the folder</p>
+<p> Example:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">your_site_folder</span><br><span class="line">     | -- source</span><br><span class="line">           | -- img</span><br><span class="line">                | -- cover-image.png</span><br></pre></td></tr></table></figure>
+<p> The same logic can be applied to most types of files.</p>
+<p> <strong>For HTML files</strong>, an additional step should be done: add the filenames in <code>skip_render:</code> in the <code>_config</code> file.</p>
+</li>
+<li><p>Access the files using <code>/folder_name/filename.extension</code>, such as <code>/img/cover-image.png</code></p>
+<p> The first <code>/</code> is required because it represents the root path of the site.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><a id="Help-Wanted"></a></p>
+<h2 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h2><p>Thank you for <a href="https://github.com/huyingjie/hexo-theme-A-RSnippet/graphs/contributors" target="_blank" rel="noopener">all contributors</a>. Without your help, everything cannot move fast, smooth, and easy.</p>
+<p>There are several ways you can help:</p>
+<ol>
+<li>Star <a href="https://github.com/huyingjie/hexo-theme-A-RSnippet" target="_blank" rel="noopener">A-RSnippet GitHub Repo</a></li>
+<li><p>Submit your custom layout</p>
+<p> Example:</p>
+<ul>
+<li>project portfolio</li>
+<li>category</li>
+<li><p>tag</p>
+<p>Please put CSS and JS into your layout ejs files.</p>
+<p>Please use the filename format <code>categoryLayout-name</code>.</p>
+<p>Assuming I want to create a post layout with the name <code>elegant</code>. The filename for the ejs file is <code>post-elegant.ejs</code>.</p>
+<p><code>categoryLayout</code> can be one of the following:</p>
+</li>
+<li><p>index</p>
+</li>
+<li>post</li>
+<li>page</li>
+<li>tag</li>
+<li>category</li>
+<li>poem</li>
+<li>portfolio</li>
+</ul>
+</li>
+<li><p>Fix any typo and grammar error</p>
+<p> My native language is Chinese, not English. Please help.</p>
+</li>
+<li>Report issue</li>
+<li>Help people on the <a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">forum</a> and <a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a></li>
+</ol>
+<h2 id="Existing-Bugs"><a href="#Existing-Bugs" class="headerlink" title="Existing Bugs"></a>Existing Bugs</h2><ul>
+<li><p>list-category-leetcode layout</p>
+<p>  I used <code>site.categories.findOne({name: page[&quot;search_word&quot;]}).posts.sort(&#39;title&#39;, 1).each(function(post) {}</code> to get the posts for a specified categories. There are two bugs that I don’t know how to solve.</p>
+<ul>
+<li>You must use <code>[&quot;language&quot;, &quot;python&quot;]</code> format for the <code>categories</code> in the front matter. Otherwise, the post does not appear in the list.</li>
+<li>Hyphen (<code>-</code>) cannot be included in the category names.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p>The theme cannot exist without reference to other themes.</p>
+<ul>
+<li><a href="https://github.com/Haojen/hexo-theme-Anisina" target="_blank" rel="noopener">Anisina theme</a> which is from <a href="https://github.com/Kaijun/hexo-theme-huxblog" target="_blank" rel="noopener">Hux theme</a> : The design is beautiful. A-RSnippet theme used its design.</li>
+<li><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT theme</a> and Landscape theme: When I don’t know how to achieve some functionality, I will search source code for both themes. They are awesome.</li>
+<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">184 themes on the official Hexo website</a>. I spent around 12 hours on reading read all themes and wrote down which feature I wanted to add in the future.</li>
+</ul>
+<h2 id="Getting-Help"><a href="#Getting-Help" class="headerlink" title="Getting Help"></a>Getting Help</h2><p>There are two main places to get help with A-RSnippet theme:</p>
+<ol>
+<li><a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">Forum</a></li>
+<li><a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a></li>
+</ol>
+<p>Except for a private channel on Discord, please use English only.</p>
+<p>If you want to use languages other than English, please use the following format:</p>
+<p>[your language in English] xxxx<br>[English] yyy</p>
+<p>Example:</p>
+<p>[Chinese] 除了一个Discord私人频道(你可以通过Patreon加入), 在<a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">论坛</a>和<a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a>里发言只允许使用英文.</p>
+<p>[English] Except a private Discord channel (you can join in via <a href="https://www.patreon.com/arsnippet" target="_blank" rel="noopener">Patreon</a>), all discussions on the <a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">forum</a> and <a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a> must use English only.</p>
+<h2 id="Learning-A-RSnippet-Theme"><a href="#Learning-A-RSnippet-Theme" class="headerlink" title="Learning A-RSnippet Theme"></a>Learning A-RSnippet Theme</h2><ul>
+<li><a href="http://arsnippet.yingjiehu.com/tutorial" target="_blank" rel="noopener">Tutorial</a></li>
+<li>Future: Youtube Channel</li>
+</ul>
+<h2 id="Style-Test-Reference-for-Each-Layout"><a href="#Style-Test-Reference-for-Each-Layout" class="headerlink" title="Style Test Reference for Each Layout"></a>Style Test Reference for Each Layout</h2><ul>
+<li><p>post Layout &amp; LeetCode Layout</p>
+<ul>
+<li><p><a href="/elements">Elements</a></p>
+<p>  heading, paragraph, link blockquote, list, form, table, abbr, acronym, sub, sup, image, Math formula, video (YouTube, Vimeo), jsfiddle, gist</p>
+</li>
+<li><a href="/long-title">Long title</a></li>
+<li><a href="/chinese-simplified-test">中文简体测试 | Chinese (Simplified) Test</a></li>
+<li><a href="/chinese-traditional-test">中文繁體測試 | Chinese (Traditional) Test</a></li>
+<li><a href="/japanese-test">日本語テスト | Japanese Test</a></li>
+<li>Cover image<ul>
+<li><a href="/chinese-simplified-test">Default cover image</a></li>
+<li><a href="/elements/">Custom cover image</a></li>
+</ul>
+</li>
+<li><a href="/chinese-traditional-test/">the number on Table of Contents disabled</a></li>
+<li>Comments<ul>
+<li><a href="/chinese-simplified-test">enable</a></li>
+<li><a href="/long-title/">disable</a></li>
+</ul>
+</li>
+<li><a href="/000-Two-Sum/">LeetCode</a></li>
+</ul>
+</li>
+<li><a href="/support/">page Layout</a></li>
+<li><a href="/tags">tag Layout</a></li>
+<li><a href="/archives">archive Layout</a></li>
+<li>poem Layout<ul>
+<li>comments<ul>
+<li><a href="/chinese-poem-test/">with comments</a></li>
+<li><a href="/japanese-poem-test/">without comments</a></li>
+</ul>
+</li>
+<li><a href="/chinese-poem-test">Chinese Poem</a></li>
+<li><a href="/japanese-poem-test">Japanese Poem</a></li>
+<li><a href="/poem-background-img-test">Poem Background Image with specified max width</a></li>
+</ul>
+</li>
+<li><a href="/portfolio-slim">portolio-slim Layout</a></li>
+<li><a href="/leetcode-category/">list-category-leetcode Layout</a></li>
+<li><a href="/leetcode-tag/">list-tag-leetcode Layout</a></li>
+<li><a href="/404">404 Layout</a></li>
+</ul>
+<h2 id="Reporting-Issues"><a href="#Reporting-Issues" class="headerlink" title="Reporting Issues"></a>Reporting Issues</h2><ul>
+<li><p><a href="https://github.com/huyingjie/hexo-theme-A-RSnippet/issues" target="_blank" rel="noopener">GitHub issue</a></p>
+<p>  This is the only method to report issues. Please go to <a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">forum</a> or <a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a> to seek for help except issues and feature request.</p>
+</li>
+</ul>
+<p><a id="donation"></a></p>
+<h2 id="Donate-amp-Support"><a href="#Donate-amp-Support" class="headerlink" title="Donate &amp; Support"></a>Donate &amp; Support</h2><p><strong>Thank you for choosing A-RSnippet theme.</strong></p>
+<p>Before creating the A-RSnippet theme, I was angry that  themes were not easy to modify and source code was hard to understand.</p>
+<p>Now I will not do it anymore. I spent several days to finish the first version. Writing documentation required more days. It taught me that every theme requires a big amount of time to complete and every authors’ effort should be respected.</p>
+<p><strong>Simplicity does not mean easy or not complicated.</strong></p>
+<p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT theme</a> seems to conform to minimalism. It has lots of functionalities and customization. It is not easy.</p>
+<p>The goal of the theme is to contain as many features as possible. Hence, this is not a simple theme. For example, there will be more than one layout to present project portfolio. Please submit your layout if it is different from mine. There are more features on the way. It will take me a lot of time.</p>
+<p>If you like A-RSnippet theme and/or appreciate my time dedicated to the theme, please give a tip to support the development of the theme.</p>
+<p>There are four ways:</p>
+<ol>
+<li><p>Star the <a href="https://github.com/huyingjie/hexo-theme-A-RSnippet/" target="_blank" rel="noopener">repo</a>.</p>
+</li>
+<li><p><a href="https://www.patreon.com/arsnippet" target="_blank" rel="noopener">Patreon (recurring, monthly)</a></p>
+<p> GitHub issue section is for issues or future features only. All seek-for-help activity should take place in the <a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">forum</a> or <a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a>.</p>
+<ul>
+<li><p>For people who don’t donate through Patreon:</p>
+<p>  If you ask a question via <a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a>, you must use English and write a post in English in the <a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">forum</a> to show how you solve the problem. You must send me the link to the post. Otherwise, I will not answer your question(s) in the future.</p>
+</li>
+<li><p>For people who donate through Patreon:</p>
+<p>  You will automatically join in a private Discord chatroom. You can ask me any question there.</p>
+<p>  There are some benefits:</p>
+<ol>
+<li>You can suggest any feature you want. I will create a poll of a list of features to be developed after each release. The polls are shown only to you. The top items will be taken care of first.</li>
+<li>You can ask me questions in Chinese or English in the private channel on <a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a>.</li>
+<li>You will not be obliged to write a post in English in the <a href="https://arsnippet.freeflarum.com/" target="_blank" rel="noopener">forum</a>. I will do it for you.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><a href="https://huyingjie.itch.io/give-a-tip-hexo-a-rsnippet" target="_blank" rel="noopener">itch (one-time)</a></p>
+</li>
+<li><a href="https://gumroad.com/l/bsdZQ" target="_blank" rel="noopener">Gumroad (one-time)</a></li>
+</ol>
+<h2 id="Translation"><a href="#Translation" class="headerlink" title="Translation"></a>Translation</h2><p>Adding new features, fixing bugs, answering questions in the forum and <a href="https://discord.gg/CB6CPzq" target="_blank" rel="noopener">Discord</a> will take me an enormous amount of time. Hence, I decided to give up maintaining Chinese documentation. If you want to translate it into other languages, please feel free to do it. You can add a link here after completion.</p>
+<h2 id="Change-Log"><a href="#Change-Log" class="headerlink" title="Change Log"></a>Change Log</h2><p>Change Log is on <a href="http://yingjiehu.com/a-rsnippet-hexo-theme/" target="_blank" rel="noopener">yingjehu.com</a>.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a href="https://github.com/huyingjie/hexo-theme-A-RSnippet/blob/master/LICENSE" target="_blank" rel="noopener">GNU General Public License v3.0</a></p>
+
+          
+            <a href="https://www.patreon.com/arsnippet" target="_blank"><img src="/img/patreon.png" alt="support my work at patron"></a> <a href="https://arsnippet.freeflarum.com/" target="_blank"><img src="/img/forum.jpg" alt="support my work at patron"></a> <a href="https://discord.gg/CB6CPzq" target="_blank"><img src="/img/discord.png" alt="Join the Discord"></a>
+          
+          <hr>
+          <ul class="pager">
+              
+              
+              <li class="next">
+                  <a href="/elements/" data-toggle="tooltip" data-placement="top" title="Elements">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+        
+  <br>
+  
+  <!-- disqus start -->
+  <div class="comment">
+    <div id="disqus_thread" class="disqus-thread"></div>
+      <script>
+      var disqus_shortname = 'hexo-a-rsnippet';
+      
+      var disqus_url = 'http://yoursite.com/tutorial/';
+      
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <!-- disqus end -->
+  
+
+  
+  
+
+
+        
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Live-Website"><span class="toc-number">2.</span> <span class="toc-text">Live Website</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Features"><span class="toc-number">3.</span> <span class="toc-text">Features</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">4.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-number">5.</span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update-Theme"><span class="toc-number">6.</span> <span class="toc-text">Update Theme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">7.</span> <span class="toc-text">Quick Start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-for-An-Example-Website"><span class="toc-number">8.</span> <span class="toc-text">Code for An Example Website</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#External-Libraries-Used"><span class="toc-number">9.</span> <span class="toc-text">External Libraries Used</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Customize-the-Theme"><span class="toc-number">10.</span> <span class="toc-text">Customize the Theme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contribution"><span class="toc-number">11.</span> <span class="toc-text">Contribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Existing-Bugs"><span class="toc-number">12.</span> <span class="toc-text">Existing Bugs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">13.</span> <span class="toc-text">Thanks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Getting-Help"><span class="toc-number">14.</span> <span class="toc-text">Getting Help</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-A-RSnippet-Theme"><span class="toc-number">15.</span> <span class="toc-text">Learning A-RSnippet Theme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Style-Test-Reference-for-Each-Layout"><span class="toc-number">16.</span> <span class="toc-text">Style Test Reference for Each Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reporting-Issues"><span class="toc-number">17.</span> <span class="toc-text">Reporting Issues</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-amp-Support"><span class="toc-number">18.</span> <span class="toc-text">Donate &amp; Support</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Translation"><span class="toc-number">19.</span> <span class="toc-text">Translation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Change-Log"><span class="toc-number">20.</span> <span class="toc-text">Change Log</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-number">21.</span> <span class="toc-text">License</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+      </div>
+  </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer>
+    <div class="text-center">
+      <ul class="list-inline">
+          
+              <li>
+                  <a href="/atom.xml" target="_blank">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              </li>
+          
+          
+              <li>
+                  <a target="_blank" href="https://twitter.com/yingjieYJH">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              </li>
+          
+          
+
+          
+
+          
+
+          
+              <li>
+                  <a target="_blank" href="https://github.com/huyingjie">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              </li>
+          
+
+          
+
+          
+
+      </ul>
+     <div class="text-muted copyright">
+            &copy;
+            
+            2015 - 2019
+            
+            
+              <i class="fa fa-heart"></i>
+            
+            Yingjie Hu
+        <br>
+          
+              Powered by <a target="_blank" href="https://hexo.io">Hexo</a>
+          
+          
+            |
+          
+          
+              Theme - <a href="https://github.com/huyingjie/hexo-theme-A-RSnippet" target="_blank">A-RSnippet</a> v0.1.0
+          
+          
+      </div>
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>
