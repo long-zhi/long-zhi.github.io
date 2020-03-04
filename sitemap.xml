@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://long-zhi.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-03-04T05:27:38.146Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://long-zhi.github.io/categories/index.html</loc>
+    
+    <lastmod>2020-03-04T05:27:19.826Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://long-zhi.github.io/about/index.html</loc>
+    
+    <lastmod>2020-03-04T05:24:01.795Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://long-zhi.github.io/404/index.html</loc>
     
     <lastmod>2020-03-04T05:11:00.948Z</lastmod>
@@ -47,13 +68,6 @@
     <loc>https://long-zhi.github.io/chinese-simplified-test/</loc>
     
     <lastmod>2019-02-18T09:34:40.680Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://long-zhi.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-02-10T03:29:44.928Z</lastmod>
     
   </url>
   
