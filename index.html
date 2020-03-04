@@ -1,568 +1,1000 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<!-- layout.ejs-->
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A website for A-RSnippet Hexo Theme">
-    <meta name="author" content="longzhi">
-    <meta name="keyword" content="hexo, hexo theme, A-RSnippet, responsive, bootstrap">
-    <link rel="canonical" href="https://long-zhi.github.io/">
-    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
-    <link rel="alternate" type="application/atom+xml" title="A-RSnippet &lt;a class=&#34;github-button&#34; href=&#34;https://github.com/huyingjie/hexo-theme-A-RSnippet&#34; data-icon=&#34;octicon-star&#34; data-show-count=&#34;true&#34; aria-label=&#34;Star huyingjie/hexo-theme-A-RSnippet on GitHub&#34;&gt;Star&lt;/a&gt;" href="/atom.xml">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-    <title>
-        
-        longzhi的个人博客
-        
-    </title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="/css/main.css">
-
-    
-      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="/css/highlight.css">
-    
-
-    
-      <script id="dsq-count-scr" src="//hexo-a-rsnippet.disqus.com/count.js" async></script>
-    
+<link rel="stylesheet" href="/css/main.css">
 
 
-    
-      <meta name="google-site-verification" content="wtCjI-zcpr2FYwWS3sI4OWzMK9e7VomDrZyxpVUUIng">
-    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-    
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"long-zhi.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-    
+  <meta name="description" content="A website for A-RSnippet Hexo Theme">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A-RSnippet &lt;a class=&quot;github-button&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;huyingjie&#x2F;hexo-theme-A-RSnippet&quot; data-icon=&quot;octicon-star&quot; data-show-count=&quot;true&quot; aria-label=&quot;Star huyingjie&#x2F;hexo-theme-A-RSnippet on GitHub&quot;&gt;Star&lt;&#x2F;a&gt;">
+<meta property="og:url" content="https://long-zhi.github.io/index.html">
+<meta property="og:site_name" content="A-RSnippet &lt;a class=&quot;github-button&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;huyingjie&#x2F;hexo-theme-A-RSnippet&quot; data-icon=&quot;octicon-star&quot; data-show-count=&quot;true&quot; aria-label=&quot;Star huyingjie&#x2F;hexo-theme-A-RSnippet on GitHub&quot;&gt;Star&lt;&#x2F;a&gt;">
+<meta property="og:description" content="A website for A-RSnippet Hexo Theme">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A-RSnippet &lt;a class=&quot;github-button&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;huyingjie&#x2F;hexo-theme-A-RSnippet&quot; data-icon=&quot;octicon-star&quot; data-show-count=&quot;true&quot; aria-label=&quot;Star huyingjie&#x2F;hexo-theme-A-RSnippet on GitHub&quot;&gt;Star&lt;&#x2F;a&gt;">
+<meta name="twitter:description" content="A website for A-RSnippet Hexo Theme">
 
-
-    
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
+<link rel="canonical" href="https://long-zhi.github.io/">
 
 
-    
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-38355881-1', 'auto');
-    ga('send', 'pageview');
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false
+  };
 </script>
 
+  <title>A-RSnippet <a class="github-button" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star</a></title>
+  
 
 
 
 
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-    <!-- user customization -->
-    <link rel="stylesheet" href="/css/arsnippet.css">
-    <script src="/js/arsnippet.css.js"></script>
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<style>
-    header.intro-header {
-        background-image: url('')
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">A-RSnippet <a class="github-button" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star</a></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/knowme/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/knowme/" class="post-title-link" itemprop="url">knowme | longzhi</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: Mar 29, 2019 13:50:09 / Modified: 13:53:54" itemprop="dateCreated datePublished" datetime="2019-03-29T13:50:09+08:00">Mar 29, 2019</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>  1.你何德何能让我为你做到如此地步？<br>  2.我一直都相信任何事情没有会不会，只有愿不愿意。<br>  3.我说的再见一般是再也不见，除非我是笑着和你说的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/mglszhr/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/mglszhr/" class="post-title-link" itemprop="url">民国临水照花人 | 佚名</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: Feb 19, 2019 11:23:50 / Modified: 11:38:40" itemprop="dateCreated datePublished" datetime="2019-02-19T11:23:50+08:00">Feb 19, 2019</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>  笙歌归院落, 灯火下楼台。民国就是一场散去的戏,曾经锣鼓喧天的倾城故事,早已湮没在落落风尘中，不知所往。那个被光阴抛掷的女子, 又从远年的巷陌,款款走了出来。</p>
+<p>  她着一袭素锦旗袍, 穿越民国烟雨,走过季节轮回,成为那潋滟红尘的临水照花人。</p>
+<p>  世间曾有张爱玲, 世间唯有张爱玲。</p>
+<p>  张爱玲的一生从兴到衰，走过了人生的最繁华; 经受了人生的最苍凉, 她已洞穿人世沧桑,在时空的轮回中升华。她给后人留下的只是几本小说，但这些小说当时篇篇震动文坛。她的文学创作瞬时登上了文学高楼，红遍上海。</p>
+<p>  她留给世人的又不仅仅是几本小说，还有她绝代无双的风姿和遗世独立的风骨。</p>
+<p>  张爱玲的文章中所透露出的丝丝荒凉气息、一缕缕苍凉全是她人生的真实写照。无论是《半生缘》中温柔却软弱、委曲求全，只能用“我们再也回不去了”作为灿烂过后的一声哀鸣的顾曼桢,还是《金锁记》中出场粉亮、余景悲怆的曹七巧，或是《沉香屑:第一炉香》中在一个错误的地方错误的时间爱上了一个错误的人的葛薇龙，抑或是《色·戒》中爱上汉奸易先生，却落下个背叛下场的王佳芝……在我看来，她们都是张爱玲，也都不是张爱玲。张爱玲是世间唯一的临水照花人，犹如“一个美丽而又苍凉的手势”，令人回味无穷。</p>
+<p>  繁华谢过是苍凉, 1995年,张愛玲谢世于美国,7天后才被人发现,家里空空如洗,身上只着一条薄毯,这般风华绝代的人,竟以这般凄凉的方式凋零。我常常在想,张爱玲弥留之际，可曾想到晩年在病榻上的七巧, 是否也懒得去擦拭眼角的一滴清泪?胡兰成说,张爱玲是民国世界的临水照花人。她无须经历多少世事,这个时代的一切自会与她来交涉,她不漂亮,却能够任何一种姿态倾城，就是这个传奇女子，和月亮结下了一世情缘，生于月圆之时，逝于月圆之时。民国的月亮早已下沉，而她的故事却永远不会结束。</p>
+<p>  时光无涯，聚散有时，因为懂得，所以慈悲。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/hkbx/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/hkbx/" class="post-title-link" itemprop="url">花开半夏 | 佚名</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: Feb 18, 2019 17:18:14" itemprop="dateCreated datePublished" datetime="2019-02-18T17:18:14+08:00">Feb 18, 2019</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: Mar 14, 2019 21:46:41" itemprop="dateModified" datetime="2019-03-14T21:46:41+08:00">Mar 14, 2019</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>  一个寒意渐起的中秋，她出生在十里洋场，她是名门之后,血液中流淌的都是贵族气质;又是一个寒意渐起的中秋,她离开去异国他乡，她是迟暮美人，再不愿问人间的香火。</p>
+<p>  人们都说，她是民国的临水照花人，才情如她，在平仄的文字里,忧伤浅舞、回忆蔓延; 孤独如她,在年华的奔波中,轻触苍凉世事;痴情如她,在绚丽斑斓的上海滩绽放传奇一般的爱情。</p>
+<p>  张爱玲,一个被玩弄在宿命手掌中的可怜人。 她曾苦苦躲避着流年的回忆,却终躲不过牵绊的丝线。母亲的漂洋过海,父亲的激烈决裂,家族的覆灭衰亡。没落王朝,金银散尽,她只得只身前往香港。战事混乱,地区沦陷,她的成就付之东流。她是失败婚姻的牺牲者,她是没落王朝的苦命儿，她是命运摧残的可怜人。</p>
+<p>  张爱玲,一个以文字倾国倾城的孤傲女子。 她时而挥洒素雅的散文,时而抒写绝美的爱情。在民国这样一个遍地烟雨的年代,再没有人可以与之媲美。 或许是回忆所牵,她总是喜欢由一个家族、一个故事道尽人间冷暖,她的文字因为现实而更显凄凉,但正是这委婉的语言却有着一种柔软的力量。</p>
+<p>  张爱玲,一个陷入爱情深潭的痴情女子。他是她素锦年华里最美的相遇。一座城,一笺信,在最深的红尘里遇见，从此,她的生命便有了千千阕歌千千念;她是他寻花问柳中曾经的停留,一份情,一颗心,在最美的时光里邂逅了她，从此他的心底便有了痴情深深深几许……“因为相知，所以懂得。”这是胡兰成写给张爱玲的8个字。“因为懂得，所以慈悲。”这是张爱玲返还胡兰成的一片真情。在动荡的年代，拥有痛苦的童年，断翼的天使急切地需要一个依靠。而胡兰成恰在此时走来,“见了他,她变得很低很低,低到尘埃里,但她心里是欢喜的，从尘埃里开出花来”，或许正是因为相知相惜,她不在乎他是别人嗤之以鼻的汉奸,不在乎他已经拥有妻子儿女,甚至不在乎他在她的生命中只是来来又去去,只是期盼有他的相守与疼爱。凝眸时相思成愁，再回首时依恋成怨。旧时明月，撑不起地久天长的诺言，也留不住海枯石烂的誓言。心上的纠葛，解得开，是结，解不开，是劫。一场轰轰轰烈烈的恋爱终究是要结束的。“你到底是不肯。我想过，我倘使不得不离开你，亦不致寻短见,亦不能够再爱别人，我将只是萎谢了。”她最后用决绝的离开, 挽回了自己的尊严。三年的花事,半途夭折,她的才情与文字随着一生所爱而埋葬。她不再参与喧闹的生活,选择远居国外,隐蔽余年。</p>
+<p>  别来找我,我亦不去寻你。守着剩下的流年,看一段岁月静好,现世安稳。她抛弃了所有的外物,躲避了所有的目光,在简陋的出租屋中死去。花开半夏,一段美丽与怅然的人生故事落下惟幕。</p>
+<p>  花开半夏,破土在失败的家庭是命，却无法选择。</p>
+<p>  花开半夏,含苞在动荡的年代是憾，却无法逃离。</p>
+<p>  花开半夏,盛放在错误的爱情是悔，却无法重来。</p>
+<p>  花开半夏,萎谢在安静的他乡是悟，却为时过晚。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/abc/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/abc/" class="post-title-link" itemprop="url">此花开尽更无花 | 佚名</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: Feb 18, 2019 16:42:55" itemprop="dateCreated datePublished" datetime="2019-02-18T16:42:55+08:00">Feb 18, 2019</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: Mar 14, 2019 21:59:54" itemprop="dateModified" datetime="2019-03-14T21:59:54+08:00">Mar 14, 2019</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 align="center">此花开尽更无花</h2>
+
+<p>   梦回千转，叶落乌啼。于迷蒙中仿佛看到一袭素锦旗袍款款走于烟雨缭绕中的女子。没错, 她就是民国的临水照花人,她就是—张爱玲。    </p>
+<p>   人生代代无穷已, 江月年年只相似。但恐怕,多了张爱玲这位女子,民国就变了,变得像一袭华美的袍，爬满了蚤子。也许，直到后来,张爱玲那孤傲单薄的身影在我们的脑海中逐渐清晰时,我们才知晓,张爱玲带给我们的不仅是绝美的文字,还有如薄荷般凉薄的记忆。</p>
+<p>   月色正朦胧。尽管世事变迁，上海给人的纸醉金迷的感觉仿佛永远都不会变。尽管朱楼水榭、碧云烟渚隔绝了我们对往事的怀恋,可每深吸一口清新的空气,仿佛都能品味出民国时上海的璀璨芳华。只是时令徒转，错过的，便只能错过了。</p>
+<p>   其实张爱玲的往事,一点也不倾城，不过是同潋滟红尘中的女子大抵相同罢了，但是张爱玲的往事无比倾城,因为张爱玲自有张爱玲的桃之夭夭。爱上胡兰成，是情不知所起，一往而深；与桑弧擦肩，是不愿为云淡风轻的相逢低眉垂袖；和赖雅执子之手，是在异国华丽转身的邂逅。不管是心口的的朱砂，还是妖娆的白玫瑰, 反正她是真的付出了, 是真的锦瑟流年。他们都成了她在战乱的荒芜中,繁华的注脚。</p>
+<p>   我不知, 多年后张爱玲回想起当初胡兰成给的承诺愿“岁月静好，现世安稳”时，清绝的她是否会落泪;我不知,风华绝代的张爱玲知音难觅时是否会备感孤独;我不知,飘零于异乡的张爱玲是否对当时自己的决绝有一丝后悔。我只知,当她得知三毛的死,呢喃“三毛怎么自杀了”时,她是热爱生命的, 她愿意观世事冷暖, 她情愿大隐于市，静观星辰。</p>
+<p>   再冷傲的人, 怕也是柔情之人。何况是一位女子。我想，张爱玲是高傲的，亦是孤单的。生于簪缨世族，却又偏遭战乱。或许这就是民国,一个浪里沉浮、不可捉模的民国。但只要一想起张爱玲,就会心疼。即使是年华给了她磨炼, 可命运却待她太不公平。好在她还有文字,文字的世界虽没有阴晴圆缺，花好月圆,可张爱玲打骨子里热爱它们。她将自己的茕茕光阴,细腻地缝在了她巧心安排的锦绣之中,待我们一一去发现,一一去品味。</p>
+<p>   有人说,张爱玲所写，都是儿女情长,闺中伉俪,虽深情,却不大气。果然还是胡兰成懂她,知道她想要什么。她太需要安稳了,以至于情愿与人世隔绝,不与人来往,不愿涉足外界风雨。所以,张爱玲的文字并没有多深刻,也没有多让人们觉醒。请不要怪她,她只是默默治愈了心灵。因为她是最需要静好却最不静好的那个人。她经历了太多的颠沛流离,尝尽了太多的苦情伤感,以至于不想与任何人有任何纠葛,只想安稳度世。也许,这就是张爱玲,也许,这才是张爱玲。</p>
+<p>   无论是谁的血,成团扇，洇染了她的江山；无论是多么凉薄的花事，谢了幕，成为过往云烟；无论是多么不解销魂，偿前了债，断了后缘,都不要责备她的青青韶华。因为此花不与群花争，此花开尽更无花。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/tutorial/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/tutorial/" class="post-title-link" itemprop="url">Tutorial: How to Use Hexo's A-Snippet Theme</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: Jan 25, 2018 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-25T00:00:00+08:00">Jan 25, 2018</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: Feb 10, 2019 11:29:44" itemprop="dateModified" datetime="2019-02-10T11:29:44+08:00">Feb 10, 2019</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/tutorial/" itemprop="url" rel="index"><span itemprop="name">tutorial</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Just Do It!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tutorial/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/elements/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/elements/" class="post-title-link" itemprop="url">Elements</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: Jan 24, 2018 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-24T00:00:00+08:00">Jan 24, 2018</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: Feb 10, 2019 11:29:44" itemprop="dateModified" datetime="2019-02-10T11:29:44+08:00">Feb 10, 2019</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/test/" itemprop="url" rel="index"><span itemprop="name">test</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>The purpose of this HTML is to help determine what default settings are with CSS and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.</p>
+<p>Raw code</p>
+<hr>
+<h1 id="Heading-1"><a href="#Heading-1" class="headerlink" title="Heading 1"></a>Heading 1</h1><h2 id="Heading-2"><a href="#Heading-2" class="headerlink" title="Heading 2"></a>Heading 2</h2><h3 id="Heading-3"><a href="#Heading-3" class="headerlink" title="Heading 3"></a>Heading 3</h3><h4 id="Heading-4"><a href="#Heading-4" class="headerlink" title="Heading 4"></a>Heading 4</h4><h5 id="Heading-5"><a href="#Heading-5" class="headerlink" title="Heading 5"></a>Heading 5</h5><h6 id="Heading-6"><a href="#Heading-6" class="headerlink" title="Heading 6"></a>Heading 6</h6><p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Paragraph"><a href="#Paragraph" class="headerlink" title="Paragraph"></a>Paragraph</h2><p>Lorem ipsum dolor sit amet, <a href="/">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+<blockquote>
+<p>“This stylesheet is going to help so freaking much.”<br>-Blockquote</p>
+</blockquote>
+<p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="List-Types"><a href="#List-Types" class="headerlink" title="List Types"></a>List Types</h2><h3 id="Definition-List"><a href="#Definition-List" class="headerlink" title="Definition List"></a>Definition List</h3><dl><dt>Item 1</dt><dd>Definition 1</dd><dt> Item 2</dt><dd>Definition 2</dd></dl>
+
+<h3 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h3><ol>
+<li>List Item 1</li>
+<li>List Item 2</li>
+<li>List Item 3</li>
+</ol>
+<h3 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h3><ul>
+<li>List Item 1</li>
+<li>List Item 2</li>
+<li>List Item 3</li>
+</ul>
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Forms"><a href="#Forms" class="headerlink" title="Forms"></a>Forms</h2><fieldset class="form-group"><legend>Legend</legend>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.<br><form><br><h2>Form Element</h2><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui.<br><br><label for="text_field">Text Field:</label> <input type="text" id="text_field"><br><br><label for="text_area">Text Area:</label><br><textarea id="text_area"></textarea><br><br><label for="select_element">Select Element:</label> <select name="select_element"><optgroup label="Option Group 1"><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></optgroup> <optgroup label="Option Group 2"><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></optgroup></select><br><br><label for="radio_buttons">Radio Buttons:</label><br><input type="radio" name="radio_button" value="radio_1"> Radio 1<br><input type="radio" name="radio_button" value="radio_2"> Radio 2<br><input type="radio" name="radio_button" value="radio_3"> Radio 3<br><br><label for="checkboxes">Checkboxes:</label><br><input type="checkbox" name="checkboxes" value="check_1"> Radio 1<br><input type="checkbox" name="checkboxes" value="check_2"> Radio 2<br><input type="checkbox" name="checkboxes" value="check_3"> Radio 3<br><br><label for="password">Password:</label> <input type="password" class="password" name="password"><br><br><label for="file">File Input:</label> <input type="file" class="file" name="file"><br><br><input type="reset" value="Clear" class="btn btn-warning"> <input type="submit" value="Submit" class="btn btn-primary"><br></form><br></fieldset>
+
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h2><table cellspacing="0" cellpadding="0"><tbody><tr> <th>Table Header 1</th> <th>Table Header 2</th> <th>Table Header 3</th> </tr> <tr> <td>Division 1</td> <td>Division 2</td> <td>Division 3</td> </tr> <tr class="even"> <td>Division 1</td> <td>Division 2</td> <td>Division 3</td> </tr> <tr> <td>Division 1</td> <td>Division 2</td> <td>Division 3</td> </tr></tbody></table>
+
+
+
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Misc-Stuff"><a href="#Misc-Stuff" class="headerlink" title="Misc Stuff"></a>Misc Stuff</h2><h3 id="abbr"><a href="#abbr" class="headerlink" title="abbr"></a>abbr</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lorem &lt;abbr title=&quot;Avenue&quot;&gt;AVE&lt;/abbr&gt; ipsum dolor sit amet</span><br></pre></td></tr></table></figure>
+<p>Lorem <abbr title="Avenue">AVE</abbr> ipsum dolor sit amet</p>
+<h3 id="acronym"><a href="#acronym" class="headerlink" title="acronym"></a>acronym</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lorem &lt;acronym title=&quot;National Basketball Association&quot;&gt;NBA&lt;/acronym&gt; ipsum dolor sit amet</span><br></pre></td></tr></table></figure>
+<p>Lorem <acronym title="National Basketball Association">NBA</acronym> ipsum dolor sit amet</p>
+<h3 id="pre"><a href="#pre" class="headerlink" title="pre"></a>pre</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;Lorem ipsum dolor sit amet&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+<pre>Lorem ipsum dolor sit amet</pre>
+
+<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;code&gt;Lorem ipsum dolor sit amet&lt;/code&gt;</span><br></pre></td></tr></table></figure>
+<p><code>Lorem ipsum dolor sit amet</code></p>
+<h3 id="sub"><a href="#sub" class="headerlink" title="sub"></a>sub</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lorem &lt;sub&gt;subscript&lt;/sub&gt; ipsum dolor sit amet</span><br></pre></td></tr></table></figure>
+<p>Lorem <sub>subscript</sub> ipsum dolor sit amet</p>
+<h3 id="sup"><a href="#sup" class="headerlink" title="sup"></a>sup</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lorem &lt;sup&gt;superscript&lt;/sup&gt; dolor sit amet</span><br></pre></td></tr></table></figure>
+<p>Lorem <sup>superscript</sup> dolor sit amet</p>
+<h3 id="cite"><a href="#cite" class="headerlink" title="cite"></a>cite</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lorem ipsum dolor sit amet</span><br><span class="line"></span><br><span class="line">&lt;cite&gt;cite&lt;/cite&gt;</span><br></pre></td></tr></table></figure>
+<p>Lorem ipsum dolor sit amet</p>
+<p><cite>cite</cite></p>
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Syntax-Highlight-examples"><a href="#Syntax-Highlight-examples" class="headerlink" title="Syntax Highlight (examples)"></a>Syntax Highlight (examples)</h2><ul>
+<li><p>Python</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">l2 = [<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">l1 + l2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>R</p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l1 = list(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">l2 = list(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">c(l1, l2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JavaScript</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> l1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">var</span> l2 = [<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">l1.concat(l2)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](copyright-free-images.jpg)</span><br></pre></td></tr></table></figure>
+<p><img src="copyright-free-images.jpg" alt=""></p>
+<h2 id="Math-Formula"><a href="#Math-Formula" class="headerlink" title="Math Formula"></a>Math Formula</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$ f(x) = \sum_&#123;i=0&#125;^&#123;\infty&#125;\frac&#123;f^&#123;(i)&#125;(0)&#125;&#123;i!&#125;x^&#123;i&#125; $$</span><br><span class="line"></span><br><span class="line">$\frac&#123;f^&#123;(i)&#125;(0)&#125;&#123;i!&#125;x^&#123;i&#125;$ is close to 0 when `i` becomes bigger and bigger</span><br></pre></td></tr></table></figure>
+<p>$$ f(x) = \sum_{i=0}^{\infty}\frac{f^{(i)}(0)}{i!}x^{i} $$</p>
+<p>$\frac{f^{(i)}(0)}{i!}x^{i}$ is close to 0 when <code>i</code> becomes bigger and bigger</p>
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><h3 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/MD8J4qB4NwI&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MD8J4qB4NwI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<h3 id="Vimeo"><a href="#Vimeo" class="headerlink" title="Vimeo"></a>Vimeo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;https://player.vimeo.com/video/148574954&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<iframe src="https://player.vimeo.com/video/148574954" width="640" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+
+<p><small><a href="#wrapper">[top]</a></small></p>
+<hr>
+<h2 id="Embeded-Code"><a href="#Embeded-Code" class="headerlink" title="Embeded Code"></a>Embeded Code</h2><h3 id="jsfiddle"><a href="#jsfiddle" class="headerlink" title="jsfiddle"></a>jsfiddle</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe</span><br><span class="line">  style=&quot;width: 100%; height: 300px&quot;</span><br><span class="line">  src=&quot;http://jsfiddle.net/zalun/NmudS/embedded/&quot;&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/zalun/NmudS/embedded/"><br></iframe>
+
+<h3 id="Gist"><a href="#Gist" class="headerlink" title="Gist"></a>Gist</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://gist.github.com/metatribal/6259775.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<script src="https://gist.github.com/metatribal/6259775.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/poem-background-img-test/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/poem-background-img-test/" class="post-title-link" itemprop="url">Poem Background Image Test</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: Jan 23, 2018 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-23T00:00:00+08:00">Jan 23, 2018</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: Feb 10, 2019 11:29:44" itemprop="dateModified" datetime="2019-02-10T11:29:44+08:00">Feb 10, 2019</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/test/" itemprop="url" rel="index"><span itemprop="name">test</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>どの帝の御代であったか、女御や 更衣が大勢お仕えなさっていたなかに、たいして高貴な身分ではない方で、きわだって御寵愛をあつめていらっしゃる方があった。最初から自分こそはと気位い高くいらっしゃった女御方は、不愉快な者だと見くだしたり嫉んだりなさる。同じ程度の更衣や、その方より下の更衣たちは、いっそう心穏やかでない。朝晩のお側仕えにつけても、他の妃方の気持ちを不愉快ばかりにさせ、嫉妬を受けることが積もり積もったせいであろうか、とても病気がちになってゆき、何となく心細げに里に下がっていることが多いのを、ますますこの上なく不憫な方とおぼし召されて、誰の非難に対してもおさし控えあそばすことがおできになれず、後世の語り草にもなってしまいそうなお扱いぶりである。上達部や 殿上人なども、人ごとながら目をそらしそらしして、「とても眩しいほどの御寵愛である。唐国でも、このようなことが原因となって、国も乱れ、悪くなったのだ」と、しだいに国中でも困ったことの、人々のもてあましの種となって、楊貴妃の例までも引き合いに出されそうになってゆくので、たいそういたたまれないことが数多くなっていくが、もったいない御愛情の類のないのを頼みとして宮仕え生活をしていらっしゃる。父親の大納言は亡くなって、母親の北の方が古い家柄の人の教養ある人なので、両親とも揃っていて、今現在の世間の評判が勢い盛んな方々にもたいしてひけをとらず、どのような事柄の儀式にも対処なさっていたが、これといったしっかりとした後見人がいないので、こと改まった儀式の行われるときには、やはり頼りとする人がなく心細い様子である。</p>
+<p>紫式部</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://long-zhi.github.io/chinese-poem-test/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="longzhi">
+      <meta itemprop="description" content="A website for A-RSnippet Hexo Theme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A-RSnippet <a class=" github-button"="" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/chinese-poem-test/" class="post-title-link" itemprop="url">Chinese Poem Test | 師說</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: Jan 21, 2018 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-21T00:00:00+08:00">Jan 21, 2018</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: Feb 10, 2019 11:29:44" itemprop="dateModified" datetime="2019-02-10T11:29:44+08:00">Feb 10, 2019</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/poetry/" itemprop="url" rel="index"><span itemprop="name">poetry</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/test/" itemprop="url" rel="index"><span itemprop="name">test</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>　古之學者必有師。師者，所以傳道受業解惑也。人非生而知之者，孰能無惑？惑而不從師，其為惑也，終不解矣。生乎吾前，其聞道也固先乎吾，吾從而師之；生乎吾後，其聞道也亦先乎吾，吾從而師之。吾師道也，夫庸知其年之先後生於吾乎？是故無貴無賤，無長無少，道之所存，師之所存也。　<br>　　嗟乎！師道之不傳也久矣！欲人之無惑也難矣！古之聖人，其出人也遠矣，猶且從師而問焉；今之眾人，其下聖人也亦遠矣，而恥學於師。是故聖益聖，愚益愚。聖人之所以為聖，愚人之所以為愚，其皆出於此乎！愛其子，擇師而教之；於其身也，則恥師焉，惑矣。彼童子之師，授之書而習其句讀者，非吾所謂傳其道解其惑者也。句讀之不知，惑之不解，或師焉，或不焉，小學而大遺，吾未見其明也。巫醫樂師百工之人，不恥相師。士大夫之族，曰師曰弟子雲者，則群聚而笑之。問之，則曰：“彼與彼年相若也，道相似也。位卑則足羞，官盛則近諛。”嗚呼！師道之不復，可知矣。巫醫樂師百工之人，君子不齒，今其智乃反不能及，其可怪也歟！ 　<br>　　聖人無常師。孔子師郯子、萇弘、師襄、老聃。郯子之徒，其賢不及孔子。孔子曰：三人行，則必有我師。是故弟子不必不如師，師不必賢於弟子，聞道有先後，術業有專攻，如是而已。 　　<br>　　李氏子蟠，年十七，好古文，六藝經傳皆通習之，不拘於時，學於余。余嘉其能行古道，作《師說》以貽之。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-</style>
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="" class="animated fadeIn">
-<header>
-  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="false" data-istags="false" data-ishome="true">
-    <div class="container-fluid">
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <span class="navbar-brand animated pulse">
-          <a class="brand-logo" href="/">
-            A-RSnippet <a class="github-button" href="https://github.com/huyingjie/hexo-theme-A-RSnippet" data-icon="octicon-star" data-show-count="true" aria-label="Star huyingjie/hexo-theme-A-RSnippet on GitHub">Star</a>
-          </a>
-        </span>
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">longzhi</p>
+  <div class="site-description" itemprop="description">A website for A-RSnippet Hexo Theme</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
       </div>
 
-      <div class="collapse navbar-collapse" id="website_navbar">
-          <ul class="nav navbar-nav navbar-right">
-              
-                <li>
-                  <a href="/">home</a>
-                </li>
-              
-                <li>
-                  <a href="/tutorial/">Tutorial</a>
-                </li>
-              
-                <li>
-                  <a href="/leetcode-category/">LeetCode-category</a>
-                </li>
-              
-                <li>
-                  <a href="/leetcode-tag/">LeetCode-tag</a>
-                </li>
-              
-                <li>
-                  <a href="/archives/">archives</a>
-                </li>
-              
-                <li>
-                  <a href="/tags/">tags</a>
-                </li>
-              
-                <li>
-                  <a href="/portfolio-slim/">projects</a>
-                </li>
-              
-                <li>
-                  <a href="/support/">support</a>
-                </li>
-              
-                <li>
-                  <a href="/atom.xml">RSS</a>
-                </li>
-              
-          </ul>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
-  </div></nav>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">longzhi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
 
 
   
-</header>
 
 
-<!-- Main Content -->
-<!-- index.ejs -->
-<article class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    
-        <div class="row">
-            <header class="intro-header">
-                <div class="container">
-                    <div class="site-heading text-center">
-                        <div class="about-me">
-                            <!--Sidebar about me: mobile header-->
-                            
-                                <img src="/img/hacker.jpg" class="avatar">
-                            
-                            <h5>longzhi</h5>
-                            <p>undergraduate,武汉</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </div>
-        
-</article>
-<div class="container homepage">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-          
-            <div class="post-preview " style="background-image: url('/img/sky-clouds-moon-horizon.jpg?h=350&auto=compress&cs=tinysrgb')">
-    <a href="/knowme/">
-        <h2 class="post-title">
-            knowme | longzhi
-        </h2>
-        
-        <div class="post-meta">
-          <span>Mar 29, 2019</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                  1.你何德何能让我为你做到如此地步？  2.我一直都相信任何事情没有会不会，只有愿不愿意。  3.我说的再见一般是再也不见，除非我是笑着和你说的。
-
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/img/sky-clouds-moon-horizon.jpg?h=350&auto=compress&cs=tinysrgb')">
-    <a href="/mglszhr/">
-        <h2 class="post-title">
-            民国临水照花人 | 佚名
-        </h2>
-        
-        <div class="post-meta">
-          <span>Feb 19, 2019</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                  笙歌归院落, 灯火下楼台。民国就是一场散去的戏,曾经锣鼓喧天的倾城故事,早已湮没在落落风尘中，不知所往。那个被光阴抛掷的女子, 又从远年的巷陌,款款走了出来。
-  她着一袭素锦旗袍, 穿越民国烟雨,走过季节轮回,成为那潋滟红尘的临水照花人。
-  世间曾有张爱玲, 世间唯有张爱玲。
-  张爱玲..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/img/sky-clouds-moon-horizon.jpg?h=350&auto=compress&cs=tinysrgb')">
-    <a href="/hkbx/">
-        <h2 class="post-title">
-            花开半夏 | 佚名
-        </h2>
-        
-        <div class="post-meta">
-          <span>Feb 18, 2019</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                  一个寒意渐起的中秋，她出生在十里洋场，她是名门之后,血液中流淌的都是贵族气质;又是一个寒意渐起的中秋,她离开去异国他乡，她是迟暮美人，再不愿问人间的香火。
-  人们都说，她是民国的临水照花人，才情如她，在平仄的文字里,忧伤浅舞、回忆蔓延; 孤独如她,在年华的奔波中,轻触苍凉世事;痴情如她,在..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/img/sky-clouds-moon-horizon.jpg?h=350&auto=compress&cs=tinysrgb')">
-    <a href="/abc/">
-        <h2 class="post-title">
-            此花开尽更无花 | 佚名
-        </h2>
-        
-        <div class="post-meta">
-          <span>Feb 18, 2019</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                此花开尽更无花
-
-   梦回千转，叶落乌啼。于迷蒙中仿佛看到一袭素锦旗袍款款走于烟雨缭绕中的女子。没错, 她就是民国的临水照花人,她就是—张爱玲。    
-   人生代代无穷已, 江月年年只相似。但恐怕,多了张爱玲这位女子,民国就变了,变得像一袭华美的袍，爬满了蚤子。也许，直到后来,张爱玲那孤傲..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/tutorial/candle-animation.gif')">
-    <a href="/tutorial/">
-        <h2 class="post-title">
-            Tutorial: How to Use Hexo's A-Snippet Theme
-        </h2>
-        
-        <div class="post-meta">
-          <span>Jan 25, 2018</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                The goal of A-RSnippet theme is to be comprehensive.
-
-    
-
-    Created and Maintained By Yingjie Hu with ❤️ &nbsp;Follow me on Twitter.
 
 
-OverviewT..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/elements/copyright-free-images.jpg')">
-    <a href="/elements/">
-        <h2 class="post-title">
-            Elements
-        </h2>
-        
-          <div class="index-subtitle">Elements Included in RSnippets Themes</div>
-        
-        <div class="post-meta">
-          <span>Jan 24, 2018</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                The purpose of this HTML is to help determine what default settings are with CSS and to make sure that all possible HTML Elements are included in th..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/img/sky-clouds-moon-horizon.jpg?h=350&auto=compress&cs=tinysrgb')">
-    <a href="/poem-background-img-test/">
-        <h2 class="post-title">
-            Poem Background Image Test
-        </h2>
-        
-        <div class="post-meta">
-          <span>Jan 23, 2018</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                どの帝の御代であったか、女御や 更衣が大勢お仕えなさっていたなかに、たいして高貴な身分ではない方で、きわだって御寵愛をあつめていらっしゃる方があった。最初から自分こそはと気位い高くいらっしゃった女御方は、不愉快な者だと見くだしたり嫉んだりなさる。同じ程度の更衣や、その方より下の更衣たちは、いっそ..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/img/sky-clouds-moon-horizon.jpg?h=350&auto=compress&cs=tinysrgb')">
-    <a href="/chinese-poem-test/">
-        <h2 class="post-title">
-            Chinese Poem Test | 師說
-        </h2>
-        
-          <div class="index-subtitle">韓愈</div>
-        
-        <div class="post-meta">
-          <span>Jan 21, 2018</span>
-          
-        </div>
-        <div class="post-content-preview">
-            <p>
-                　古之學者必有師。師者，所以傳道受業解惑也。人非生而知之者，孰能無惑？惑而不從師，其為惑也，終不解矣。生乎吾前，其聞道也固先乎吾，吾從而師之；生乎吾後，其聞道也亦先乎吾，吾從而師之。吾師道也，夫庸知其年之先後生於吾乎？是故無貴無賤，無長無少，道之所存，師之所存也。　　　嗟乎！師道之不傳也久矣！欲..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-          <ul class="pager">
-    
-    
-        <li class="next"><a href="/page/2/">Previous Posts  &rarr;</a></li>
-    
-</ul>
-
-        </div>
-        <!-- sidebar-profile.ejs -->
-<div class="
-        col-lg-3 col-lg-offset-0
-        col-md-3 col-md-offset-0
-        col-sm-12
-        col-xs-12
-        sidebar-container
-    ">
-    <section class="visible-md visible-lg" style="padding: 0 18px">
-        <div class="short-about">
-            
-                <img src="/img/hacker.jpg" class="avatar">
-            
-            <h3>longzhi</h3>
-            
-                <p>undergraduate,武汉</p>
-            
-            <hr>
-            <ul class="list-inline">
-                
-                
-                <li>
-                    <a target="_blank" href="https://twitter.com/long_ditian">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                    </a>
-                </li>
-                
-                
-
-                
-                <li>
-                    <a target="_blank" href="http://weibo.com/6911049442">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                </span>
-                    </a>
-                </li>
-                
-
-                
-
-                
-                <li>
-                    <a target="_blank" href="https://github.com/long-zhi">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                    </a>
-                </li>
-                
-
-                
-
-                
-                <li>
-                    <a target="_blank" href="mailto:long.dizhi@gmail.com">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                                </span>
-                    </a>
-                </li>
-                
-
-            </ul>
-            
-                <a href="https://www.patreon.com/arsnippet" target="_blank"><img src="/img/patreon.png" alt="support my work at patron"></a><br><br><a href="https://arsnippet.freeflarum.com/" target="_blank"><img src="/img/forum.jpg" alt="support my work at patron"></a><br><br><a href="https://discord.gg/CB6CPzq" target="_blank"><img src="/img/discord.png" alt="Join the Discord"></a>
-            
-        </div>
-    </section>
-</div>
-
-    </div>
-</div>
-
-<!-- Footer -->
-<!-- footer.ejs -->
-<footer>
-    <div class="text-center">
-      <ul class="list-inline">
-          
-          
-              <li>
-                  <a target="_blank" href="https://twitter.com/long_ditian">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                      </span>
-                  </a>
-              </li>
-          
-          
-
-          
-              <li>
-                  <a target="_blank" href="http://weibo.com/6911049442">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                      </span>
-                  </a>
-              </li>
-          
-
-          
-
-          
-              <li>
-                  <a target="_blank" href="https://github.com/long-zhi">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                      </span>
-                  </a>
-              </li>
-          
-
-          
-
-          
-              <li>
-                  <a href="mailto:long.dizhi@gmail.com" target="_blank">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                  </a>
-              </li>
-          
-
-      </ul>
-     <div class="text-muted copyright">
-            &copy;
-            
-            2015 - 2019
-            
-            
-              <i class="fa fa-heart"></i>
-            
-            Yingjie Hu
-        <br>
-          
-              Powered by <a target="_blank" href="https://hexo.io">Hexo</a>
-          
-          
-            |
-          
-          
-              Theme - <a href="https://github.com/huyingjie/hexo-theme-A-RSnippet" target="_blank">A-RSnippet</a> v0.1.0
-          
-          
-      </div>
-    </div>
-</footer>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/main.js"></script>
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
 
 
+
+
+
+
+
+
+
+
+
+  
+
+  
 
 </body>
-
 </html>
