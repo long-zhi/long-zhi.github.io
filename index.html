@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="S2R9ORFgZIHJy-IGI3CpzZjwzVdg3WKObM7xLWxJKbI">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -19,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"long-zhi.github.io","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"long-zhi.github.io","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="缘分，妙不可言">
@@ -46,6 +47,15 @@
 
   <title>longzhi的个人博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159989025-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-159989025-1');
+      }
+    </script>
 
 
 
@@ -106,6 +116,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -131,12 +142,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">2</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">10</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -146,12 +157,37 @@
   </li>
         <li class="menu-item menu-item-commonweal">
 
-    <a href="/404.html/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -179,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/msc1.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/353b9bc8.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -193,7 +229,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/msc1.html" class="post-title-link" itemprop="url">泯生·衔恨岂云忘(1)</a>
+            <a href="/article/353b9bc8.html" class="post-title-link" itemprop="url">泯生·衔恨岂云忘(1)</a>
         </h1>
 
         <div class="post-meta">
@@ -204,7 +240,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-07 16:43:11 / 修改时间：17:04:28" itemprop="dateCreated datePublished" datetime="2020-03-07T16:43:11+08:00">2020-03-07</time>
+              <time title="创建时间：2020-03-07 16:43:11 / 修改时间：17:50:53" itemprop="dateCreated datePublished" datetime="2020-03-07T16:43:11+08:00">2020-03-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,7 +252,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/353b9bc8.html" class="post-meta-item leancloud_visitors" data-flag-title="泯生·衔恨岂云忘(1)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/353b9bc8.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/353b9bc8.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -253,7 +310,7 @@
 <p>时值刘老爷病逝，刘家遗产的着落成了大问题，按着大家族的规矩，刘子贺当是继承人。于是刘太太买凶杀人，在他回沪的船上，企图让他永葬汪洋。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/msc1.html#more" rel="contents">
+              <a class="btn" href="/article/353b9bc8.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -279,7 +336,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/index.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/45accc8e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -293,7 +350,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/index.html" class="post-title-link" itemprop="url">民国临水照花人</a>
+            <a href="/article/45accc8e.html" class="post-title-link" itemprop="url">民国临水照花人</a>
         </h1>
 
         <div class="post-meta">
@@ -304,7 +361,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-07 16:36:00 / 修改时间：16:38:44" itemprop="dateCreated datePublished" datetime="2020-03-07T16:36:00+08:00">2020-03-07</time>
+              <time title="创建时间：2020-03-07 16:36:00 / 修改时间：17:50:53" itemprop="dateCreated datePublished" datetime="2020-03-07T16:36:00+08:00">2020-03-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -316,7 +373,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/45accc8e.html" class="post-meta-item leancloud_visitors" data-flag-title="民国临水照花人" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/45accc8e.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/45accc8e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -352,7 +430,7 @@
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/index.html#more" rel="contents">
+              <a class="btn" href="/article/45accc8e.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -378,7 +456,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/index.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/13386060.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -392,7 +470,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/index.html" class="post-title-link" itemprop="url">此花开尽更无花</a>
+            <a href="/article/13386060.html" class="post-title-link" itemprop="url">此花开尽更无花</a>
         </h1>
 
         <div class="post-meta">
@@ -403,7 +481,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-07 16:35:39 / 修改时间：16:39:07" itemprop="dateCreated datePublished" datetime="2020-03-07T16:35:39+08:00">2020-03-07</time>
+              <time title="创建时间：2020-03-07 16:35:39 / 修改时间：17:50:53" itemprop="dateCreated datePublished" datetime="2020-03-07T16:35:39+08:00">2020-03-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -415,7 +493,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/13386060.html" class="post-meta-item leancloud_visitors" data-flag-title="此花开尽更无花" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/13386060.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/13386060.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -444,7 +543,7 @@
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/index.html#more" rel="contents">
+              <a class="btn" href="/article/13386060.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -470,7 +569,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/hkbx.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/2d868e81.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -484,7 +583,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/hkbx.html" class="post-title-link" itemprop="url">花开半夏</a>
+            <a href="/article/2d868e81.html" class="post-title-link" itemprop="url">花开半夏</a>
         </h1>
 
         <div class="post-meta">
@@ -495,7 +594,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-07 16:13:32 / 修改时间：16:27:53" itemprop="dateCreated datePublished" datetime="2020-03-07T16:13:32+08:00">2020-03-07</time>
+              <time title="创建时间：2020-03-07 16:13:32 / 修改时间：17:50:53" itemprop="dateCreated datePublished" datetime="2020-03-07T16:13:32+08:00">2020-03-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -507,7 +606,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/2d868e81.html" class="post-meta-item leancloud_visitors" data-flag-title="花开半夏" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/2d868e81.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/2d868e81.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -544,7 +664,7 @@
 <p>  花开半夏,萎谢在安静的他乡是悟，却为时过晚。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/hkbx.html#more" rel="contents">
+              <a class="btn" href="/article/2d868e81.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -570,7 +690,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/uncategorized/index.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/uncategorized/4a17b156.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -584,7 +704,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/uncategorized/index.html" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/uncategorized/4a17b156.html" class="post-title-link" itemprop="url">Hello World</a>
         </h1>
 
         <div class="post-meta">
@@ -593,11 +713,33 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-07 14:01:25" itemprop="dateCreated datePublished" datetime="2020-03-07T14:01:25+08:00">2020-03-07</time>
+              <time title="创建时间：2020-03-07 14:01:25 / 修改时间：17:50:53" itemprop="dateCreated datePublished" datetime="2020-03-07T14:01:25+08:00">2020-03-07</time>
             </span>
 
-          <br>
+          
+            <span id="/uncategorized/4a17b156.html" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/uncategorized/4a17b156.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/uncategorized/4a17b156.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -632,7 +774,7 @@
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/uncategorized/index.html#more" rel="contents">
+              <a class="btn" href="/uncategorized/4a17b156.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -658,7 +800,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/msc8.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/46c8d677.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -672,7 +814,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/msc8.html" class="post-title-link" itemprop="url">泯生·有鸢文(8)</a>
+            <a href="/article/46c8d677.html" class="post-title-link" itemprop="url">泯生·有鸢文(8)</a>
         </h1>
 
         <div class="post-meta">
@@ -689,7 +831,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 17:05:12" itemprop="dateModified" datetime="2020-03-07T17:05:12+08:00">2020-03-07</time>
+                <time title="修改时间：2020-03-07 17:50:53" itemprop="dateModified" datetime="2020-03-07T17:50:53+08:00">2020-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -701,7 +843,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/46c8d677.html" class="post-meta-item leancloud_visitors" data-flag-title="泯生·有鸢文(8)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/46c8d677.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/46c8d677.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -738,7 +901,7 @@
 <p>她当然不会去戳穿他宏大的梦想，反而吹捧他，将他捧在云朵上，然后拨开云，让他与现实打照面：“可惜我一个瘸子，没法给您些许帮忙。这些废墟，都要靠您亲自清理呀。”</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/msc8.html#more" rel="contents">
+              <a class="btn" href="/article/46c8d677.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -764,7 +927,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/msc5.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/f8e5eb87.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -778,7 +941,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/msc5.html" class="post-title-link" itemprop="url">泯生·她与江山共枕眠(5)</a>
+            <a href="/article/f8e5eb87.html" class="post-title-link" itemprop="url">泯生·她与江山共枕眠(5)</a>
         </h1>
 
         <div class="post-meta">
@@ -795,7 +958,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 17:05:06" itemprop="dateModified" datetime="2020-03-07T17:05:06+08:00">2020-03-07</time>
+                <time title="修改时间：2020-03-07 17:50:53" itemprop="dateModified" datetime="2020-03-07T17:50:53+08:00">2020-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -807,7 +970,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/f8e5eb87.html" class="post-meta-item leancloud_visitors" data-flag-title="泯生·她与江山共枕眠(5)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/f8e5eb87.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/f8e5eb87.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -844,7 +1028,7 @@
 <p>隔日，得帝王承诺的鹿亭伏在金銮殿上，戚戚道：“臣妾对陛下一片忠心，无论后宫亦或前朝都帮陛下打理得井井有条。可偏生有些小人作怪，污蔑臣妾与丞相大人有染。”</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/msc5.html#more" rel="contents">
+              <a class="btn" href="/article/f8e5eb87.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -870,7 +1054,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/msc4.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/5e338c1e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -884,7 +1068,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/msc4.html" class="post-title-link" itemprop="url">泯生·君非须眉(4)</a>
+            <a href="/article/5e338c1e.html" class="post-title-link" itemprop="url">泯生·君非须眉(4)</a>
         </h1>
 
         <div class="post-meta">
@@ -901,7 +1085,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 17:04:57" itemprop="dateModified" datetime="2020-03-07T17:04:57+08:00">2020-03-07</time>
+                <time title="修改时间：2020-03-07 17:50:53" itemprop="dateModified" datetime="2020-03-07T17:50:53+08:00">2020-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -913,7 +1097,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/5e338c1e.html" class="post-meta-item leancloud_visitors" data-flag-title="泯生·君非须眉(4)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/5e338c1e.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/5e338c1e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -949,7 +1154,7 @@
 <p>“我好像怀孕了，”小姑娘突然出口的话语让方持肃心存怀疑，可她的睫翼上凝了水珠，分明是颤抖着声音说，“不，是一定怀孕了。”</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/msc4.html#more" rel="contents">
+              <a class="btn" href="/article/5e338c1e.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -975,7 +1180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/msc3.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/a3ed44e9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -989,7 +1194,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/msc3.html" class="post-title-link" itemprop="url">泯生·漫作年时别师泪(3)</a>
+            <a href="/article/a3ed44e9.html" class="post-title-link" itemprop="url">泯生·漫作年时别师泪(3)</a>
         </h1>
 
         <div class="post-meta">
@@ -1006,7 +1211,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 17:04:50" itemprop="dateModified" datetime="2020-03-07T17:04:50+08:00">2020-03-07</time>
+                <time title="修改时间：2020-03-07 17:50:53" itemprop="dateModified" datetime="2020-03-07T17:50:53+08:00">2020-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1018,7 +1223,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/a3ed44e9.html" class="post-meta-item leancloud_visitors" data-flag-title="泯生·漫作年时别师泪(3)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/a3ed44e9.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/a3ed44e9.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -1055,7 +1281,7 @@
 <p>她兀地脑海清明起来，连连表示自己的清白：“我是单林，我是你的人。”</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/msc3.html#more" rel="contents">
+              <a class="btn" href="/article/a3ed44e9.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1081,7 +1307,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/msc2.html">
+    <link itemprop="mainEntityOfPage" href="http://long-zhi.github.io/article/38ec5696.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1095,7 +1321,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/article/msc2.html" class="post-title-link" itemprop="url">泯生·孰为君心织华年(2)</a>
+            <a href="/article/38ec5696.html" class="post-title-link" itemprop="url">泯生·孰为君心织华年(2)</a>
         </h1>
 
         <div class="post-meta">
@@ -1112,7 +1338,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 17:04:37" itemprop="dateModified" datetime="2020-03-07T17:04:37+08:00">2020-03-07</time>
+                <time title="修改时间：2020-03-07 17:50:53" itemprop="dateModified" datetime="2020-03-07T17:50:53+08:00">2020-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1124,7 +1350,28 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span id="/article/38ec5696.html" class="post-meta-item leancloud_visitors" data-flag-title="泯生·孰为君心织华年(2)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/38ec5696.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/38ec5696.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
@@ -1161,7 +1408,7 @@
 <p>但二十七年过去，每一年都在他的脸庞划上岁月的痕迹。虽然靠着织里的血维持一时的青春容颜，但不可否认，他已是垂垂老矣。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/msc2.html#more" rel="contents">
+              <a class="btn" href="/article/38ec5696.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1271,10 +1518,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://twitter.com/username" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;username" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+        <a href="https://twitter.com/long_ditian" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;long_ditian" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://t.me/channel_name" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;channel_name" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i></a>
+        <a href="https://t.me/long_zhi" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;long_zhi" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i></a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i></a>
@@ -1283,6 +1530,303 @@
 
 
 
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+      <div class="links-of-blogroll-title">
+        <!-- modify icon to fire by szw -->
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        近期文章
+      </div>
+      <ul class="links-of-blogroll-list">
+        
+        
+          <li>
+            <a href="/article/353b9bc8.html" title="泯生·衔恨岂云忘(1)" target="_blank">泯生·衔恨岂云忘(1)</a>
+          </li>
+        
+          <li>
+            <a href="/article/45accc8e.html" title="民国临水照花人" target="_blank">民国临水照花人</a>
+          </li>
+        
+          <li>
+            <a href="/article/13386060.html" title="此花开尽更无花" target="_blank">此花开尽更无花</a>
+          </li>
+        
+          <li>
+            <a href="/article/2d868e81.html" title="花开半夏" target="_blank">花开半夏</a>
+          </li>
+        
+          <li>
+            <a href="/uncategorized/4a17b156.html" title="Hello World" target="_blank">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+
+
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
       </div>
 
     </div>
@@ -1299,7 +1843,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2019 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
@@ -1351,6 +1895,8 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
@@ -1375,6 +1921,10 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -1389,6 +1939,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'ojpihKx6DqAIgcaXdvk9GLJf-gzGzoHsz',
+      appKey     : 'IqjKHAX8Yv7lEG65EcFKnptA',
+      placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
   
     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
@@ -1397,5 +1976,5 @@
   
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":300,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":300,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
