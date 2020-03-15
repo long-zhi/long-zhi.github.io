@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://matthew84.gq/about/index.html</loc>
+    
+    <lastmod>2020-03-15T07:19:32.840Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://matthew84.gq/resume/index.html</loc>
     
-    <lastmod>2020-03-15T06:28:28.122Z</lastmod>
+    <lastmod>2020-03-15T06:51:46.824Z</lastmod>
     
   </url>
   
@@ -131,13 +138,6 @@
     <loc>https://matthew84.gq/categories/index.html</loc>
     
     <lastmod>2020-03-07T07:23:11.280Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://matthew84.gq/about/index.html</loc>
-    
-    <lastmod>2020-03-06T13:29:32.246Z</lastmod>
     
   </url>
   
