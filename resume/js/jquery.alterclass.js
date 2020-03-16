@@ -1,3 +1,3 @@
-// build time:Mon Mar 16 2020 14:54:54 GMT+0800 (GMT+08:00)
+// build time:Mon Mar 16 2020 18:12:56 GMT+0800 (GMT+08:00)
 !function(s){s.fn.alterClass=function(a,e){var r=this;if(a.indexOf("*")===-1)return r.removeClass(a),e?r.addClass(e):r;var n=new RegExp("\\s"+a.replace(/\*/g,"[A-Za-z0-9-_]+").split(" ").join("\\s|\\s")+"\\s","g");return r.each(function(a,e){for(var r=" "+e.className+" ";n.test(r);)r=r.replace(n," ");e.className=s.trim(r)}),e?r.addClass(e):r}}(jQuery);
 //rebuild by neat 
