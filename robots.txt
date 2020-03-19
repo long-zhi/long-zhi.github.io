@@ -7,4 +7,4 @@ Allow: /about/
 Disallow: /vendors/
 Disallow: /css/
 Disallow: /fancybox/
-Sitemap: https://matthew84.gq/sitemap.xml
+Sitemap: https://matthew84.ml/sitemap.xml
