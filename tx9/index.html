@@ -1,0 +1,526 @@
+<!-- build time:Sun Mar 22 2020 18:44:57 GMT+0800 (GMT+08:00) --><!doctype html><html lang="en"><head><meta charset="UTF-8"><title>cloth</title><link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/apple-touch-icon-tiger.png"><link rel="icon" type="image/png" sizes="32x32" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-32x32-tiger.png"><link rel="icon" type="image/png" sizes="16x16" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-16x16-tiger.png"><link rel="mask-icon" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/logo.svg" color="#222"><style>body,html{overflow:hidden;touch-action:none;content-zooming:none;position:absolute;margin:0;padding:0;width:100%;height:100%;background:#aaa}canvas{position:absolute;width:100vh;height:100vh;max-height:100vw;max-width:100vw;margin:auto;top:0;bottom:0;left:0;right:0;user-select:none;cursor:pointer;background:#fff}</style><link rel="alternate" href="/atom.xml" title="longzhi的个人博客" type="application/atom+xml"></head><body><canvas></canvas><script>"use strict";
+const cfa = {
+	canvas: document.querySelector("canvas"),
+	stack: [],
+	draws: [],
+	// affine adjustments
+	ajustments: {
+		x(m, v) {
+			m[4] += v * m[0];
+			m[5] += v * m[1];
+		},
+		y(m, v) {
+			m[4] += v * m[2];
+			m[5] += v * m[3];
+		},
+		z(m, v) {
+			m[11] += v;
+		},
+		rotate(m, v) {
+			const rad = Math.PI * v / 180;
+			const cos = Math.cos(rad);
+			const sin = Math.sin(rad);
+			const r00 = cos * m[0] + sin * m[2];
+			const r01 = cos * m[1] + sin * m[3];
+			m[2] = cos * m[2] - sin * m[0];
+			m[3] = cos * m[3] - sin * m[1];
+			m[0] = r00;
+			m[1] = r01;
+		},
+		flip(m, v) {
+			const rad = Math.PI * v / 180;
+			const x = Math.cos(rad);
+			const y = Math.sin(rad);
+			const n = 1 / (x * x + y * y);
+			const b00 = (x * x - y * y) / n;
+			const b01 = 2 * x * y / n;
+			const b10 = 2 * x * y / n;
+			const b11 = (y * y - x * x) / n;
+			const r00 = b00 * m[0] + b01 * m[2];
+			const r01 = b00 * m[1] + b01 * m[3];
+			m[2] = b10 * m[0] + b11 * m[2];
+			m[3] = b10 * m[1] + b11 * m[3];
+			m[0] = r00;
+			m[1] = r01;
+		},
+		skew(m, v) {
+			const x = Math.tan(Math.PI * v[0] / 180);
+			const y = Math.tan(Math.PI * v[1] / 180);
+			const r00 = m[0] + y * m[2];
+			const r01 = m[1] + y * m[3];
+			m[2] = x * m[0] + m[2];
+			m[3] = x * m[1] + m[3];
+			m[0] = r00;
+			m[1] = r01;
+		},
+		scale(m, v) {
+			let x, y;
+			if (Array.isArray(v)) {
+				x = v[0];
+				y = v[1];
+			} else {
+				x = v;
+				y = x;
+			}
+			m[0] *= x;
+			m[1] *= x;
+			m[2] *= y;
+			m[3] *= y;
+		},
+		// colors adjust
+		hue(m, v) {
+			m[6] += v;
+			m[6] %= 360;
+		},
+		sat(m, v) {
+			this.adjustColor(m, v, 7);
+		},
+		bri(m, v) {
+			this.adjustColor(m, v, 8);
+		},
+		alpha(m, v) {
+			this.adjustColor(m, v, 9);
+		},
+		adjustColor(m, v, p) {
+			if (v > 0) {
+				m[p] += v * (1 - m[p]);
+			} else {
+				m[p] += v * m[p];
+			}
+		}
+	},
+	adjust(s, p) {
+		const m = [
+			s[0],
+			s[1],
+			s[2],
+			s[3],
+			s[4],
+			s[5],
+			s[6],
+			s[7],
+			s[8],
+			s[9],
+			s[10],
+			s[11]
+		];
+		for (const c in p) {
+			this.ajustments[c](m, p[c]);
+		}
+		return m;
+	},
+	// primitives
+	setTransform(s) {
+		this.ctx.setTransform(
+			-this.scale * s[0],
+			this.scale * s[1],
+			this.scale * s[2],
+			-this.scale * s[3],
+			this.scale * s[4] + this.offsetX,
+			-this.scale * s[5] + this.offsetY
+		);
+	},
+	CIRCLE(s, p = null) {
+		p && (s = this.adjust(s, p));
+		this.draws.push([s, "circle"]);
+		this.boundingRect(s);
+	},
+	SQUARE(s, p = null) {
+		p && (s = this.adjust(s, p));
+		this.draws.push([s, "square"]);
+		this.boundingRect(s);
+	},
+	circle(s) {
+		this.setTransform(s);
+		this.fillStyle(s);
+		this.ctx.beginPath();
+		this.ctx.arc(0, 0, 0.5, 0, 2 * Math.PI);
+		this.ctx.fill();
+	},
+	square(s) {
+		this.setTransform(s);
+		this.fillStyle(s);
+		this.ctx.fillRect(-0.5, -0.5, 1, 1);
+	},
+	fillStyle(s) {
+		this.ctx.fillStyle = `hsla(${Math.round(s[6])},${Math.round(
+			s[7] * 100
+		)}%,${Math.round(s[8] * 100)}%,${s[9]})`;
+	},
+	boundingRect(s) {
+		const x = s[4] * this.scale;
+		const y = s[5] * this.scale;
+		if (x < this.rect[0]) this.rect[0] = x;
+		else if (x > this.rect[1]) this.rect[1] = x;
+		if (y < this.rect[2]) this.rect[2] = y;
+		else if (y > this.rect[3]) this.rect[3] = y;
+	},
+	center(s) {
+		const br = this.rect;
+		const scale =
+			Math.min(this.width / (br[1] - br[0]), this.height / (br[3] - br[2])) * s;
+		this.scale *= scale;
+		this.offsetX = this.width * 0.5 - (br[0] + br[1]) * 0.5 * scale;
+		this.offsetY = this.height * 0.5 + (br[3] + br[2]) * 0.5 * scale;
+	},
+	// call shape
+	call(name, s, p) {
+		const x = (s[0] * s[0] + s[1] * s[1]) * this.scale;
+		const y = (s[2] * s[2] + s[3] * s[3]) * this.scale;
+		if (x < this.minSize && y < this.minSize) {
+			// too small
+			return;
+		}
+		s = this.adjust(s, p);
+		this.stack.push([name, s]);
+	},
+	run(code) {
+		// inject code
+		for (const rule in code) {
+			this[rule] = code[rule];
+		}
+		// reset canvas
+		this.ctx = this.canvas.getContext("2d");
+		this.width = this.canvas.width = this.canvas.offsetWidth * 2;
+		this.height = this.canvas.height = this.canvas.offsetHeight * 2;
+		if (this.setup.background) {
+			this.ctx.fillStyle = this.setup.background;
+			this.ctx.fillRect(0, 0, this.width, this.height);
+		}
+		// init setup
+		this.rect = [0, 0, 0, 0];
+		this.stack.length = 0;
+		this.draws.length = 0;
+		this.scale = 100;
+		this.minSize = this.setup.minSize || 1.0;
+		// push start shape
+		this.call(this.setup.start, [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0], false);
+		// run rules
+		do {
+			const s = this.stack.shift();
+			this[s[0]](s[1]);
+		} while (this.stack.length);
+		// zSorting
+		if (this.setup.zSorting) {
+			this.draws.sort(function(d0, d1) {
+				return d0[0][11] - d1[0][11];
+			});
+		}
+		// centering
+		this.center(this.setup.zoom || 1.0);
+		// rendering
+		for (const draw of this.draws) {
+			this[draw[1]](draw[0]);
+		}
+	}
+};
+["click", "touchdown"].forEach(event => {
+	document.addEventListener(event, e => cfa.run(code), false);
+});
+/////////////////////////////////////////////
+// Adapted from a CFDG code found on this page:
+// http://www.inclassablesmathematiques.fr/archive/2008/10/28/context-free-art-logiciel-mathematico-algorithmico-artistiqu.html
+const code = {
+	setup: {
+		background: "#fff",
+		minSize: 0.01,
+		zoom: 0.9,
+		zSorting: true,
+		start: "TETES"
+	},
+	TETES(s) {
+		for (let x = 0; x < 5; x++) {
+			for (let y = 0; y < 3; y++) {
+				this.call("TETE", s, { x: x * 1.2, y: y * 1.5 });
+			}
+		}
+	},
+	TETE(s) {
+		this.call("FormeT", s, { z: 10 });
+		this.call("FormeY", s, { scale: 0.3, y: 0.2, z: 40 });
+		this.call("FormeB", s, { bri: 1, y: -0.24, z: 30 });
+		this.call("CHEVEUX", s, { y: 0.3, z: 20 });
+	},
+	FormeT(s) {
+		const r = Math.random() * 42;
+		switch (true) {
+			case r <= 1:
+				this.call("ShT", s);
+				break;
+			case r <= 2:
+				this.call("FormeT", s, { scale: 0.96 });
+				break;
+			case r <= 12:
+				this.call("FormeT", s, { rotate: 2 });
+				break;
+			case r <= 22:
+				this.call("FormeT", s, { flip: 90 });
+				break;
+			case r <= 32:
+				this.call("FormeT", s, { flip: 180 });
+				break;
+			default:
+				this.call("FormeT", s, { skew: [1, 0.84] });
+		}
+	},
+	ShT(s) {
+		const r = Math.random() * 21;
+		switch (true) {
+			case r <= 1:
+				for (let i = 0; i < 9; i++) {
+					s = this.adjust(s, { y: -0.06, rotate: 9 });
+					this.CIRCLE(s, { y: 0.3, scale: 0.66 });
+				}
+				break;
+			case r <= 2:
+				for (let i = 0; i < 8; i++) {
+					s = this.adjust(s, { x: -0.05, rotate: 2 });
+					this.call("Sh1", s, { x: 0.15, scale: [0.3, 0.27], rotate: -7.5 });
+				}
+				break;
+			case r <= 4:
+				for (let i = 0; i < 8; i++) {
+					s = this.adjust(s, { x: -0.05, rotate: 2, scale: 0.98 });
+					this.call("Sh1", s, { x: 0.12, scale: 0.3, rotate: -9 });
+				}
+				break;
+			case r <= 6:
+				for (let i = 0; i < 3; i++) {
+					s = this.adjust(s, { y: -0.1 });
+					this.CIRCLE(s, { y: 0.15, scale: 0.8 });
+				}
+				break;
+			case r <= 8:
+				for (let i = 0; i < 5; i++) {
+					s = this.adjust(s, { y: -0.1 });
+					this.CIRCLE(s, { y: 0.25, scale: 0.7 });
+				}
+				break;
+			case r <= 11:
+				this.CIRCLE(s, { scale: [0.8, 1.1] });
+				break;
+			case r <= 16:
+				for (let i = 0; i < 6; i++) {
+					s = this.adjust(s, { y: -0.1, scale: 0.95 });
+					this.CIRCLE(s, { y: 0.25, scale: 0.78 });
+				}
+				break;
+			default:
+				for (let i = 0; i < 6; i++) {
+					s = this.adjust(s, { y: -0.1, scale: 0.95, rotate: 6 });
+					this.CIRCLE(s, { y: 0.25, scale: 0.78 });
+				}
+		}
+	},
+	Sh1(s) {
+		for (let i = 0; i < 30; i++) {
+			s = this.adjust(s, { y: -0.1 });
+			this.CIRCLE(s, { y: 1.5 });
+		}
+	},
+	FormeY(s) {
+		const r = Math.random() * 63;
+		switch (true) {
+			case r <= 1:
+				this.call("FormeY", s, { y: 0.1 });
+				break;
+			case r <= 2:
+				this.call("ShY", s, { x: -0.5, scale: 1.1 });
+				this.call("ShY", s, { x: 0.5, scale: 0.9 });
+				break;
+			case r <= 3:
+				this.call("ShY", s, { x: -0.4 });
+				this.call("ShY", s, { x: 0.4 });
+				break;
+			case r <= 4:
+				this.call("ShY", s, { x: -0.5, scale: 0.8 });
+				this.call("ShY", s, { x: 0.5, scale: 0.8 });
+				break;
+			case r <= 5:
+				this.call("ShY", s, { x: -0.4, scale: 1.15, z: 1 });
+				this.call("ShY", s, { x: 0.4, scale: 0.85 });
+				break;
+			case r <= 8:
+				this.call("FormeY", s, { scale: 0.96 });
+				break;
+			case r <= 13:
+				this.call("FormeY", s, { x: 0.1 });
+				break;
+			case r <= 23:
+				this.call("FormeY", s, { flip: 90 });
+				break;
+			case r <= 33:
+				this.call("FormeY", s, { skew: [1, 0.84] });
+				break;
+			default:
+				this.call("FormeY", s, { rotate: 1 });
+		}
+	},
+	ShY(s) {
+		const r = Math.random() * 32;
+		switch (true) {
+			case r <= 1:
+				this.CIRCLE(s, { bri: 1, scale: 0.3 });
+				break;
+			case r <= 2:
+				this.CIRCLE(s);
+				this.CIRCLE(s, { bri: 1, scale: 0.8, z: 0.1 });
+				this.call("PUP", s, { scale: 0.15, z: 0.2 });
+				break;
+			case r <= 12:
+				this.call("ShY", s, { scale: [-1, 0.95] });
+				break;
+			case r <= 22:
+				this.call("ShY", s, { scale: [-0.95, 1] });
+				break;
+			default:
+				this.call("ShY", s, { rotate: 3 });
+		}
+	},
+	PUP(s) {
+		const r = Math.random() * 94;
+		switch (true) {
+			case r <= 1:
+				this.CIRCLE(s, { scale: 2.4 });
+				this.CIRCLE(s, { bri: 1, scale: 1 });
+				break;
+			case r <= 4:
+				this.CIRCLE(s);
+				break;
+			case r <= 34:
+				this.call("PUP", s, { rotate: 30 });
+				break;
+			default:
+				this.call("PUP", s, { x: 0.1 });
+		}
+	},
+	FormeB(s) {
+		const r = Math.random() * 21;
+		switch (true) {
+			case r <= 1:
+				this.call("Sh2", s, { scale: 0.03 });
+				this.call("Sh2", s, { scale: [-0.03, 0.03] });
+				break;
+			case r <= 11:
+				this.call("FormeB", s, { flip: 90 });
+				break;
+			default:
+				this.call("FormeB", s, { rotate: 3 });
+		}
+	},
+	Sh2(s) {
+		const r = Math.random() * 62.5;
+		switch (true) {
+			case r <= 1:
+				this.call("Sh2", s, { flip: 180 });
+				break;
+			case r <= 2.5:
+				break;
+			default:
+				this.CIRCLE(s);
+				this.call("Sh2", s, { x: 0.1, rotate: 2 });
+		}
+	},
+	CHEVEUX(s) {
+		const r = Math.random() * 16;
+		switch (true) {
+			case r <= 0.05:
+				for (let i = 0; i < 60; i++) {
+					s = this.adjust(s, { rotate: 6 });
+					this.CIRCLE(s, { y: 0.3, scale: [0.16, 0.6] });
+				}
+				break;
+			case r <= 0.5:
+				for (let i = 0; i < 30; i++) {
+					s = this.adjust(s, { rotate: 6, scale: 0.9 });
+					this.CIRCLE(s, { y: 0.3, scale: [0.045, 0.8] });
+				}
+				break;
+			case r <= 1:
+				this.call('CHEVEUX', s, {y: -0.5, flip: 180});
+				break;
+			case r <= 2:
+				for (let i = 0; i < 100; i++) {
+					s = this.adjust(s, { rotate: 3.6 });
+					this.call("Sh3", s, { x: 0.1, scale: 0.15 });
+				}
+				break;
+			case r <= 3:
+				for (let i = 0; i < 15; i++) {
+					s = this.adjust(s, { rotate: 18, scale: 0.95 });
+					this.call("Sh3", s, { rotate: 150, x: 0.2, scale: 0.25 });
+				}
+				break;
+			case r <= 4:
+				let s1 = s.slice();
+				for (let i = 0; i < 30; i++) {
+					s1 = this.adjust(s1, { rotate: 3, scale: 0.96 });
+					this.call("Sh6", s1, { rotate: -60, x: 0.15, scale: 0.17 });
+				}
+				let s2 = s.slice();
+				for (let i = 0; i < 30; i++) {
+					s2 = this.adjust(s2, { rotate: -3, scale: 0.96 });
+					this.call("Sh6", s2, { rotate: 240, x: 0.15, scale: 0.17 });
+				}
+				break;
+			case r <= 5:
+				for (let i = 0; i < 3; i++) {
+					s = this.adjust(s, { rotate: 9, scale: 0.9 });
+					this.call("Sh4", s, { rotate: 60, x: 0.15, scale: 0.1 });
+				}
+				break;
+			case r <= 6:
+				for (let i = 0; i < 30; i++) {
+					s = this.adjust(s, { rotate: -6 });
+					this.call("Sh5", s, { rotate: 180, x: 0.15, scale: 0.2 });
+				}
+				break;
+			default:
+				this.call("CHEVEUX", s, { flip: 90 });
+		}
+	},
+	Sh3(s) {
+		const r = Math.random() * 31;
+		switch (true) {
+			case r <= 1:
+				this.call("Sh3", s, { flip: 180 });
+				break;
+			default:
+				this.CIRCLE(s);
+				this.call("Sh3", s, { x: 0.1, rotate: 2, scale: 0.97});
+		}
+	},
+	Sh4(s) {
+		const r = Math.random() * 100;
+		switch (true) {
+			case r <= 1:
+				this.call("Sh4", s, { flip: 180 });
+				break;
+			default:
+				this.CIRCLE(s, {scale: 0.25});
+				this.call("Sh4", s, { x: 0.1, rotate: 2, scale: 0.99 });
+		}
+	},
+	Sh5(s) {
+		const r = Math.random() * 7;
+		switch (true) {
+			case r <= 1:
+				this.SQUARE(s, { scale: [2.5, 0.1] });
+				break;
+			default:
+				this.call("Sh5", s, { scale: [0.9, 1] });
+		}
+	},
+	Sh6(s) {
+		const r = Math.random() * 11;
+		switch (true) {
+			case r <= 1:
+				this.call('Sh6', s, {flip: 180});
+				break;
+			default:
+				this.CIRCLE(s);
+				this.call("Sh6", s, { x: 0.1, rotate: 1, scale: 0.982});
+		}
+	}
+};
+cfa.run(code);</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/hijiki.model.json"},display:{position:"right",width:150,height:150},mobile:{show:!0},log:!1})</script></body></html><!-- rebuild by neat -->
