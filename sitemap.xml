@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://matthew84.ml/words/index.html</loc>
+    
+    <lastmod>2020-04-13T11:15:08.409Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://matthew84.ml/tx9/index.html</loc>
     
     <lastmod>2020-03-23T02:35:00.582Z</lastmod>
@@ -173,13 +180,6 @@
     <loc>https://matthew84.ml/calendar/index.html</loc>
     
     <lastmod>2020-03-19T06:26:29.510Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://matthew84.ml/words/index.html</loc>
-    
-    <lastmod>2020-03-18T08:42:43.649Z</lastmod>
     
   </url>
   
