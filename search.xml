@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>springboot项目迁移到阿里云</title>
+    <url>/%E9%98%BF%E9%87%8C%E4%BA%91/28939a84.html</url>
+    <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>
+<div>
+<div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div>
+<div style="font-size: 14px; color: rgb(153, 153, 153); line-height: 24px;text-align:center;">9月17日正式开营，7天实战突破云开发</div>
+</div>
+<div class="note warning">
+            <p>Day1 9.17 认识Serverless云开发平台</p>
+          </div>
+<div class="note warning">
+            <p>Day2 9.18 静态文件的托管方式</p>
+          </div>
+<div class="note warning">
+            <p>Day3 9.21 使用函数开发Web接口</p>
+          </div>
+<div class="note warning">
+            <p>Day4 9.22 接入中间件和服务端渲染</p>
+          </div>
+<div class="note warning">
+            <p>Day5 9.23 数据库调用和增删改查</p>
+          </div>
+<div class="note warning">
+            <p>Day6 9.24 多媒体托管和支持</p>
+          </div>
+<div class="note warning">
+            <p>Day7 9.25 一体化方案开发实战</p>
+          </div>
+<a id="more"></a>
+<div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——Day 2——</div>
+springboot项目迁移到阿里云。
+
+<h2 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h2><p>1.通过以下链接 <a href="https://workbench.aliyun.com/login">https://workbench.aliyun.com/login</a> 登录 阿里云-云开发平台 ，使用您自己的阿里云账号登录。<br>2.点击 [创建新应用] 来创建新应用。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/springboot1.png"><br>3.在弹出框中，依次点击 [技术场景] –&gt; [Microservice] –&gt; [Spring Boot应用迁移方案（SAE）或者（ASK）]。然后点击 [下一步]。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/springboot2.png"><br>4.在弹出框中填写 所属产品、应用名称和应用介绍，其他默认或者不填写即可。填写完毕后点击 [完成]。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/springboot3.png"><br>5.点击应用卡片上上的 [环境管理] 查看本场景需要开通的服务，如果还未开通本场景需要的服务，点击 [立即开通] 在控制台进行开通，全部开通后点击 [确定] 进行下一步骤。<br>说明：  以上服务都是有免费额度的，在体验时间内不会出现收费情况的，为了防止长时间运行超出免费额度，请在完成体验后 参考后续内容停止应用。</p>
+<h2 id="进入开发"><a href="#进入开发" class="headerlink" title="进入开发"></a>进入开发</h2><p>点击[开发部署]<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/springboot4.png"><br>1.在 <a href="https://github.com/heissuper/taskmanager">https://github.com/heissuper/taskmanager</a> 下载taskmanager.zip文件，然后把解压后的文件拖拽到cloudIDE目录下。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/springboot5.png"><br>2.根据README.md文档的内容，修改pom.xml文件，只需修改两处，记得(Ctrl+S保存)。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/springboot6.png"><br>3.在cloudIDE的右下角Termial中的命令行中，输入启动命名：mvn spring-boot:run ,验证是否能在IDE容器中启动成功，启动成功后在IDE左下角有一个“预览”功能，然后在顶部弹出框中输入想要暴露的端口号，比如：8080，右下方会出现是否立即访问的提示，直接点击访问然后在后面加上/login即可访问。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/springboot7.png"><br>打卡结束。</p>
+]]></content>
+      <categories>
+        <category>阿里云</category>
+      </categories>
+      <tags>
+        <tag>阿里云</tag>
+        <tag>springboot</tag>
+        <tag>云开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>云开发Web应用训练营</title>
     <url>/%E9%98%BF%E9%87%8C%E4%BA%91/7a50d098.html</url>
     <content><![CDATA[<!-- build time:Fri Sep 18 2020 19:25:31 GMT+0800 (GMT+08:00) --><p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg" alt=""></p><div><div style="font-size:28px;color:#181818;line-height:42px;text-align:center">——实战课程——</div><div style="font-size:14px;color:#999;line-height:24px;text-align:center">9月17日正式开营，7天实战突破云开发</div></div><div class="note warning"><p>Day1 9.17 认识Serverless云开发平台</p></div><div class="note warning"><p>Day2 9.18 静态文件的托管方式</p></div><div class="note warning"><p>Day3 9.21 使用函数开发Web接口</p></div><div class="note warning"><p>Day4 9.22 接入中间件和服务端渲染</p></div><div class="note warning"><p>Day5 9.23 数据库调用和增删改查</p></div><div class="note warning"><p>Day6 9.24 多媒体托管和支持</p></div><div class="note warning"><p>Day7 9.25 一体化方案开发实战</p></div><a id="more"></a><div style="font-size:28px;color:#181818;line-height:42px;text-align:center">——Day 1——</div>此次主要讲了Serverless云开发平台的使用入门。<h2 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h2><p>1.通过以下链接 <a href="https://workbench.aliyun.com/login" target="_blank" rel="noopener">https://workbench.aliyun.com/login</a> 登录 阿里云-云开发平台 ，使用您自己的阿里云账号登录。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali3.jpg" alt=""><br>2.打开workbench云开发平台，如之前未使用过该开发平台，首次使用需要创建自己的团队。这时候填写自己的团队名以及选择规模即可。<br>3.点击 [创建新应用] 来创建新应用。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali4.png" alt=""><br>说明：如果应用列表页面没有创建应用的选项，请点击页面右上方切换到自己管理的企业。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali5.png" alt=""><br>4.在弹出框中，依次点击 [空应用] –&gt; [函数计算FC] –&gt; [Java]。然后点击 [下一步]。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali6.png" alt=""><br>5.在弹出框中填写 所属产品、应用名称和应用介绍，其他默认或者不填写即可。填写完毕后点击 [完成]。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali7.png" alt=""><br>6.点击应用卡片上上的 [环境管理] 查看本场景需要开通的服务，如果还未开通本场景需要的服务，点击 [立即开通] 在控制台进行开通，全部开通后点击 [确定] 进行下一步骤。<br>说明： 以上服务都是有免费额度的，在体验时间内不会出现收费情况的，为了防止长时间运行超出免费额度，请在完成体验后 参考后续内容停止应用。</p><h2 id="添加成员"><a href="#添加成员" class="headerlink" title="添加成员"></a>添加成员</h2><p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali8.png" alt=""><br>此次打卡任务是添加阿里云子账号。<br>设置子账号的登录名，显示名，以及相关配置。<br>创建好之后，子账号可以自己使用，也可以发给团队的其他开发者，让他们以子账号登录我们的应用。<br>回到[应用列表]，选择[成员管理]，将刚才创建的子账号分配[应用开发者]权限。</p><h2 id="进入开发"><a href="#进入开发" class="headerlink" title="进入开发"></a>进入开发</h2><p>点击[开发部署]<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali9.png" alt=""><br>1.在src/main/java/com/alibaba/serverless/helloworld 目录下创建 helloworld.java。把README中的代码拷贝到 helloworld.java 中。<br>2.部署。如图把MainHandler ，改成 helloworld，然后点击[部署]。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali10.png" alt=""><br>完成之后，根据输出信息访问链接就可以看到函数输出的内容，打卡结束。</p><!-- rebuild by neat -->]]></content>
