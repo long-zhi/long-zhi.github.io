@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>使用云开发平台OpenAPI</title>
+    <url>/%E9%98%BF%E9%87%8C%E4%BA%91/fafcef0f.html</url>
+    <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>
+<div>
+<div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div>
+<div style="font-size: 14px; color: rgb(153, 153, 153); line-height: 24px;text-align:center;">9月17日正式开营，7天实战突破云开发</div>
+</div>
+<div class="note warning">
+            <p>Day1 9.17 认识Serverless云开发平台</p>
+          </div>
+<div class="note warning">
+            <p>Day2 9.18 静态文件的托管方式</p>
+          </div>
+<div class="note warning">
+            <p>Day3 9.21 使用函数开发Web接口</p>
+          </div>
+<div class="note warning">
+            <p>Day4 9.22 接入中间件和服务端渲染</p>
+          </div>
+<div class="note warning">
+            <p>Day5 9.23 数据库调用和增删改查</p>
+          </div>
+<div class="note warning">
+            <p>Day6 9.24 多媒体托管和支持</p>
+          </div>
+<div class="note warning">
+            <p>Day7 9.25 一体化方案开发实战</p>
+          </div>
+<a id="more"></a>
+<div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——Day 3——</div>
+使用云开发平台目前开放的OpenAPI，创建一个应用
+
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>1.下载示例脚本</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">https:<span class="comment">//pubbucket-hy3298.oss-cn-shanghai.aliyuncs.com/week3/sample.zip</span></span><br></pre></td></tr></table></figure>
+<p>2.修改示例脚本，登录阿里云控制台 <a href="https://homenew.console.aliyun.com/">https://homenew.console.aliyun.com/</a> 将鼠标移至右上角头像处，点击AccessKey管理，点击进入<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web1.png"><br>点击[创建AccessKey] 按钮进行手机验证，弹出创建成功弹窗<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web2.png"><br>3.将刚刚下载好的脚本，解压后得到sample.js文件。打开该文件找到第四、第五行，将刚刚生成的AssessKeyId和AssessKeySecret替换到文件相应位置。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> Core(&#123;</span><br><span class="line">  accessKeyId: <span class="string">&#x27;你的AK ID&#x27;</span>,</span><br><span class="line">  accessKeySecret: <span class="string">&#x27;你的AK Secret&#x27;</span>,</span><br><span class="line">  endpoint: <span class="string">&#x27;https://workbench-ide.cn-shanghai.aliyuncs.com&#x27;</span>,</span><br><span class="line">  apiVersion: <span class="string">&#x27;2020-08-28&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>4.登录阿里云云开发平台 <a href="https://workbench.aliyun.com/application">https://workbench.aliyun.com/application</a><br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web3.png"><br>5.打开应用侧栏，点击进入[企业管理后台]在基本信息下的付费信息中找到企业ID<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web4.png"><br>6.将刚刚修改过文件中找到第十三行将企业ID替换到文件orgId中</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> params = &#123;</span><br><span class="line">  <span class="string">&quot;ApplicationCreateRequest&quot;</span>: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    <span class="string">&quot;fromSolId&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;orgId&quot;</span>: <span class="string">&quot;企业ID&quot;</span>,</span><br><span class="line">    <span class="string">&quot;appName&quot;</span>: <span class="string">&quot;OpenAPI_自己填写的应用名称&quot;</span>, </span><br><span class="line">    <span class="string">&quot;appDesc&quot;</span>: <span class="string">&quot;OpenAPI_自己填写的应用描述&quot;</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>appname、appDesc修改为以OpenAPI开头的名称。修改完成后保存该文件，文件中其他内容无需修改。</p>
+<h2 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h2><p>保存成功后在该文件所在目录中打开命令窗口（或终端）依次执行以下两行命令</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm i @alicloud/pop-core -g --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line">node ./Sample.js</span><br></pre></td></tr></table></figure>
+<p>命令执行后，命令窗口或终端如果报以下错误<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web5.png"><br>将命令修改为直接在当前文件夹下安装依赖即可。重新执行以下命令即可</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm i @alicloud/pop-core --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line">node ./Sample.js</span><br></pre></td></tr></table></figure>
+<p>命令执行成功，结果如下。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web6.png"><br>打卡完成。</p>
+]]></content>
+      <categories>
+        <category>阿里云</category>
+      </categories>
+      <tags>
+        <tag>阿里云</tag>
+        <tag>云开发</tag>
+        <tag>创建应用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>springboot项目迁移到阿里云</title>
     <url>/%E9%98%BF%E9%87%8C%E4%BA%91/28939a84.html</url>
     <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>

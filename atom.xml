@@ -6,7 +6,7 @@
   <link href="https://matthew84.ml/atom.xml" rel="self"/>
   
   <link href="https://matthew84.ml/"/>
-  <updated>2020-09-21T11:54:54.126Z</updated>
+  <updated>2020-09-22T10:03:09.919Z</updated>
   <id>https://matthew84.ml/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用云开发平台OpenAPI</title>
+    <link href="https://matthew84.ml/%E9%98%BF%E9%87%8C%E4%BA%91/fafcef0f.html"/>
+    <id>https://matthew84.ml/%E9%98%BF%E9%87%8C%E4%BA%91/fafcef0f.html</id>
+    <published>2020-09-22T09:44:57.000Z</published>
+    <updated>2020-09-22T10:03:09.919Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p><div><div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div><div style="font-size: 14px; color: rgb(153, 153, 153); line-height: 24px;text-align:center;">9月17日正式开营，7天实战突破云开发</div></div><div class="note warning">            <p>Day1 9.17 认识Serverless云开发平台</p>          </div><div class="note warning">            <p>Day2 9.18 静态文件的托管方式</p>          </div><div class="note warning">            <p>Day3 9.21 使用函数开发Web接口</p>          </div><div class="note warning">            <p>Day4 9.22 接入中间件和服务端渲染</p>          </div><div class="note warning">            <p>Day5 9.23 数据库调用和增删改查</p>          </div><div class="note warning">            <p>Day6 9.24 多媒体托管和支持</p>          </div><div class="note warning">            <p>Day7 9.25 一体化方案开发实战</p>          </div><a id="more"></a><div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——Day 3——</div>使用云开发平台目前开放的OpenAPI，创建一个应用<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>1.下载示例脚本</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//pubbucket-hy3298.oss-cn-shanghai.aliyuncs.com/week3/sample.zip</span></span><br></pre></td></tr></table></figure><p>2.修改示例脚本，登录阿里云控制台 <a href="https://homenew.console.aliyun.com/">https://homenew.console.aliyun.com/</a> 将鼠标移至右上角头像处，点击AccessKey管理，点击进入<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web1.png"><br>点击[创建AccessKey] 按钮进行手机验证，弹出创建成功弹窗<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web2.png"><br>3.将刚刚下载好的脚本，解压后得到sample.js文件。打开该文件找到第四、第五行，将刚刚生成的AssessKeyId和AssessKeySecret替换到文件相应位置。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> Core(&#123;</span><br><span class="line">  accessKeyId: <span class="string">&#x27;你的AK ID&#x27;</span>,</span><br><span class="line">  accessKeySecret: <span class="string">&#x27;你的AK Secret&#x27;</span>,</span><br><span class="line">  endpoint: <span class="string">&#x27;https://workbench-ide.cn-shanghai.aliyuncs.com&#x27;</span>,</span><br><span class="line">  apiVersion: <span class="string">&#x27;2020-08-28&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>4.登录阿里云云开发平台 <a href="https://workbench.aliyun.com/application">https://workbench.aliyun.com/application</a><br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web3.png"><br>5.打开应用侧栏，点击进入[企业管理后台]在基本信息下的付费信息中找到企业ID<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web4.png"><br>6.将刚刚修改过文件中找到第十三行将企业ID替换到文件orgId中</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = &#123;</span><br><span class="line">  <span class="string">&quot;ApplicationCreateRequest&quot;</span>: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    <span class="string">&quot;fromSolId&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;orgId&quot;</span>: <span class="string">&quot;企业ID&quot;</span>,</span><br><span class="line">    <span class="string">&quot;appName&quot;</span>: <span class="string">&quot;OpenAPI_自己填写的应用名称&quot;</span>, </span><br><span class="line">    <span class="string">&quot;appDesc&quot;</span>: <span class="string">&quot;OpenAPI_自己填写的应用描述&quot;</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>appname、appDesc修改为以OpenAPI开头的名称。修改完成后保存该文件，文件中其他内容无需修改。</p><h2 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h2><p>保存成功后在该文件所在目录中打开命令窗口（或终端）依次执行以下两行命令</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i @alicloud/pop-core -g --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line">node ./Sample.js</span><br></pre></td></tr></table></figure><p>命令执行后，命令窗口或终端如果报以下错误<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web5.png"><br>将命令修改为直接在当前文件夹下安装依赖即可。重新执行以下命令即可</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i @alicloud/pop-core --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line">node ./Sample.js</span><br></pre></td></tr></table></figure><p>命令执行成功，结果如下。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/web6.png"><br>打卡完成。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg&quot;&gt;&lt;/p&gt;
+&lt;div&gt;
+&lt;div style=&quot;font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;&quot;&gt;——实战课程——&lt;/div&gt;
+&lt;div style=&quot;font-size: 14px; color: rgb(153, 153, 153); line-height: 24px;text-align:center;&quot;&gt;9月17日正式开营，7天实战突破云开发&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day1 9.17 认识Serverless云开发平台&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day2 9.18 静态文件的托管方式&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day3 9.21 使用函数开发Web接口&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day4 9.22 接入中间件和服务端渲染&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day5 9.23 数据库调用和增删改查&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day6 9.24 多媒体托管和支持&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day7 9.25 一体化方案开发实战&lt;/p&gt;
+          &lt;/div&gt;</summary>
+    
+    
+    
+    <category term="阿里云" scheme="https://matthew84.ml/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+    
+    <category term="阿里云" scheme="https://matthew84.ml/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+    <category term="云开发" scheme="https://matthew84.ml/tags/%E4%BA%91%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="创建应用" scheme="https://matthew84.ml/tags/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>springboot项目迁移到阿里云</title>
@@ -477,27 +527,6 @@
     
     
     <summary type="html">&lt;!-- build time:Fri Sep 18 2020 19:25:31 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;梦回千转，叶落乌啼。于迷蒙中仿佛看到一袭素锦旗袍款款走于烟雨缭绕中的女子。没错，她就是民国的临水照花人，她就是一张爱玲。&lt;br&gt;人生代代无穷已，江月年年只相似。但恐怕，多了张爱玲这位女子，民国就变了，变得像一袭华美的袍，爬满了蚤子。也许，直到后来，张爱玲那孤傲单薄的身影在我们的脑海中逐渐清晰时，我们才知晓，张爱玲带给我们的不仅是绝美的文字，还有如薄荷般凉薄的记忆。&lt;br&gt;月色正朦胧。尽管世事变迁，上海给人的纸醉金迷的感觉仿佛永远都不会变。尽管朱楼水榭、碧云烟渚隔绝了我们对往事的怀恋，可每深吸一口清新的空气，仿佛都能品味出民国时上海的璀璨芳华。只是时令徒转，错过的，便只能错过了。&lt;br&gt;</summary>
-    
-    
-    
-    <category term="文章" scheme="https://matthew84.ml/categories/article/"/>
-    
-    
-    <category term="张爱玲" scheme="https://matthew84.ml/tags/%E5%BC%A0%E7%88%B1%E7%8E%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>花开半夏</title>
-    <link href="https://matthew84.ml/article/2d868e81.html"/>
-    <id>https://matthew84.ml/article/2d868e81.html</id>
-    <published>2020-03-07T08:13:32.000Z</published>
-    <updated>2020-03-18T06:22:53.811Z</updated>
-    
-    <content type="html"><![CDATA[<!-- build time:Fri Sep 18 2020 19:25:31 GMT+0800 (GMT+08:00) --><p>一个寒意渐起的中秋，她出生在十里洋场，她是名门之后,血液中流淌的都是贵族气质;又是一个寒意渐起的中秋,她离开去异国他乡，她是迟暮美人，再不愿问人间的香火。</p><p>人们都说，她是民国的临水照花人，才情如她，在平仄的文字里,忧伤浅舞、回忆蔓延; 孤独如她,在年华的奔波中,轻触苍凉世事;痴情如她,在绚丽斑斓的上海滩绽放传奇一般的爱情。</p><p>张爱玲,一个被玩弄在宿命手掌中的可怜人。 她曾苦苦躲避着流年的回忆,却终躲不过牵绊的丝线。母亲的漂洋过海,父亲的激烈决裂,家族的覆灭衰亡。没落王朝,金银散尽,她只得只身前往香港。战事混乱,地区沦陷,她的成就付之东流。她是失败婚姻的牺牲者,她是没落王朝的苦命儿，她是命运摧残的可怜人。</p><a id="more"></a><p>张爱玲,一个以文字倾国倾城的孤傲女子。 她时而挥洒素雅的散文,时而抒写绝美的爱情。在民国这样一个遍地烟雨的年代,再没有人可以与之媲美。 或许是回忆所牵,她总是喜欢由一个家族、一个故事道尽人间冷暖,她的文字因为现实而更显凄凉,但正是这委婉的语言却有着一种柔软的力量。</p><p>张爱玲,一个陷入爱情深潭的痴情女子。他是她素锦年华里最美的相遇。一座城,一笺信,在最深的红尘里遇见，从此,她的生命便有了千千阕歌千千念;她是他寻花问柳中曾经的停留,一份情,一颗心,在最美的时光里邂逅了她，从此他的心底便有了痴情深深深几许……“因为相知，所以懂得。”这是胡兰成写给张爱玲的8个字。“因为懂得，所以慈悲。”这是张爱玲返还胡兰成的一片真情。在动荡的年代，拥有痛苦的童年，断翼的天使急切地需要一个依靠。而胡兰成恰在此时走来,“见了他,她变得很低很低,低到尘埃里,但她心里是欢喜的，从尘埃里开出花来”，或许正是因为相知相惜,她不在乎他是别人嗤之以鼻的汉奸,不在乎他已经拥有妻子儿女,甚至不在乎他在她的生命中只是来来又去去,只是期盼有他的相守与疼爱。凝眸时相思成愁，再回首时依恋成怨。旧时明月，撑不起地久天长的诺言，也留不住海枯石烂的誓言。心上的纠葛，解得开，是结，解不开，是劫。一场轰轰轰烈烈的恋爱终究是要结束的。“你到底是不肯。我想过，我倘使不得不离开你，亦不致寻短见,亦不能够再爱别人，我将只是萎谢了。”她最后用决绝的离开, 挽回了自己的尊严。三年的花事,半途夭折,她的才情与文字随着一生所爱而埋葬。她不再参与喧闹的生活,选择远居国外,隐蔽余年。</p><p>别来找我,我亦不去寻你。守着剩下的流年,看一段岁月静好,现世安稳。她抛弃了所有的外物,躲避了所有的目光,在简陋的出租屋中死去。花开半夏,一段美丽与怅然的人生故事落下惟幕。</p><p>花开半夏,破土在失败的家庭是命，却无法选择。</p><p>花开半夏,含苞在动荡的年代是憾，却无法逃离。</p><p>花开半夏,盛放在错误的爱情是悔，却无法重来。</p><p>花开半夏,萎谢在安静的他乡是悟，却为时过晚。</p><!-- rebuild by neat -->]]></content>
-    
-    
-    <summary type="html">&lt;!-- build time:Fri Sep 18 2020 19:25:31 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;一个寒意渐起的中秋，她出生在十里洋场，她是名门之后,血液中流淌的都是贵族气质;又是一个寒意渐起的中秋,她离开去异国他乡，她是迟暮美人，再不愿问人间的香火。&lt;/p&gt;&lt;p&gt;人们都说，她是民国的临水照花人，才情如她，在平仄的文字里,忧伤浅舞、回忆蔓延; 孤独如她,在年华的奔波中,轻触苍凉世事;痴情如她,在绚丽斑斓的上海滩绽放传奇一般的爱情。&lt;/p&gt;&lt;p&gt;张爱玲,一个被玩弄在宿命手掌中的可怜人。 她曾苦苦躲避着流年的回忆,却终躲不过牵绊的丝线。母亲的漂洋过海,父亲的激烈决裂,家族的覆灭衰亡。没落王朝,金银散尽,她只得只身前往香港。战事混乱,地区沦陷,她的成就付之东流。她是失败婚姻的牺牲者,她是没落王朝的苦命儿，她是命运摧残的可怜人。&lt;/p&gt;</summary>
     
     
     
