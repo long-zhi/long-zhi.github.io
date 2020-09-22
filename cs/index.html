@@ -1,4 +1,45 @@
-<!-- build time:Fri Sep 18 2020 19:25:31 GMT+0800 (GMT+08:00) --><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Sakura</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="description" content=""><meta name="keywords" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/apple-touch-icon-tiger.png"><link rel="icon" type="image/png" sizes="32x32" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-32x32-tiger.png"><link rel="icon" type="image/png" sizes="16x16" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-16x16-tiger.png"><link rel="mask-icon" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/logo.svg" color="#222"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/clock/css/clock.css"><style type="text/css">*{margin:0;padding:0;list-style-type:none}a,img{border:0}body{font:12px/180% Arial,Helvetica,sans-serif,"新宋体"}</style><link rel="alternate" href="/atom.xml" title="longzhi的个人博客" type="application/atom+xml"></head><body><ul class="clock" id="helang-clock" style="transform:scale(.85)"><li class="copyright" style="background-color:#fff"></li><hr></ul><canvas id="sakura"></canvas><script type="text/javascript" src="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/clock/js/jquery.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/clock/js/clock.js"></script><script type="text/javascript">$("#helang-clock").clock()</script><script id="sakura_point_vsh" type="x-shader/x_vertex">uniform mat4 uProjection;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>Sakura</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/apple-touch-icon-tiger.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-32x32-tiger.png">
+<link rel="icon" type="image/png" sizes="16x16" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-16x16-tiger.png">
+<link rel="mask-icon" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/logo.svg" color="#222">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/clock/css/clock.css">
+<style type="text/css">
+	*{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	}
+	a,img{
+	border:0;
+	}
+	body{
+	font:12px/180% Arial, Helvetica, sans-serif, "新宋体";
+	}
+</style>
+</head>
+<body>
+<ul class="clock" id="helang-clock" style="transform: scale(0.85);">
+    <li class="copyright" style="background-color:white;"></li>
+    <hr>
+</ul>
+<canvas id="sakura"></canvas>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/clock/js/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/clock/js/clock.js"></script>
+<script type="text/javascript">
+    $("#helang-clock").clock();
+</script>  
+<!-- sakura shader -->
+<script id="sakura_point_vsh" type="x-shader/x_vertex">
+uniform mat4 uProjection;
 uniform mat4 uModelview;
 uniform vec3 uResolution;
 uniform vec3 uOffset;
@@ -87,7 +128,10 @@ void main(void) {
     rstop = pow(rstop, 0.5);
     //-0.69315 = ln(0.5)
     distancefade = min(1.0, exp((uFade.x - pdist) * 0.69315 / uFade.y));
-}</script><script id="sakura_point_fsh" type="x-shader/x_fragment">#ifdef GL_ES
+}
+</script>
+<script id="sakura_point_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -156,7 +200,11 @@ void main(void) {
     alpha = smoothstep(0.0, 1.0, alpha) * palpha;
 
     gl_FragColor = vec4(col * 0.5, alpha);
-}</script><script id="fx_common_vsh" type="x-shader/x_vertex">uniform vec3 uResolution;
+}
+</script>
+<!-- effects -->
+<script id="fx_common_vsh" type="x-shader/x_vertex">
+uniform vec3 uResolution;
 attribute vec2 aPosition;
 
 varying vec2 texCoord;
@@ -166,7 +214,10 @@ void main(void) {
     gl_Position = vec4(aPosition, 0.0, 1.0);
     texCoord = aPosition.xy * 0.5 + vec2(0.5, 0.5);
     screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
-}</script><script id="bg_fsh" type="x-shader/x_fragment">#ifdef GL_ES
+}
+</script>
+<script id="bg_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -183,7 +234,10 @@ void main(void) {
     c = exp(-pow(length(tmpv) * 1.8, 2.0));
     col = mix(vec3(0.02, 0.0, 0.03), vec3(0.96, 0.98, 1.0) * 1.5, c);
     gl_FragColor = vec4(col * 0.5, 1.0);
-}</script><script id="fx_brightbuf_fsh" type="x-shader/x_fragment">#ifdef GL_ES
+}
+</script>
+<script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -196,7 +250,10 @@ varying vec2 screenCoord;
 void main(void) {
     vec4 col = texture2D(uSrc, texCoord);
     gl_FragColor = vec4(col.rgb * 2.0 - vec3(0.5), 1.0);
-}</script><script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">#ifdef GL_ES
+}
+</script>
+<script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -214,7 +271,11 @@ void main(void) {
     col = col + texture2D(uSrc, texCoord + (uBlurDir.xy + uBlurDir.zw) * uDelta);
     col = col + texture2D(uSrc, texCoord - (uBlurDir.xy + uBlurDir.zw) * uDelta);
     gl_FragColor = col / 5.0;
-}</script><script id="fx_common_fsh" type="x-shader/x_fragment">#ifdef GL_ES
+}
+</script>
+<!-- effect fragment shader template -->
+<script id="fx_common_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -226,7 +287,11 @@ varying vec2 screenCoord;
 
 void main(void) {
     gl_FragColor = texture2D(uSrc, texCoord);
-}</script><script id="pp_final_vsh" type="x-shader/x_vertex">uniform vec3 uResolution;
+}
+</script>
+<!-- post processing -->
+<script id="pp_final_vsh" type="x-shader/x_vertex">
+uniform vec3 uResolution;
 attribute vec2 aPosition;
 varying vec2 texCoord;
 varying vec2 screenCoord;
@@ -234,7 +299,10 @@ void main(void) {
     gl_Position = vec4(aPosition, 0.0, 1.0);
     texCoord = aPosition.xy * 0.5 + vec2(0.5, 0.5);
     screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
-}</script><script id="pp_final_fsh" type="x-shader/x_fragment">#ifdef GL_ES
+}
+</script>
+<script id="pp_final_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -253,4 +321,9 @@ void main(void) {
 
     gl_FragColor = vec4(col.rgb, 1.0);
     gl_FragColor.a = 1.0;
-}</script><script src="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/js/index.js"></script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/hijiki.model.json"},display:{position:"right",width:150,height:150},mobile:{show:!0},log:!1})</script></body></html><!-- rebuild by neat -->
+}
+</script>
+  <script src="//cdn.jsdelivr.net/gh/long-zhi/static@master/clock-sakura/js/index.js"></script>
+</body>
+
+</html>
