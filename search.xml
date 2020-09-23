@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>绑定域名部署线上环境</title>
+    <url>/%E9%98%BF%E9%87%8C%E4%BA%91/f3f37104.html</url>
+    <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>
+<div>
+<div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div>
+<div style="font-size: 14px; color: rgb(153, 153, 153); line-height: 24px;text-align:center;">9月17日正式开营，7天实战突破云开发</div>
+</div>
+<div class="note warning">
+            <p>Day1 9.17 认识Serverless云开发平台</p>
+          </div>
+<div class="note warning">
+            <p>Day2 9.18 静态文件的托管方式</p>
+          </div>
+<div class="note warning">
+            <p>Day3 9.21 使用函数开发Web接口</p>
+          </div>
+<div class="note warning">
+            <p>Day4 9.22 接入中间件和服务端渲染</p>
+          </div>
+<div class="note warning">
+            <p>Day5 9.23 数据库调用和增删改查</p>
+          </div>
+<div class="note warning">
+            <p>Day6 9.24 多媒体托管和支持</p>
+          </div>
+<div class="note warning">
+            <p>Day7 9.25 一体化方案开发实战</p>
+          </div>
+<a id="more"></a>
+<div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——Day 4——</div>
+介绍如何部署一个应用到「线上环境」，并且绑定自己的域名来访问该应用。
+
+<h2 id="绑定普通域名"><a href="#绑定普通域名" class="headerlink" title="绑定普通域名"></a>绑定普通域名</h2><p>1.在<a href="https://workbench.aliyun.com/">云开发平台</a>，基于「NodeJS存量应用迁移方案」创建一个应用「公司官网」（如果您的域名没有备案，可以选择「Region」为国外的节点，如果解决方案支持的话）<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain1.png"><br>2.应用创建完成之后，点击「开发部署」，打开 CloudIDE，将开发好的静态官网文件拖拽到项目，仅为完成打卡任务，就不需要拖拽文件<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/upload.png"><br>3.打开 CloudIDE 侧边栏「WB」字样的部署测试插件，选择「日常环境」，点击「部署」，确认部署信息无误后点击「继续部署」<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain2.png"><br>4.等待部署完成，在右侧「输出」栏，会看到部署成功的信息，同时红框位置会告诉你，如果要为这个应用绑定自己的域名，需要添加的 CNAME 记录是什么，可以把这个地址复制下来，在后面绑定域名的步骤中使用<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain3.png"><br>5.部署成功后，回到应用列表，在应用卡片上点击「查看应用信息」，在对应的「环境」面板，可以看到该应用绑定的域名（日常环境和预发环境，云开发平台会免费分配一个临时测试用的域名），以及 CNAME 地址，也可以从这里复制 CNAME 地址<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain4.png"><br>6.复制好 CNAME 地址后，来到你自己的域名管理平台（此示例中的域名管理是阿里云的域名管理控制台），我们添加一个域名绑定我们部署的 Serverless 应用。添加记录的「记录类型」选择「CNAME」，在「主机记录」中输入你要创建的二级域名，这里我们输入「test」或者其它都可以，在「记录值」中粘贴我们之前复制的 CNAME地址，「TTL」保留默认值或者设置一个你认为合适的值即可。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain5.png"><br>然后再添加两条，分别对应应用的三个环境，下面是官方的例子。<br>预发：pre.<strong>**</strong>.xyz<br>线上：prod.<strong>**</strong>.xyz<br>7.点击「确认」之后，就能看到如下信息<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain6.png"><br>8.二级域名创建成功之后，回到云开发平台，找到刚刚部署的应用，在应用卡片上点击「应用配置」，然后点击「线上环境」，输入刚刚创建好的二级域名，如示例中创建的是 prod.matthew84.xyz，点「确定」提交<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain7.png"><br>日常环境是test.<strong>**</strong>.xyz<br>预发环境是pre.<strong>**</strong>.xyz<br>9.点「开发部署」进入 CloudIDE，打开带有「WB」字样的部署测试插件，选择「线上环境」，点击「部署」，部署成功后，在右侧「输出」栏可以看到部署成功的信息。在红框框住的地方可以看到刚刚绑定的域名已经绑定成功，但是 CNAME 暂时还未生效等信息<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain9.png"><br>打卡结束。</p>
+]]></content>
+      <categories>
+        <category>阿里云</category>
+      </categories>
+      <tags>
+        <tag>阿里云</tag>
+        <tag>创建应用</tag>
+        <tag>域名绑定</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用云开发平台OpenAPI</title>
     <url>/%E9%98%BF%E9%87%8C%E4%BA%91/fafcef0f.html</url>
     <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>

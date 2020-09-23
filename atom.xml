@@ -6,7 +6,7 @@
   <link href="https://matthew84.ml/atom.xml" rel="self"/>
   
   <link href="https://matthew84.ml/"/>
-  <updated>2020-09-22T10:12:30.039Z</updated>
+  <updated>2020-09-23T05:43:46.917Z</updated>
   <id>https://matthew84.ml/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>绑定域名部署线上环境</title>
+    <link href="https://matthew84.ml/%E9%98%BF%E9%87%8C%E4%BA%91/f3f37104.html"/>
+    <id>https://matthew84.ml/%E9%98%BF%E9%87%8C%E4%BA%91/f3f37104.html</id>
+    <published>2020-09-23T05:07:22.000Z</published>
+    <updated>2020-09-23T05:43:46.917Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p><div><div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div><div style="font-size: 14px; color: rgb(153, 153, 153); line-height: 24px;text-align:center;">9月17日正式开营，7天实战突破云开发</div></div><div class="note warning">            <p>Day1 9.17 认识Serverless云开发平台</p>          </div><div class="note warning">            <p>Day2 9.18 静态文件的托管方式</p>          </div><div class="note warning">            <p>Day3 9.21 使用函数开发Web接口</p>          </div><div class="note warning">            <p>Day4 9.22 接入中间件和服务端渲染</p>          </div><div class="note warning">            <p>Day5 9.23 数据库调用和增删改查</p>          </div><div class="note warning">            <p>Day6 9.24 多媒体托管和支持</p>          </div><div class="note warning">            <p>Day7 9.25 一体化方案开发实战</p>          </div><a id="more"></a><div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——Day 4——</div>介绍如何部署一个应用到「线上环境」，并且绑定自己的域名来访问该应用。<h2 id="绑定普通域名"><a href="#绑定普通域名" class="headerlink" title="绑定普通域名"></a>绑定普通域名</h2><p>1.在<a href="https://workbench.aliyun.com/">云开发平台</a>，基于「NodeJS存量应用迁移方案」创建一个应用「公司官网」（如果您的域名没有备案，可以选择「Region」为国外的节点，如果解决方案支持的话）<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain1.png"><br>2.应用创建完成之后，点击「开发部署」，打开 CloudIDE，将开发好的静态官网文件拖拽到项目，仅为完成打卡任务，就不需要拖拽文件<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/upload.png"><br>3.打开 CloudIDE 侧边栏「WB」字样的部署测试插件，选择「日常环境」，点击「部署」，确认部署信息无误后点击「继续部署」<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain2.png"><br>4.等待部署完成，在右侧「输出」栏，会看到部署成功的信息，同时红框位置会告诉你，如果要为这个应用绑定自己的域名，需要添加的 CNAME 记录是什么，可以把这个地址复制下来，在后面绑定域名的步骤中使用<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain3.png"><br>5.部署成功后，回到应用列表，在应用卡片上点击「查看应用信息」，在对应的「环境」面板，可以看到该应用绑定的域名（日常环境和预发环境，云开发平台会免费分配一个临时测试用的域名），以及 CNAME 地址，也可以从这里复制 CNAME 地址<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain4.png"><br>6.复制好 CNAME 地址后，来到你自己的域名管理平台（此示例中的域名管理是阿里云的域名管理控制台），我们添加一个域名绑定我们部署的 Serverless 应用。添加记录的「记录类型」选择「CNAME」，在「主机记录」中输入你要创建的二级域名，这里我们输入「test」或者其它都可以，在「记录值」中粘贴我们之前复制的 CNAME地址，「TTL」保留默认值或者设置一个你认为合适的值即可。<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain5.png"><br>然后再添加两条，分别对应应用的三个环境，下面是官方的例子。<br>预发：pre.<strong>**</strong>.xyz<br>线上：prod.<strong>**</strong>.xyz<br>7.点击「确认」之后，就能看到如下信息<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain6.png"><br>8.二级域名创建成功之后，回到云开发平台，找到刚刚部署的应用，在应用卡片上点击「应用配置」，然后点击「线上环境」，输入刚刚创建好的二级域名，如示例中创建的是 prod.matthew84.xyz，点「确定」提交<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain7.png"><br>日常环境是test.<strong>**</strong>.xyz<br>预发环境是pre.<strong>**</strong>.xyz<br>9.点「开发部署」进入 CloudIDE，打开带有「WB」字样的部署测试插件，选择「线上环境」，点击「部署」，部署成功后，在右侧「输出」栏可以看到部署成功的信息。在红框框住的地方可以看到刚刚绑定的域名已经绑定成功，但是 CNAME 暂时还未生效等信息<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/domain9.png"><br>打卡结束。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg&quot;&gt;&lt;/p&gt;
+&lt;div&gt;
+&lt;div style=&quot;font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;&quot;&gt;——实战课程——&lt;/div&gt;
+&lt;div style=&quot;font-size: 14px; color: rgb(153, 153, 153); line-height: 24px;text-align:center;&quot;&gt;9月17日正式开营，7天实战突破云开发&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day1 9.17 认识Serverless云开发平台&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day2 9.18 静态文件的托管方式&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day3 9.21 使用函数开发Web接口&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day4 9.22 接入中间件和服务端渲染&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day5 9.23 数据库调用和增删改查&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day6 9.24 多媒体托管和支持&lt;/p&gt;
+          &lt;/div&gt;
+&lt;div class=&quot;note warning&quot;&gt;
+            &lt;p&gt;Day7 9.25 一体化方案开发实战&lt;/p&gt;
+          &lt;/div&gt;</summary>
+    
+    
+    
+    <category term="阿里云" scheme="https://matthew84.ml/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+    
+    <category term="阿里云" scheme="https://matthew84.ml/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+    <category term="创建应用" scheme="https://matthew84.ml/tags/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8/"/>
+    
+    <category term="域名绑定" scheme="https://matthew84.ml/tags/%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>使用云开发平台OpenAPI</title>
@@ -570,27 +620,6 @@
 &lt;p&gt;  她着一袭素锦旗袍, 穿越民国烟雨,走过季节轮回,成为那潋滟红尘的临水照花人。&lt;/p&gt;
 &lt;p&gt;  世间曾有张爱玲, 世间唯有张爱玲。&lt;/p&gt;
 &lt;p&gt;  张爱玲的一生从兴到衰，走过了人生的最繁华; 经受了人生的最苍凉, 她已洞穿人世沧桑,在时空的轮回中升华。她给后人留下的只是几本小说，但这些小说当时篇篇震动文坛。她的文学创作瞬时登上了文学高楼，红遍上海。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="文章" scheme="https://matthew84.ml/categories/article/"/>
-    
-    
-    <category term="张爱玲" scheme="https://matthew84.ml/tags/%E5%BC%A0%E7%88%B1%E7%8E%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>此花开尽更无花</title>
-    <link href="https://matthew84.ml/article/13386060.html"/>
-    <id>https://matthew84.ml/article/13386060.html</id>
-    <published>2020-03-07T08:35:39.000Z</published>
-    <updated>2020-03-13T02:11:00.439Z</updated>
-    
-    <content type="html"><![CDATA[<p>  梦回千转，叶落乌啼。于迷蒙中仿佛看到一袭素锦旗袍款款走于烟雨缭绕中的女子。没错，她就是民国的临水照花人，她就是一张爱玲。<br>  人生代代无穷已，江月年年只相似。但恐怕，多了张爱玲这位女子，民国就变了，变得像一袭华美的袍，爬满了蚤子。也许，直到后来，张爱玲那孤傲单薄的身影在我们的脑海中逐渐清晰时，我们才知晓，张爱玲带给我们的不仅是绝美的文字，还有如薄荷般凉薄的记忆。<br>  月色正朦胧。尽管世事变迁，上海给人的纸醉金迷的感觉仿佛永远都不会变。尽管朱楼水榭、碧云烟渚隔绝了我们对往事的怀恋，可每深吸一口清新的空气，仿佛都能品味出民国时上海的璀璨芳华。只是时令徒转，错过的，便只能错过了。<br>  <a id="more"></a><br>  其实张爱玲的往事，一点也不倾城，不过是同激滟红尘中的女子大抵相同罢了，但是张爱玲的往事无比倾城，因为张爱玲自有张爱玲的桃之天天。爱上胡兰成，是情不知所起，一往而深；与桑弧擦肩，是不愿为云淡风轻的相逢低眉垂袖；和赖雅执子之手，是在异国华丽转身的邂逅。不管是心口的的朱砂，还是妖娆的白玫瑰，反正她是真的付出了，是真的锦瑟流年。他们都成了她在战乱的荒芜中，繁华的注脚。<br>  我不知，多年后张爱玲回想起当初胡兰成给的承诺愿“岁月静好，现世安稳”时，清绝的她是否会落泪；我不知，风华绝代的张爱玲知音难觅时是否会备感孤独；我不知，飘零于异乡的张爱玲是否对当时自己的决绝有一丝后悔。我只知，当她得知三毛的死，呢喃“三毛怎么自杀了”时，她是热爱生命的，她愿意观世事冷暖，她情愿大隐于市，静观星辰。<br>  再冷傲的人，怕也是柔情之人。何况是一位女子。我想，张爱玲是高傲的，亦是孤单的。生于簪缨世族，却又偏遭战乱。或许这就是民国，一个浪里沉浮、不可捉模的民国。但只要一想起张爱玲，就会心疼。即使定年华给了她磨炼，可命运却待她太不公平。好在她还有文字，文字的世界虽没有阴睛圆缺，花好月圆，可张爱玲打骨子里热爱它们。她将自己的茕茕光阴，细腻地缝在了她巧心安排的锦绣之中，待我们一一去发现，一一去品味。<br>  有人说，张爱玲所写，都是儿女情长，闺中优俪，虽深情，却不大气。果然还是胡兰成懂她，知道她想要什么。她太需要安稳了，以至于情愿与人世隔绝，不与人来往，不愿涉足外界风雨。所以，张爱玲的文字并没有多深刻，也没有多让人们觉醒。请不要怪她，她只是默默治愈了心灵。因为她是最需要静好却最不静好的那个人。她经历了太多的颠沛流离，尝尽了太多的苦情伤感，以至于不想与任何人有任何纠葛，只想安稳度世。也许，这就是张爱玲，也许，这才是张爱玲。<br>  无论是谁的血，成团扇，涸染了她的江山；无论是多么凉薄的花事，谢了幕，成为过往云烟；无论是多么不解销魂，偿前了债，断了后缘，都不要责备她的青青韶华。因为此花不与群花争，此花开尽更无花。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;  梦回千转，叶落乌啼。于迷蒙中仿佛看到一袭素锦旗袍款款走于烟雨缭绕中的女子。没错，她就是民国的临水照花人，她就是一张爱玲。&lt;br&gt;  人生代代无穷已，江月年年只相似。但恐怕，多了张爱玲这位女子，民国就变了，变得像一袭华美的袍，爬满了蚤子。也许，直到后来，张爱玲那孤傲单薄的身影在我们的脑海中逐渐清晰时，我们才知晓，张爱玲带给我们的不仅是绝美的文字，还有如薄荷般凉薄的记忆。&lt;br&gt;  月色正朦胧。尽管世事变迁，上海给人的纸醉金迷的感觉仿佛永远都不会变。尽管朱楼水榭、碧云烟渚隔绝了我们对往事的怀恋，可每深吸一口清新的空气，仿佛都能品味出民国时上海的璀璨芳华。只是时令徒转，错过的，便只能错过了。&lt;br&gt;</summary>
     
     
     
