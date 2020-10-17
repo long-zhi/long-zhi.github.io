@@ -13,12 +13,9 @@
 
 <center>长风万里燕归来，不见天涯人不回。</center>
 
-<video id="video" controls="" preload="none" poster="http://om2bks7xs.bkt.clouddn.com/2017-08-26-Markdown-Advance-Video.jpg">
-<source id="mp4" src="http://ykugc.cp31.ott.cibntv.net.qn302.myalicdn.com/697413384C14271B998804573/03000B01005F8993FC3215D5CC31BB33344F24-2B98-4EFE-8267-4271838FE810.mp4?ccode=0512&duration=52&expire=18000&psid=efbcb21779ed87ace8992e04bcab953446ae4&ups_client_netip=ab2bf7b5&ups_ts=1602853840&ups_userid=&utid=%2BIcQGOUK3j0CAasr97UBrKx4&vid=XNDkwODk4ODUyNA&vkey=Ba9a45e4e1388eaec177eb91e2f822a75&eo=1&rid=20000000349CD373B249C21E42097D8A81CE54E102000000&bc=2&dre=u21&si=42&dst=1&ali_redirect_domain=ykugc.cp31.ott.cibntv.net&ali_redirect_ex_ftag=a78111d1592ab9b494c080e745445168c99ab13fc99f17a0&ali_redirect_ex_tmining_ts=1602853839&ali_redirect_ex_tmining_expire=3600&ali_redirect_ex_hot=0" type="video/mp4">
-</video>
-
-
-]]></content>
+<video id="video" controls="" preload="none" autoplay="autoplay" poster="">
+<source id="mp4" src="../video/uknmgex.mp4" type="video/mp4">
+</video>]]></content>
       <categories>
         <category>诗</category>
       </categories>
