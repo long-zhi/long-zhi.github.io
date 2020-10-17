@@ -13,9 +13,7 @@
 
 <center>长风万里燕归来，不见天涯人不回。</center>
 
-<video id="video" controls="" preload="none" autoplay="autoplay" poster="">
-<source id="mp4" src="../video/uknmgex.mp4" type="video/mp4">
-</video>]]></content>
+<iframe src="//player.bilibili.com/player.html?aid=49585228&bvid=BV1Hb41157ef&cid=86822001&page=1&autoplay=true" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
       <categories>
         <category>诗</category>
       </categories>
