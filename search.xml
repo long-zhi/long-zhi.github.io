@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>2020年10月--Hacktoberfest活动</title>
-    <url>/%E4%BC%98%E6%83%A0%E6%B4%BB%E5%8A%A8/93ef14f7.html</url>
+    <url>/archives/93ef14f7.html</url>
     <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/hacktoberfest01.webp"></p>
 <a id="more"></a>
 
@@ -43,7 +43,7 @@
   </entry>
   <entry>
     <title>少年歌行</title>
-    <url>/%E8%AF%97/ace524d8.html</url>
+    <url>/archives/ace524d8.html</url>
     <content><![CDATA[<center>我欲乘风向北行，雪落轩辕大如席。</center>
 
 <center>我欲借船向东游，绰约仙子迎风立。</center>
@@ -55,7 +55,6 @@
 <center>长风万里燕归来，不见天涯人不回。</center>
 
 <iframe src="//player.bilibili.com/player.html?aid=49585228&bvid=BV1Hb41157ef&cid=86822001&page=1&autoplay=true" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
 
 <p>我的博客即将同步至腾讯云+社区，邀请大家一同入驻：<a href="https://cloud.tencent.com/developer/support-plan?invite_code=3bmjgxkdylogc">https://cloud.tencent.com/developer/support-plan?invite_code=3bmjgxkdylogc</a></p>
 ]]></content>
@@ -69,7 +68,7 @@
   </entry>
   <entry>
     <title>绑定域名部署线上环境</title>
-    <url>/%E9%98%BF%E9%87%8C%E4%BA%91/f3f37104.html</url>
+    <url>/archives/f3f37104.html</url>
     <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>
 <div>
 <div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div>
@@ -113,7 +112,7 @@
   </entry>
   <entry>
     <title>使用云开发平台OpenAPI</title>
-    <url>/%E9%98%BF%E9%87%8C%E4%BA%91/fafcef0f.html</url>
+    <url>/archives/fafcef0f.html</url>
     <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>
 <div>
 <div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div>
@@ -168,7 +167,7 @@
   </entry>
   <entry>
     <title>springboot项目迁移到阿里云</title>
-    <url>/%E9%98%BF%E9%87%8C%E4%BA%91/28939a84.html</url>
+    <url>/archives/28939a84.html</url>
     <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>
 <div>
 <div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div>
@@ -213,7 +212,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>云开发Web应用训练营</title>
-    <url>/%E9%98%BF%E9%87%8C%E4%BA%91/7a50d098.html</url>
+    <url>/archives/7a50d098.html</url>
     <content><![CDATA[<p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/oali2.jpg"></p>
 <div>
 <div style="font-size: 28px; color: rgb(24, 24, 24); line-height: 42px;text-align:center;">——实战课程——</div>
@@ -258,7 +257,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>全网最全检测自己是否被微信好友删除方法</title>
-    <url>/tutorial/4afed74f.html</url>
+    <url>/archives/4afed74f.html</url>
     <content><![CDATA[<p>微信上如何不打扰对方，检测自己是否被对方删除呢？</p>
 <h2 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h2><p>直接看对方朋友圈，如果显示下方两条杠的话，就是被删了，当然也有可能是对方的朋友圈屏蔽了你或者对方的账号出现了问题，也会出现下面两条杠(不过这种情况我一般都会删了对方的，嘿嘿)；如果想进一步确定呢，请往下看。</p>
 <a id="more"></a>
@@ -278,16 +277,16 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>网页特效合集(鼠标控制)</title>
-    <url>/%E7%89%B9%E6%95%88/1c0cfdf.html</url>
-    <content><![CDATA[<center><a href="https://matthew84.xyz/tx1">水母</a></center>
-<center><a href="https://matthew84.xyz/tx2">创造银河</a></center>
-<center><a href="https://matthew84.xyz/tx3">字母特效</a></center>
-<center><a href="https://matthew84.xyz/tx4">画树</a></center>
-<center><a href="https://matthew84.xyz/tx5">cloth</a></center>
-<center><a href="https://matthew84.xyz/tx6">starry</a></center>
-<center><a href="https://matthew84.xyz/tx7">3D旋转相册特效</a></center>
-<center><a href="https://matthew84.xyz/tx8">cloth</a></center>
-<center><a href="https://matthew84.xyz/tx9">搞怪</a></center>]]></content>
+    <url>/archives/1c0cfdf.html</url>
+    <content><![CDATA[<center><a href="../tx1" target="_blank">水母</a></center>
+<center><a href="../tx2" target="_blank">创造银河</a></center>
+<center><a href="../tx3" target="_blank">字母特效</a></center>
+<center><a href="../tx4" target="_blank">画树</a></center>
+<center><a href="../tx5" target="_blank">cloth</a></center>
+<center><a href="../tx6" target="_blank">starry</a></center>
+<center><a href="../tx7" target="_blank">3D旋转相册特效</a></center>
+<center><a href="../tx8" target="_blank">cloth</a></center>
+<center><a href="../tx9" target="_blank">搞怪</a></center>]]></content>
       <categories>
         <category>特效</category>
       </categories>
@@ -299,7 +298,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>抖音樱花</title>
-    <url>/tutorial/1871032.html</url>
+    <url>/archives/1871032.html</url>
     <content><![CDATA[<p>抖音好看的樱花飘落<br>效果如下：<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/sakura.png"></p>
 <a id="more"></a>
 <p>代码：</p>
@@ -317,7 +316,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>抖音时钟罗盘</title>
-    <url>/tutorial/be7bbe92.html</url>
+    <url>/archives/be7bbe92.html</url>
     <content><![CDATA[<p>在抖音看到好看的时钟罗盘，效果如下：<br><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/clock.png"></p>
 <a id="more"></a>
 <p>源代码：</p>
@@ -337,7 +336,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>css实现鼠标悬停图片放大</title>
-    <url>/tutorial/a595705d.html</url>
+    <url>/archives/a595705d.html</url>
     <content><![CDATA[<p>代码如下：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;  </span><br><span class="line">* &#123;  </span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;  </span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;  </span><br><span class="line">	<span class="attribute">font-family</span>: <span class="string">&quot;微软雅黑&quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.avatar</span>&#123;  </span><br><span class="line">	<span class="attribute">display</span>: block;  </span><br><span class="line">	<span class="attribute">width</span>: <span class="number">300px</span>;  </span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;  </span><br><span class="line">	<span class="attribute">overflow</span>: hidden;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="selector-class">.avatar</span> <span class="selector-tag">img</span>&#123;  </span><br><span class="line">	<span class="attribute">display</span>: block;  </span><br><span class="line">	<span class="attribute">border</span>: <span class="number">0</span>;  </span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;  </span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1</span>);  </span><br><span class="line">	<span class="attribute">transition</span>: all <span class="number">1s</span> ease <span class="number">0s</span>;  </span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(<span class="number">1</span>);  </span><br><span class="line">	<span class="attribute">-webkit-transform</span>: all <span class="number">1s</span> ease <span class="number">0s</span>;  </span><br><span class="line">&#125;  	  </span><br><span class="line"><span class="selector-class">.avatar</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">img</span>&#123;  </span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.3</span>);  </span><br><span class="line">	<span class="attribute">transition</span>: all <span class="number">1s</span> ease <span class="number">0s</span>;  </span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(<span class="number">1.3</span>);  </span><br><span class="line">	<span class="attribute">-webkit-transform</span>: all <span class="number">1s</span> ease <span class="number">0s</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">&lt;/style&gt;  </span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -354,7 +353,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>不蒜子(busuanzi)不显示统计量</title>
-    <url>/tutorial/fd317c05.html</url>
+    <url>/archives/fd317c05.html</url>
     <content><![CDATA[<p>部分live2d可能与不蒜子统计有冲突，出现此问题时，请查看网页源码引用统计id处是否被隐藏，一般网页上会自动加上display: none;自行选择性的使用。网友的解决方法，修改源码为以下，并引用修改后的js文件。不蒜子源码文件：</p>
 <a id="more"></a>
 <p><img src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/live2d.png"><br>修改为如下：</p>
@@ -377,7 +376,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>jsDelivr为静态文件加速</title>
-    <url>/tutorial/c57ab7e7.html</url>
+    <url>/archives/c57ab7e7.html</url>
     <content><![CDATA[<div class="note info">
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Github是目前最大的项目的托管平台！19年年初的时候被微软收购了。免费套餐还支持私有仓库了！还真不错哇！可惜国内访问比较慢！！<br>jsDelivr是一款公共免费 CDN ，调用多家 CDN 保证全球服务质量、拥有多层缓存和灾后保障 SLA 100 。也是为数不多的有 ICP 备案，提供许多中国节点的海外 CDN 服务商。<br>针对Github提供免费的CDN加速，在国内使用的是网宿的CDN加速！访问速度一点儿都不慢！<br>那么我们就可以好好利用一下！下面博主就分享下使用过程把！</p>
           </div>
@@ -401,7 +400,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>烟霞满袖</title>
-    <url>/article/b847e165.html</url>
+    <url>/archives/b847e165.html</url>
     <content><![CDATA[<p>她是神，可神也有心，神也会疼。</p>
 <p>1.</p>
 <p>无忧城的少主降生那日，一缕翠色从远处晕开来，几乎将半边天都染成苍翠欲滴的青色。再之后天空中忽传一声怪异的鸣叫，城主府内便响起了婴孩的啼哭。</p>
@@ -608,7 +607,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>deepin装回windows系统</title>
-    <url>/tutorial/aacea3b.html</url>
+    <url>/archives/aacea3b.html</url>
     <content><![CDATA[<div class="note info">
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前网上无意间看到deepin这个国产pc操作系统，初见deepin时给人一种初恋般的怦然心动的感觉。正好这时家里有一台5年前的笔记本电脑，安装windows已经能感到明显的卡顿，所以我在笔记本上安装上了deepin。安装完后，界面颜值真是秒杀windows，而流畅度相比之前安装的windows7也有肉眼可见的提升。有人要问了，这个系统这么好，那你为啥还要装回windows了？说到这里就要说到国产操作系统的通病了：生态。由于一些工作软件在deepin上的匮乏，用wine安装windows程序体验不好，所以索性直接安装回windows了。</p>
           </div>
@@ -640,7 +639,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>不许见白头</title>
-    <url>/article/4319c44f.html</url>
+    <url>/archives/4319c44f.html</url>
     <content><![CDATA[<p>（一）</p>
 <p>“帝君，近日朝中有些传言……”</p>
 <p>今日端阳，一大早负责情报的密侍便来向我进言，一副忧心忡忡的样子。其实臣子们的那些议论我也已经有所耳闻——</p>
@@ -955,7 +954,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>帝里旧客</title>
-    <url>/article/2ed17636.html</url>
+    <url>/archives/2ed17636.html</url>
     <content><![CDATA[<p>白染与沈文息大吵一架，原因是沈文息擅自让御膳房将她的晚餐从烤羊排改成了肉末茄子。纵然白染脾气和善，可晚餐吃什么由自己做主是她身为皇后的底线。因此，她很是愤怒的把自己关在了兵器库里，无论谁求都不肯出来。</p>
 <p>沈文息还算淡定，可满朝文武都已急得似热锅上的蚂蚁。他们齐齐上书，要求皇帝无论付出何种代价也要立即将皇后从兵器库里哄出来——因为白染是凤垣皇族，她天生拥有与武器通灵的能力。听闻两年前皇后只随意发了一场脾气，便引得兵器库里的武器集体飞出，跟演杂耍一般，飞遍了整个夏宫，致使夏宫大乱。</p>
 <a id="more"></a>
@@ -1144,7 +1143,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>末代公主</title>
-    <url>/article/22bb0491.html</url>
+    <url>/archives/22bb0491.html</url>
     <content><![CDATA[<p>（一）</p>
 <p>仁和三年冬，十一月初四，兆京大雪。</p>
 <p>昨夜狂风夹杂着鹅毛般的雪片呼啸了一夜，到今天早上风才停下来，可乱琼碎玉还是不住地落，在皇宫的青瓦上覆盖了厚厚的一层白，再合着白茫茫一片的大地，让人有种喘不过气来的压抑感。</p>
@@ -1408,7 +1407,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>青雀几时裁锦字</title>
-    <url>/article/adadcf82.html</url>
+    <url>/archives/adadcf82.html</url>
     <content><![CDATA[<p>一</p>
 <p>那是茫茫的戈壁，天际线压得极低，昏黄的天空一层层渲染，最后又变成了苍茫的灰，在这层层叠叠的昏黄中，连未落的孤阳都是黄的，然而宋城仰头的时候却看见了一抹红，色彩浓烈的胭脂红。</p>
 <p>他站在城下背着手仰望着百尺城墙，眼睛微微眯了眯才看清，原来是有人站在城墙上跳舞。</p>
@@ -1557,7 +1556,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>素樱抄</title>
-    <url>/article/e1b6d62.html</url>
+    <url>/archives/e1b6d62.html</url>
     <content><![CDATA[<p>【一】</p>
 <p>来东洋的第四年，阚淮才敢在一帮好友的怂恿下尝试吃生鱼片。是奈良当地颇有名气的居酒屋，老板刀法娴熟，鲔鱼在砧板上只扑腾了几声，端到他面前时已是整饬的燕脂色肉块，再撒上厚厚的一抹唐辛子，当地人尚不敢轻易动筷，可他天生嗜辣，倒犹嫌不足。</p>
 <p>直到他蘸了满当当一叠山葵酱，才知道分明都是辣，但隔了数万里的山川汪洋，到底也是有所不同的。</p>
@@ -1735,7 +1734,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>泯生·衔恨岂云忘(1)</title>
-    <url>/article/353b9bc8.html</url>
+    <url>/archives/353b9bc8.html</url>
     <content><![CDATA[<p>一</p>
 <p>“你的后娘出价两千，买我来杀你。”一把银色的小手枪抵在他脖子的动脉上，刘子贺扭头看向持枪的女人，一动，枪被压得更紧了些，“别紧张。如果你能出价四千，我可以放过你。”</p>
 <p>夜已深，在香港去往上海的轮船上，除了零星几对赏夜的情人，其余人已然熟睡。刘子贺眯起眼，看着这高挑的女人走近自己，在旁人偶尔擦身经过时顺势依偎进自己的怀中。海风撩拨起她的几缕散发，而她一脸的风情模样。</p>
@@ -1929,7 +1928,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>民国临水照花人</title>
-    <url>/article/45accc8e.html</url>
+    <url>/archives/45accc8e.html</url>
     <content><![CDATA[<p>  笙歌归院落, 灯火下楼台。民国就是一场散去的戏,曾经锣鼓喧天的倾城故事,早已湮没在落落风尘中，不知所往。那个被光阴抛掷的女子, 又从远年的巷陌,款款走了出来。</p>
 <p>  她着一袭素锦旗袍, 穿越民国烟雨,走过季节轮回,成为那潋滟红尘的临水照花人。</p>
 <p>  世间曾有张爱玲, 世间唯有张爱玲。</p>
@@ -1949,7 +1948,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>此花开尽更无花</title>
-    <url>/article/13386060.html</url>
+    <url>/archives/13386060.html</url>
     <content><![CDATA[<p>  梦回千转，叶落乌啼。于迷蒙中仿佛看到一袭素锦旗袍款款走于烟雨缭绕中的女子。没错，她就是民国的临水照花人，她就是一张爱玲。<br>  人生代代无穷已，江月年年只相似。但恐怕，多了张爱玲这位女子，民国就变了，变得像一袭华美的袍，爬满了蚤子。也许，直到后来，张爱玲那孤傲单薄的身影在我们的脑海中逐渐清晰时，我们才知晓，张爱玲带给我们的不仅是绝美的文字，还有如薄荷般凉薄的记忆。<br>  月色正朦胧。尽管世事变迁，上海给人的纸醉金迷的感觉仿佛永远都不会变。尽管朱楼水榭、碧云烟渚隔绝了我们对往事的怀恋，可每深吸一口清新的空气，仿佛都能品味出民国时上海的璀璨芳华。只是时令徒转，错过的，便只能错过了。<br>  <a id="more"></a><br>  其实张爱玲的往事，一点也不倾城，不过是同激滟红尘中的女子大抵相同罢了，但是张爱玲的往事无比倾城，因为张爱玲自有张爱玲的桃之天天。爱上胡兰成，是情不知所起，一往而深；与桑弧擦肩，是不愿为云淡风轻的相逢低眉垂袖；和赖雅执子之手，是在异国华丽转身的邂逅。不管是心口的的朱砂，还是妖娆的白玫瑰，反正她是真的付出了，是真的锦瑟流年。他们都成了她在战乱的荒芜中，繁华的注脚。<br>  我不知，多年后张爱玲回想起当初胡兰成给的承诺愿“岁月静好，现世安稳”时，清绝的她是否会落泪；我不知，风华绝代的张爱玲知音难觅时是否会备感孤独；我不知，飘零于异乡的张爱玲是否对当时自己的决绝有一丝后悔。我只知，当她得知三毛的死，呢喃“三毛怎么自杀了”时，她是热爱生命的，她愿意观世事冷暖，她情愿大隐于市，静观星辰。<br>  再冷傲的人，怕也是柔情之人。何况是一位女子。我想，张爱玲是高傲的，亦是孤单的。生于簪缨世族，却又偏遭战乱。或许这就是民国，一个浪里沉浮、不可捉模的民国。但只要一想起张爱玲，就会心疼。即使定年华给了她磨炼，可命运却待她太不公平。好在她还有文字，文字的世界虽没有阴睛圆缺，花好月圆，可张爱玲打骨子里热爱它们。她将自己的茕茕光阴，细腻地缝在了她巧心安排的锦绣之中，待我们一一去发现，一一去品味。<br>  有人说，张爱玲所写，都是儿女情长，闺中优俪，虽深情，却不大气。果然还是胡兰成懂她，知道她想要什么。她太需要安稳了，以至于情愿与人世隔绝，不与人来往，不愿涉足外界风雨。所以，张爱玲的文字并没有多深刻，也没有多让人们觉醒。请不要怪她，她只是默默治愈了心灵。因为她是最需要静好却最不静好的那个人。她经历了太多的颠沛流离，尝尽了太多的苦情伤感，以至于不想与任何人有任何纠葛，只想安稳度世。也许，这就是张爱玲，也许，这才是张爱玲。<br>  无论是谁的血，成团扇，涸染了她的江山；无论是多么凉薄的花事，谢了幕，成为过往云烟；无论是多么不解销魂，偿前了债，断了后缘，都不要责备她的青青韶华。因为此花不与群花争，此花开尽更无花。</p>
 ]]></content>
       <categories>
@@ -1961,7 +1960,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>花开半夏</title>
-    <url>/article/2d868e81.html</url>
+    <url>/archives/2d868e81.html</url>
     <content><![CDATA[<p>  一个寒意渐起的中秋，她出生在十里洋场，她是名门之后,血液中流淌的都是贵族气质;又是一个寒意渐起的中秋,她离开去异国他乡，她是迟暮美人，再不愿问人间的香火。</p>
 <p>  人们都说，她是民国的临水照花人，才情如她，在平仄的文字里,忧伤浅舞、回忆蔓延; 孤独如她,在年华的奔波中,轻触苍凉世事;痴情如她,在绚丽斑斓的上海滩绽放传奇一般的爱情。</p>
 <p>  张爱玲,一个被玩弄在宿命手掌中的可怜人。 她曾苦苦躲避着流年的回忆,却终躲不过牵绊的丝线。母亲的漂洋过海,父亲的激烈决裂,家族的覆灭衰亡。没落王朝,金银散尽,她只得只身前往香港。战事混乱,地区沦陷,她的成就付之东流。她是失败婚姻的牺牲者,她是没落王朝的苦命儿，她是命运摧残的可怜人。</p>
@@ -1983,7 +1982,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>泯生·有鸢文(8)</title>
-    <url>/article/46c8d677.html</url>
+    <url>/archives/46c8d677.html</url>
     <content><![CDATA[<p>（一）</p>
 <p>那块荒寂的土地，迎来了它新的主人。</p>
 <p>天子将其作为封地赠予徐东昂，并且十分体恤他，说道：“朕的诸侯王，怎么可以没有统治的子民呢？辖区内的百姓，都应该搬去那里。”</p>
@@ -2177,7 +2176,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>泯生·她与江山共枕眠(5)</title>
-    <url>/article/f8e5eb87.html</url>
+    <url>/archives/f8e5eb87.html</url>
     <content><![CDATA[<p>1</p>
 <p>近日，有道士说，皇上命不过而立。</p>
 <p>这本是无从考据的谑言。可魏方行并非足月而生，自小没少经受病痛的磨难，故惜命得很。在苦恼了多日后，他想出了个好法子——若是夜夜不眠，总该匀出许多寿命来吧。</p>
@@ -2376,7 +2375,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>泯生·君非须眉(4)</title>
-    <url>/article/5e338c1e.html</url>
+    <url>/archives/5e338c1e.html</url>
     <content><![CDATA[<h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><p>这年的春水尚未涨起，一个历经五百载的王朝已走向了覆灭。</p>
 <p>新帝方持肃是个心狠手辣的人，在登基的当天，他便下旨斩杀了宫里所有的太监。据说，那日乌鸟哀鸣，鲜血成河，足足调动各宫婢女擦拭了小半个月。为此，侍奉的婢女很惧怕他，屏着气息为他添上灯油。</p>
 <p>他对着一张空白的圣旨呆坐良久，从亮堂堂的白天坐到乌漆漆的夜，终是弃掷了笔，没头没尾地开口问道：“她如何了？”</p>
@@ -2578,7 +2577,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>泯生·漫作年时别师泪(3)</title>
-    <url>/article/a3ed44e9.html</url>
+    <url>/archives/a3ed44e9.html</url>
     <content><![CDATA[<p>一</p>
 <p>少年裘衣鞍马，青春张扬无瑕。</p>
 <p>曾经落魄的瞎子摇身一变，单林不承想，五年后的苏平望竟与这十二个光彩夺目的字眼息息相关。</p>
@@ -2802,7 +2801,7 @@ springboot项目迁移到阿里云。
   </entry>
   <entry>
     <title>泯生·孰为君心织华年(2)</title>
-    <url>/article/38ec5696.html</url>
+    <url>/archives/38ec5696.html</url>
     <content><![CDATA[<p>一</p>
 <p>金乌尚未西沉，织里房间的门被突然推开。下人尚未来得及禀报，王横扇已经把她推倒在了软榻上。</p>
 <p>他如今已经五十二岁了，气力不比从前，连解开她胸前的衣襟都显得吃力非常。于是，织里主动把心口处的肌肤露出来。她心上有个口子，噗噗往外淌着血，所幸她平时惯着黑衣，因此不必叫人发现了去。</p>
