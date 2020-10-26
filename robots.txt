@@ -6,4 +6,4 @@ Allow: /tags/
 Allow: /about/
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: https://matthew84.xyz/sitemap.xml
+Sitemap: https://matthew84.cf/sitemap.xml
