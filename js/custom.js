@@ -1,8 +1,1 @@
-/*去掉 Banner 图*/
-var full_page = document.getElementsByClassName("full_page");
-if (full_page.length != 0) {
-  full_page[0].style.background = "transparent";
-}
-/* 页脚养鱼*/
-var xiaokang = new xkTool();
-xiaokang.footFish();
+"use strict";var full_page=document.getElementsByClassName("full_page");0!=full_page.length&&(full_page[0].style.background="transparent");var xiaokang=new xkTool;xiaokang.footFish();
