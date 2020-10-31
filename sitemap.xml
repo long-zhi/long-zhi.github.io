@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://matthew84.cf/words/index.html</loc>
+    <loc>https://matthew84.cf/archives/ace524d8.html</loc>
     
     <lastmod>2020-10-31</lastmod>
     
@@ -16,14 +16,14 @@
   </url>
   
   <url>
-    <loc>https://matthew84.cf/archives/ace524d8.html</loc>
+    <loc>https://matthew84.cf/archives/71560399.html</loc>
     
     <lastmod>2020-10-31</lastmod>
     
   </url>
   
   <url>
-    <loc>https://matthew84.cf/archives/71560399.html</loc>
+    <loc>https://matthew84.cf/words/index.html</loc>
     
     <lastmod>2020-10-31</lastmod>
     
@@ -452,6 +452,13 @@
   </url>
   
   <url>
+    <loc>https://matthew84.cf/tags/%E5%BC%A0%E7%88%B1%E7%8E%B2/</loc>
+    <lastmod>2020-10-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://matthew84.cf/tags/%E6%97%B6%E9%92%9F%E7%BD%97%E7%9B%98/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
@@ -467,13 +474,6 @@
   
   <url>
     <loc>https://matthew84.cf/tags/%E7%82%AB%E9%85%B7/</loc>
-    <lastmod>2020-10-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://matthew84.cf/tags/%E5%BC%A0%E7%88%B1%E7%8E%B2/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -543,6 +543,13 @@
   </url>
   
   <url>
+    <loc>https://matthew84.cf/tags/%E9%A3%8E%E8%AF%AD%E5%92%92/</loc>
+    <lastmod>2020-10-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://matthew84.cf/tags/%E5%AE%9E%E7%89%A9%E5%A5%96%E5%93%81/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
@@ -558,13 +565,6 @@
   
   <url>
     <loc>https://matthew84.cf/tags/T%E6%81%A4/</loc>
-    <lastmod>2020-10-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://matthew84.cf/tags/%E7%81%B5%E9%AD%82%E6%91%86%E6%B8%A1%C2%B7%E9%BB%84%E6%B3%89/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -593,6 +593,13 @@
   
   <url>
     <loc>https://matthew84.cf/tags/CDN/</loc>
+    <lastmod>2020-10-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://matthew84.cf/tags/%E7%81%B5%E9%AD%82%E6%91%86%E6%B8%A1%C2%B7%E9%BB%84%E6%B3%89/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -655,13 +662,6 @@
   </url>
   
   <url>
-    <loc>https://matthew84.cf/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2020-10-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://matthew84.cf/tags/%E8%AE%AD%E7%BB%83%E8%90%A5/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
@@ -670,6 +670,13 @@
   
   <url>
     <loc>https://matthew84.cf/tags/%E5%9B%BE%E5%BA%93/</loc>
+    <lastmod>2020-10-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://matthew84.cf/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -759,13 +766,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://matthew84.cf/tags/%E9%A3%8E%E8%AF%AD%E5%92%92/</loc>
-    <lastmod>2020-10-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
@@ -776,14 +776,14 @@
   </url>
   
   <url>
-    <loc>https://matthew84.cf/categories/tutorial/</loc>
+    <loc>https://matthew84.cf/categories/article/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://matthew84.cf/categories/article/</loc>
+    <loc>https://matthew84.cf/categories/tutorial/</loc>
     <lastmod>2020-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
