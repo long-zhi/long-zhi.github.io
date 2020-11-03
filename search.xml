@@ -1,6 +1,1724 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>原码、反码、补码详解</title>
+    <url>/archives/c1974a4.html</url>
+    <content><![CDATA[<h1 id="机器数和真值"><a href="#机器数和真值" class="headerlink" title="机器数和真值"></a>机器数和真值</h1><h2 id="机器数"><a href="#机器数" class="headerlink" title="机器数"></a>机器数</h2><p>一个数在计算机中的<strong>二进制表示形式</strong>，叫做这个数的机器数。机器数是<strong>带符号的</strong>，在计算机用一个数的最高位存放符号，正数为 0，负数为 1。</p>
+<p>比如，十进制中的数 +3 ，计算机字长为 8 位，转换成二进制就是 00000011。如果是 -3 ，就是 10000011。这里的 00000011 和 10000011 就是机器数。</p>
+<h2 id="真值"><a href="#真值" class="headerlink" title="真值"></a>真值</h2><p>因为第一位是符号位，所以机器数的形式值就不等于真正的数值。例如上面的有符号数 10000011，其最高位 1 代表负，其真正数值是 -3 而不是形式值 131（10000011 转换成十进制等于 131）。为区别起见，将带符号位的机器数对应的真正数值称为机器数的真值。</p>
+<h1 id="原码、反码、补码的基础概念和计算方法"><a href="#原码、反码、补码的基础概念和计算方法" class="headerlink" title="原码、反码、补码的基础概念和计算方法"></a>原码、反码、补码的基础概念和计算方法</h1><p>原码、反码、补码是机器存储一个具体数字的编码方式。</p>
+<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>原码就是符号位加上真值的绝对值，即用第一位表示符号，其余位表示值。比如如果是 8 位二进制：</p>
+<ul>
+<li><code>[+1]原 = 0000 0001</code></li>
+<li><code>-1]原 = 1000 0001</code></li>
+</ul>
+<p>因为第一位是符号位，所以 8 位二进制数的取值范围就是：<code>[1111 1111 , 0111 1111]</code>，即<code>[-127 , 127]</code>。</p>
+<p>原码是人脑最容易理解和计算的表示方式。</p>
+<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><ul>
+<li>正数的反码是其本身。</li>
+<li>负数的反码是在其原码的基础上，符号位不变，其余各个位取反。</li>
+</ul>
+<p>下面是一个例子：</p>
+<ul>
+<li><code>[+1] = [00000001]原 = [00000001]反</code></li>
+<li><code>[-1] = [10000001]原 = [11111110]反</code></li>
+</ul>
+<p>可见如果一个反码表示的是负数，人脑无法直观的看出来它的数值，通常要将其转换成原码再计算。</p>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><ul>
+<li>正数的补码就是其本身。</li>
+<li>负数的补码是在其原码的基础上，符号位不变，其余各位取反，最后 + 1。(即在反码的基础上 + 1)</li>
+</ul>
+<p>下面是一个例子：</p>
+<ul>
+<li><code>[+1] = [00000001]原 = [00000001]反 = [00000001]补</code></li>
+<li><code>[-1] = [10000001]原 = [11111110]反 = [11111111]补</code></li>
+</ul>
+<p>对于负数，补码表示方式也是人脑无法直观看出其数值的，通常也需要转换成原码再计算其数值。</p>
+<h1 id="原码、反码、补码的由来"><a href="#原码、反码、补码的由来" class="headerlink" title="原码、反码、补码的由来"></a>原码、反码、补码的由来</h1><p>人脑可以知道第一位是符号位，在计算的时候我们会根据符号位，选择对真值区域的加减。但是对于计算机，加减乘数已经是最基础的运算，要设计的尽量简单。计算机辨别” 符号位” 显然会让计算机的基础电路设计变得十分复杂！于是人们想出了将符号位也参与运算的方法。我们知道，根据运算法则减去一个正数等于加上一个负数，即:<code>1 - 1 = 1 + (-1) = 0</code>。因此，机器可以只有加法而没有减法，这样计算机运算的设计就更简单了。</p>
+<p>原码：</p>
+<table>
+<thead>
+<tr>
+<th>正数</th>
+<th>正数（原码）</th>
+<th>负数</th>
+<th>负数（原码）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td>0</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>-1</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>-2</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>-3</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>-4</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>-5</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>-6</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>-7</td>
+<td>1111</td>
+</tr>
+</tbody></table>
+
+<p>我们希望 + 1 和 - 1 相加是 0，但计算机只能算出<code>0001+1001=1010 (-2)</code>。</p>
+<p>为了解决 “正负相加等于 0” 的问题，在 “原码” 的基础上，人们发明了 “反码”：</p>
+<table>
+<thead>
+<tr>
+<th>正数</th>
+<th>正数（反码）</th>
+<th>负数</th>
+<th>负数（反码）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td>0</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>-1</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>-2</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>-3</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>-4</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>-5</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>-6</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>-7</td>
+<td>1000</td>
+</tr>
+</tbody></table>
+
+<p>“原码” 变成 “反码” 时，完美的解决了 “正负相加等于 0” 的问题，过去的 + 1 和 - 1 相加，变成了<code>0001+1101=1111</code>，刚好反码表示方式中，1111 象征 - 0。</p>
+<p>人们总是进益求精，历史遗留下来的问题 —— 有两个零存在，+0 和 -0。我们希望只有一个 0，所以发明了” 补码”，同样是针对” 负数” 做处理的。从原来” 反码” 的基础上，补充一个新的代码，（+1）。</p>
+<table>
+<thead>
+<tr>
+<th>正数</th>
+<th>正数（补码）</th>
+<th>负数</th>
+<th>负数（补码）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td><del>0</del></td>
+<td><del>0000</del></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>-1</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>-2</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>-3</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>-4</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>-5</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>-6</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>-7</td>
+<td>1001</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>-8</td>
+<td>1000</td>
+</tr>
+</tbody></table>
+有得必有失，在补一位 1 的时候，要丢掉最高位。我们要处理” 反码” 中的”-0”，当 1111 再补上一个 1 之后，变成了 10000，丢掉最高位就是 0000，刚好和左边正数的 0 完美融合。这样就解决了 + 0 和 - 0 同时存在的问题。
+
+<p>另外” 正负数相加等于 0” 的问题，同样得到满足，举例，3 和（-3）相加，<code>0011 + 1101 =10000</code>，丢掉最高位，就是 0000（0）。</p>
+<p>以上就是” 补码” 的存在方式。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>计算机原理</category>
+      </categories>
+      <tags>
+        <tag>计算机基础</tag>
+        <tag>计算机原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P2P 技术科普</title>
+    <url>/archives/16c5940f.html</url>
+    <content><![CDATA[<p><code>迅雷，msn，skype，pplive, ppstream, BT……</code>铺天盖地的 P2P 应用已然一定程度上改变了我们上网的习惯，方式以及质量。如果你想了解 P2P 技术，又懒得找，懒得看那些繁琐，模棱两可又及其抽象的中文资料，这里应该是一个你想来的地方。 我的目的是用<strong>比较俗的语言来对 P2P 技术做一个系统的介绍</strong>。这里，我会尽量避开不必要的术语，只告诉并解释你需要知道的。当然我不是什么专家，不过请你相信我回尽量保证我所提供信息的准确性和严谨性。我们没有任何商业目的，您的每一次点击都将对我国的慈善事业做出一份贡献。在此谨代表站长 kakarott 先生向诸位表示感谢。</p>
+<h1 id="P2P-基本原理"><a href="#P2P-基本原理" class="headerlink" title="P2P 基本原理"></a>P2P 基本原理</h1><p>在 P2P 技术之前，网络中的所有人大多都是通过一种叫做<strong>“客户端 / 服务器”</strong>的模式被组织在一起。<strong>一个服务器向很多客户提供服务</strong>。</p>
+<div class="note simple"><p>举个例子吧： kaka 有一台机子，里面存有全套的央视春晚，他想把他的挚爱分享给所有人。于是不论是通过广告还是别的什么方式，很多人知道了 kaka 有这个资源的消息。通过网络，他们就可以向 kaka 建立连接并从他的机子上下载。这样就形成了一个以 kaka 为中心的小型网络。这当中，kaka 是服务器，其他人都是客户端。如图一：<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/p2p1.webp"></p>
+</div>
+
+<p>这样的模式中，对服务器的性能及相应带宽要求比较高，如果有成千上万的人都想下春晚，kaka 的海淀在线肯定就操蛋了。当然一般的公司不会用一个家用电脑做服务器。假设有存在一个特别强大的服务器，以及足够的带宽。我们来看看这种模式天生的一些弱点：</p>
+<ol>
+<li>服务器扮演的角色太重了，网络的一切都指着他。假如 kaka 不小心把电脑从 6 楼扔下去，<strong>整个网络就都瘫痪了</strong>。请注意，想要把一个服务器弄失灵的方法太多了，所以使用这中模式的风险是比较大的。</li>
+<li>网络的资源利用率低下。所有客户都只能从服务器那获得资源，因为他们之间不认识，甚至不知道相互的存在。然而，现实中，可能每个人都有自己独门的资源，比如日天有无数游戏，威哥有无数动漫电影……. 总之，整个网络的资源可能是服务器的无数倍。但是苦无客户端之间没有交流的渠道，所以<strong>资源无法互通</strong>。</li>
+<li>关于完美服务器的假设，基本不成立。</li>
+</ol>
+<p>P2P 技术就是要解决上述的问题已达到如下的效果： 所有人的资源都可以被别人找到并使用。没有哪个人特别重要，<strong>人人平等（peer-to-peer 就是这个意思）</strong>，任何一个人失灵都不会导致网络的死亡。</p>
+<p>这里以 Gnutella 为例，对 P2P 基本原理进行介绍。 Gnutella 是一种典型的 P2P 网络，很具代表性，以其为基础的软件有 Limewire。这种网络里，没有服务器。用户之间任意连接，如图二左所示：<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/p2p2.webp"></p>
+<p>Kaka 认识 ‘日天’‘curt’‘威’， 日天认识‘小胖’，威认识‘候泡’，Curt 认识 ‘路’。当然真正的网络有至少有成百上千个用户，这里只是展示一个小的局部。</p>
+<p>这个网络如何工作呢？比如 kaka 想要找一首叫‘走进新时代’的歌。一个基本交易要经过如下几步：</p>
+<ol>
+<li>kaka 给他的邻居们每人发一个请求消息，‘你们丫谁有走进新时代？’</li>
+<li>日天，威，curt 吐血，‘谁 tm 听这歌啊，我没有’。于是把 kaka 的消息转发给他们的邻居：日天发给小胖，威发给候泡，curt 发给路总。</li>
+<li>当 kaka 邻居的邻居们收到这个消息后，同样，先看看自己有没有。比如，候泡有这个歌，他就可以给 kaka 发个消息：‘爷这有，来下吧’</li>
+<li>卡卡于是可以直接去候泡那下载。</li>
+</ol>
+<p>很多人说在 p2p 里面，<strong>所有人即是服务器又是客户端</strong>。应该这样理解，比如，kaka 在上例中就是个客户端。 但当有人要想要春晚的时候，只要那人的请求消息能被转到 kaka 这，kaka 就可以成为一个服务器。</p>
+<p>最后要说的是 P2P 的现状以及应用。目前 P2P 与传统的‘客户端 / 服务器’模式可以说分庭抗礼，互为补充。那么为什么没能取而代之呢？因为，P2P 也有自身的弱点，其中包括：</p>
+<ol>
+<li>占带宽（50% 以上的网络带宽都是 P2P 占用的，搜索方法不灵）</li>
+<li>安全（不具体解释了，太专业了，总之和加密那些东西有关）</li>
+<li>诚信（没有中央控制，你传个毛片也可以告诉你是新闻联播）</li>
+<li>自私（我什么都不付出，有也说没有）</li>
+<li>知识产权保护（在中国相当于盗版的集散地）等等。 至于这些问题的对策以及其不足，以后会做专题介绍。</li>
+</ol>
+<p>P2P 的应用不少但大都停留在比较低端的服务，比如文件共享，msn，在线视频这一类。实际上作为一种新的模式，其生命力应该不止如此。</p>
+<h1 id="非结构化-P2P-及其搜索方法"><a href="#非结构化-P2P-及其搜索方法" class="headerlink" title="非结构化 P2P 及其搜索方法"></a>非结构化 P2P 及其搜索方法</h1><p>上集回顾，传统的‘客户端 / 服务器’模式有一些问题，比如，单一故障点，低资源利用率，高带宽要求。我说 P2P 客服了这些问题，因为没有中央服务器了。这里，我要强调一下，并不是说只要有中央的东西就是失败，只要这个中央的东西不是那个实际掌握资源的人就可以接受。下面，简要介绍一下 P2P 技术的发展。</p>
+<h2 id="第一代、Napster"><a href="#第一代、Napster" class="headerlink" title="第一代、Napster"></a>第一代、Napster</h2><p>这一代的 p2p 只是<strong>把资源从服务器上拿掉了</strong>。中央服务器上只有一个目录。这个目录记录着哪个用户有哪些资源。要建立这样的一个目录，要求网络中的每个人都要告诉这个服务器：他有什么资源。</p>
+<ol>
+<li>Kaka 发一个资源请求向中央服务器。</li>
+<li>这个服务器然后检索目录，并告诉 Kaka，日天有他要的东西。</li>
+<li>Kaka 直接去找日天下东西。</li>
+</ol>
+<p>这样做，解决了高带宽需求（服务器只需要转发一些消息，而不用真格的提供资源），低资源利用率的问题（网络里谁都可以发挥作用了）。但是，他仍然面临严重的‘单一故障点’风险。同时，napster 的出现严重挑战了知识产权法，并最终导致其在 2001 年被勒令关闭。</p>
+<h2 id="第二代、非结构化-P2P"><a href="#第二代、非结构化-P2P" class="headerlink" title="第二代、非结构化 P2P"></a>第二代、非结构化 P2P</h2><p>Napster 帝国的坍塌，导致了江湖上群雄并起，老的规矩也就法不责众了，其中 Gnutella 等非结构的 P2P 脱颖而出。非结构化说白了就是，用户之间瞎连，没有规定谁必须和谁有连接，基本随机。其基本搜索方法是地毯式的，如果这样的搜索能够遍及整个网络。那么，只要资源存在就一定能一网打尽。</p>
+<p>但是上天要求每一个用户都要给自己资源请求加一个限制，于是每个资源请求都只能走几步就必须停了，即使什么都还没找到。因为地毯式的搜索要消耗大量的网络资源，比如，平均一个人有 4 个邻居，如果资源请求的限制为 5. 那么一共需要 4+42+43+44+45=<strong>1364</strong>个信息，每个信息多大呢？大概几 k 到几十 k，也就是说一个信息就<strong>至少几m</strong>。一个人一个信息就这么大了，想想一个大网络，每人十几个邻居，限制提高到 7 或 8. 这就是为什么中国很多地方，尤其是网吧限制 p2p. 因为他们可怜的带宽都被 p2p 的请求信息占用了。</p>
+<p>当然，p2p 的设计者们都看到了问题，于是提出了很多<strong>新的搜索方法</strong>。这些方法可以分成两种：<strong>根据以前的搜索信息对以后的搜索进行预测；瞎找，碰运气</strong>。</p>
+<ol>
+<li>根据经验的搜索准确率可能会高一点，但是这种方法要求每个用户都要建一些表来记录以前的数据，而且每次发送或接到请求都要经过一系列的计算才能决定发给哪个邻居。而且程序上难以实现，更重要的是平均准确率并不比瞎找好很多。这里就不多做介绍了。</li>
+<li>瞎 B 找的，还基本上以地毯式为基础。我介绍两种最常见的：<ul>
+<li><strong>K-walkers</strong>: 第一个人先把消息发给 k 个邻居，具体多少都自己定。 然后从第一轮邻居开始都只把消息转发给他们的一个邻居。</li>
+<li><strong>水纹式（涟漪式）</strong>：先定一个限制。第一个人先发给第一层的邻居。如果第一层不灵，他们再发给他们的邻居。一旦找到资源就不再继续了。这样的话最坏的情况就是原始的地毯式。好点的情况就是，消息没到限制就找到了相应的资源，就停了。</li>
+</ul>
+</li>
+</ol>
+<p>这种非结构的 p2p 的优点在于，操作简单，完全不需要中央控制，所以又称为‘存（纯）p2p’。其缺点同样明显，要么牺牲搜索成功率，要么牺牲带宽占有量。</p>
+<p>于是又有人提出了<strong>结构化的P2P</strong>。数学的东西我就不说了，基本的思想就是：</p>
+<ol>
+<li>每个用户，资源都得有个名字。</li>
+<li>有一种数学加密方法，对这些名字加密。且保证如果名字不同，那么得到的结果就不同。</li>
+<li>如一资源和一用户加密后结果接近，就把该资源的地址放到相应的用户身上。</li>
+</ol>
+<div class="note simple"><p>举个例子：</p>
+<p>有三个人，日天，kaka，威哥。三个资源：“一剪梅.mp3”,“八荣八耻歌歌词.txt”,“xxx.avi”，对这六个东西加密后分别得到： 100，200，3000， 3002， 233，98，‘xxx.avi’的下载地址就会被分配到‘日天’的机子上，于是当你想搜索 “xxx.avi”，你的消息就会通过某种方法被传到到日天那。</p>
+</div>
+<p>这样，结构化的 P2P 就可以保证，只要网络里有相应的资源，就一定能找到。但是由于其程序实现的难度，加之维护网络所需的投入太大，并不被经常使用。尽管他有很漂亮的数据。</p>
+<p>当然还有第三代的，以后再做专题。</p>
+<h1 id="BT-工作原理简介"><a href="#BT-工作原理简介" class="headerlink" title="BT 工作原理简介"></a>BT 工作原理简介</h1><p>2002年左右，程小胖告诉我有一种软件可以下片，人越多越快。很神奇。请注意，并不是所有的 P2P 技术都能做到这点，其他的 P2P 基本上只是<strong>提高网络资源的利用率，但是，网络中的每一单买卖都仍然采用，1 对 1 的客户端服务器模式</strong>。回顾一下之前讲过的 P2P，去掉技术细节，做一单买卖可以这样描述：</p>
+<ol>
+<li>有人向网络发一个资源请求（请求者）。有很多种搜索方法可供选择。</li>
+<li>当一个有该的资源的人（提供者）收到这个的请求，他会设法通知请求者：他那有其想要的东西。</li>
+<li>于是请求者去找提供者下载。</li>
+</ol>
+<p>这样做的一个<strong>缺点</strong>就是，比如，我选择了一个比较矬的提供者，而那人的带宽只有 30k，然而网络中还有很多潜在提供者，可能有的人能达到 30m。但是由于我在选择时只无法对对方的带宽做出判断而无福消受。</p>
+<p>这样做还有一个致命的漏洞！比如，我收到一个关于 “海贼王” 的请求，而且我有全套。按理说我应该通知请求者，让他来我这下。但是，让他来我这里下东西，对我来说，除了占我带宽，增加我中毒的风险，没有任何的好处。那我凭什么主动邀请他来？？我何不装 ytd，对该请求视而不见？非常不幸的是，跟我有相同想法的孙子在一般 p2p 网络里面占了大多数，甚至绝大多数。这就是搭便车问题（free riding）。所幸还是有一些大侠的，无偿的提供着大量资源，他们的存在使得那些一般的 P2P 得以侥幸存活。</p>
+<p>其实，如果仅仅依赖活雷锋们，P2P 就失去了其人人平等的意义。大侠们回复了网络中绝大多数的请求，于是人人都愿意与这些人建立连接，因为这样能更快的找到资源。于是这些大侠们就成了变得越来越红，网络的拓扑结构（我装 b 了，这个词没法解释，但是我实在找不出别的词了，别在意，看下图。）将会发生变化。<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/p2p3.webp"></p>
+<p><strong>这样的变化很不好，因为 P2P 又逐渐变成了客户端 / 服务器模式了</strong>。</p>
+<p>于是，不论是学术界还是产业界都意识到，如果没有一种鼓励机制来刺激提供者，P2P 将失去其天生的魅力。在众多解决方案中 BT 脱颖而出，迅速发展了起来。BT 是简称，在国外可能会产生歧义，如 British Telecommunications 等等。所以大家尽量还是用全称，尤其是和外国人说的时候 Bit-Torrent。有人说 BT 是第三代的 P2P，我认为这是因为他把 P2P 的理念更加深入的实现了。</p>
+<p>在 BitTorrent 当中，所有的资源都被切成很小的等份（碎片）。这里，你不需要知道怎么切，只需要知道有一种技术可以把一个文件切成很多小等份，还能把这些等份再重新的组装。在这个技术的支持下，bittorrent 中所有有相同请求的用户可以相互传资源的碎片。而且谁传的多，谁就将获得更多。具体技术如下：</p>
+<ul>
+<li><p>首先，有同样资源请求的人怎么能相互认识呢？bittorrent 中每一个资源都对应有一个叫<strong>tracker</strong>的服务器。只要你对一个资源有意思，你就必须先联系这个资源相应的 tracker。或者你想要共享一个资源你也必须联系 tracker。这样的话，tracker 就掌握着整个网络中<strong>谁想要这个资源</strong>以及<strong>谁有这个资源</strong>。当然，为了节约，一个 tracker 可以负责多种资源。</p>
+</li>
+<li><p>那么，怎么找到 tracker 呢？大家可能听说过做种子，每个有完整资源的人都可以做种子，其实就是生成一个后缀是.torrent 的文件。每一款 bittorrent 应用软件都会自动帮你生成，所以不用担心。你只要知道这个文件中包括两部分内容：<code>1，tracker的地址。2，相关资源的一些属性，比如大小，名字等等</code>。这个 torrent 文件一般都可以发布在网上，比如某某人的博客，或者论坛上。</p>
+</li>
+<li><p>于是，大家可以从网上找到 torrent 文件，并从中知道 tracker 在哪。再通过联系 tracker 得到一个<strong>名单</strong>，其中包括一部分正在下载或有完整资源的用户。这时候，你就可以与这些人建立链接，并分别从他们身上要不同的碎片。当然要相同资源的人越多，你可以建立连接的人就越多，也就更可能早日得到所有碎片。</p>
+</li>
+<li><p>还有一点很重要就是，bittorrent 有自己的<strong>鼓励机制</strong>，就是说，你做的贡献大就会被鼓励，你不做贡献就会被惩罚。具体的操作是，每个人在下载的同时也上传。上传给谁呢？谁给我给的多，我就传给谁。而且我只传个前 4 名的（视具体软件具体分析，也可能是前 8 名或其他）。</p>
+</li>
+</ul>
+<div class="note simple"><p>举个例子，比如 kaka 下载‘春晚’，先从某春晚发烧友论坛下载了一个叫<code>“春晚全集.torrent”</code>的文件。kaka 可以联系文件中的 tracker，并得知‘程胖，日天，威，候泡，鸣’有想关资源。于是 kaka 分别与这五个人建立连接。通过检测链接的流量，kaka 可知，比如从程胖那下载速度可达 200k/s, 日天 100k/s, 威 150k/s, 候泡 70k/s, 鸣 2k/s。于是 kaka 在上传的时候就不给鸣上传，而只给前 4 名传。由于鸣的上传只有 2k/s，所以不太可能有人给他传，所以时间一长他可能会意识到，可能自己给的太少了，于是把上传带宽增加到了 500k/s。kaka 突然意识到，从鸣那里可以得到很好的速度，于是停止给候泡（70k/s）传转而给鸣传。（总给那些速度最好的人上传是为了能留住他们，当然，只有你传的足够多才能留得住人家）。<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/p2p4.webp"></p>
+</div>
+
+<p>bittorrent 大概的工作原理就是这样了，还有些细节这里不多说了。我个人认为 Bittorrent 的设计还是很不错的，但是其只适用于文件共享，或视频共享。然而网络中的资源又何止电影音乐？？绝大多数的资源是不可分的，bittorrent 的局限性还是相当大！ 另一点可悲的是，大多数宽带用户是 ADSL，也就是说他们的下载上传的带宽上限差别很大，比如，下载最大 2m/s，上传却只有 100k/s。这也限制了 bittorrent 的发挥。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>计算机基础</tag>
+        <tag>网络</tag>
+        <tag>P2P</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国家统计局统计用区划代码和城乡划分代码爬虫 -（二）总体实现</title>
+    <url>/archives/4da64f30.html</url>
+    <content><![CDATA[<p>本文详细分析了国家统计局统计用区划代码和城乡划分代码爬虫的实现过程，这是第二篇，详细分析了爬取全过程。</p>
+<p>详细的代码开源在 GitHub 上：<a href="https://github.com/dta0502/NBSPRC-spider">NBSPRC-spider</a>。</p>
+<h1 id="总体思路说明"><a href="#总体思路说明" class="headerlink" title="总体思路说明"></a>总体思路说明</h1><p>首先我定义了一个网页爬取函数，然后依次定义省级代码获取函数、市级代码获取函数、区级代码获取函数、街道代码获取函数、居委会代码获取函数，这些函数都会调用网页爬取函数。其中区级代码获取函数、街道代码获取函数、居委会代码获取函数这三个函数都是多线程实现爬取的。最后我将爬取得到的数据输出为 csv 格式文件。</p>
+<h2 id="库函数导入"><a href="#库函数导入" class="headerlink" title="库函数导入"></a>库函数导入</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line">import csv</span><br><span class="line">import time</span><br><span class="line">import pandas as pd</span><br><span class="line">from queue import Queue</span><br><span class="line">from threading import Thread</span><br><span class="line">from fake_useragent import UserAgent</span><br></pre></td></tr></table></figure>
+
+<h2 id="网页爬取函数"><a href="#网页爬取函数" class="headerlink" title="网页爬取函数"></a>网页爬取函数</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 下面加入了num_retries这个参数，经过测试网络正常一般最多retry一次就能获得结果</span><br><span class="line">def getUrl(url,num_retries &#x3D; 5):</span><br><span class="line">    ua &#x3D; UserAgent()</span><br><span class="line">    headers &#x3D; &#123;&#39;User-Agent&#39;:ua.random&#125;</span><br><span class="line">    try:</span><br><span class="line">        response &#x3D; requests.get(url,headers &#x3D; headers)</span><br><span class="line">        response.encoding &#x3D; response.apparent_encoding</span><br><span class="line">        data &#x3D; response.text</span><br><span class="line">        return data</span><br><span class="line">    except Exception as e:</span><br><span class="line">        if num_retries &gt; 0:</span><br><span class="line">            time.sleep(10)</span><br><span class="line">            print(url)</span><br><span class="line">            print(&quot;requests fail, retry!&quot;)</span><br><span class="line">            return getUrl(url,num_retries-1) #递归调用</span><br><span class="line">        else:</span><br><span class="line">            print(&quot;retry fail!&quot;)</span><br><span class="line">            print(&quot;error: %s&quot; % e + &quot; &quot; + url)</span><br><span class="line">            return #返回空值，程序运行报错</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取省级代码函数"><a href="#获取省级代码函数" class="headerlink" title="获取省级代码函数"></a>获取省级代码函数</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def getProvince(url):</span><br><span class="line">    province &#x3D; []</span><br><span class="line">    data &#x3D; getUrl(url)</span><br><span class="line">    selector &#x3D; etree.HTML(data)</span><br><span class="line">    provinceList &#x3D; selector.xpath(&#39;&#x2F;&#x2F;tr[@class&#x3D;&quot;provincetr&quot;]&#39;)</span><br><span class="line">    for i in provinceList:</span><br><span class="line">        provinceName &#x3D; i.xpath(&#39;td&#x2F;a&#x2F;text()&#39;) #这里如果采用&#x2F;&#x2F;a&#x2F;text()路径会出现问题！！</span><br><span class="line">        provinceLink &#x3D; i.xpath(&#39;td&#x2F;a&#x2F;@href&#39;)</span><br><span class="line">        for j in range(len(provinceLink)):</span><br><span class="line">            provinceURL &#x3D; url[:-10] + provinceLink[j] #根据获取到的每个省的链接进行补全，得到真实的URL。</span><br><span class="line">            province.append(&#123;&#39;name&#39;:provinceName[j],&#39;link&#39;:provinceURL&#125;)</span><br><span class="line">    return province</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pro &#x3D; getProvince(&quot;http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;index.html&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_province &#x3D; pd.DataFrame(pro)</span><br><span class="line">df_province[&#39;link&#39;]</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+1     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+2     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+3     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...   
+4     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+5     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+6     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+7     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+8     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+9     http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+10    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+11    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+12    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+13    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+14    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+15    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+16    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+17    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+18    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+19    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+20    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+21    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+22    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+23    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+24    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+25    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+26    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+27    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+28    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+29    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+30    http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...
+Name: link, dtype: object</code></pre>
+<h2 id="信息写入-csv-文件"><a href="#信息写入-csv-文件" class="headerlink" title="信息写入 csv 文件"></a>信息写入 csv 文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_province.to_csv(&#39;province.csv&#39;, sep&#x3D;&#39;,&#39;, header&#x3D;True, index&#x3D;False)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取市级代码函数"><a href="#获取市级代码函数" class="headerlink" title="获取市级代码函数"></a>获取市级代码函数</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def getCity(url_list):</span><br><span class="line">    city_all &#x3D; []</span><br><span class="line">    for url in url_list:</span><br><span class="line">        data &#x3D; getUrl(url)</span><br><span class="line">        selector &#x3D; etree.HTML(data)</span><br><span class="line">        cityList &#x3D; selector.xpath(&#39;&#x2F;&#x2F;tr[@class&#x3D;&quot;citytr&quot;]&#39;)</span><br><span class="line">        #下面是抓取每一个城市的代码、URL</span><br><span class="line">        city &#x3D; []</span><br><span class="line">        for i in cityList:</span><br><span class="line">            cityCode &#x3D; i.xpath(&#39;td[1]&#x2F;a&#x2F;text()&#39;)</span><br><span class="line">            cityLink &#x3D; i.xpath(&#39;td[1]&#x2F;a&#x2F;@href&#39;)</span><br><span class="line">            cityName &#x3D; i.xpath(&#39;td[2]&#x2F;a&#x2F;text()&#39;)</span><br><span class="line">            for j in range(len(cityLink)):</span><br><span class="line">                cityURL &#x3D; url[:-7] + cityLink[j]</span><br><span class="line">                city.append(&#123;&#39;name&#39;:cityName[j],&#39;code&#39;:cityCode[j],&#39;link&#39;:cityURL&#125;)</span><br><span class="line">        city_all.extend(city) #所有省的城市信息合并在一起</span><br><span class="line">    return city_all</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">city &#x3D; getCity(df_province[&#39;link&#39;])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_city &#x3D; pd.DataFrame(city)</span><br><span class="line">df_city</span><br></pre></td></tr></table></figure>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th><center>code</center></th>
+      <th><center>link</center></th>
+      <th><center>name</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>110100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 市辖区</td>
+    </tr>
+    <tr>
+      <th> 1</th>
+      <td>120100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 市辖区</td>
+    </tr>
+    <tr>
+      <th> 2</th>
+      <td>130100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 石家庄市</td>
+    </tr>
+    <tr>
+      <th> 3</th>
+      <td>130200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 唐山市</td>
+    </tr>
+    <tr>
+      <th> 4</th>
+      <td>130300000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 秦皇岛市</td>
+    </tr>
+    <tr>
+      <th> 5</th>
+      <td>130400000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 邯郸市</td>
+    </tr>
+    <tr>
+      <th> 6</th>
+      <td>130500000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 邢台市</td>
+    </tr>
+    <tr>
+      <th> 7</th>
+      <td>130600000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 保定市</td>
+    </tr>
+    <tr>
+      <th> 8</th>
+      <td>130700000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 张家口市</td>
+    </tr>
+    <tr>
+      <th> 9</th>
+      <td>130800000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 承德市</td>
+    </tr>
+    <tr>
+      <th> 10</th>
+      <td>130900000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 沧州市</td>
+    </tr>
+    <tr>
+      <th> 11</th>
+      <td>131000000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 廊坊市</td>
+    </tr>
+    <tr>
+      <th> 12</th>
+      <td>131100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 衡水市</td>
+    </tr>
+    <tr>
+      <th> 13</th>
+      <td>139000000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 省直辖县级行政区划</td>
+    </tr>
+    <tr>
+      <th> 14</th>
+      <td>140100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 太原市</td>
+    </tr>
+    <tr>
+      <th> 15</th>
+      <td>140200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 大同市</td>
+    </tr>
+    <tr>
+      <th> 16</th>
+      <td>140300000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阳泉市</td>
+    </tr>
+    <tr>
+      <th> 17</th>
+      <td>140400000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 长治市</td>
+    </tr>
+    <tr>
+      <th> 18</th>
+      <td>140500000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 晋城市</td>
+    </tr>
+    <tr>
+      <th> 19</th>
+      <td>140600000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 朔州市</td>
+    </tr>
+    <tr>
+      <th> 20</th>
+      <td>140700000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 晋中市</td>
+    </tr>
+    <tr>
+      <th> 21</th>
+      <td>140800000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 运城市</td>
+    </tr>
+    <tr>
+      <th> 22</th>
+      <td>140900000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 忻州市</td>
+    </tr>
+    <tr>
+      <th> 23</th>
+      <td>141000000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 临汾市</td>
+    </tr>
+    <tr>
+      <th> 24</th>
+      <td>141100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 吕梁市</td>
+    </tr>
+    <tr>
+      <th> 25</th>
+      <td>150100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 呼和浩特市</td>
+    </tr>
+    <tr>
+      <th> 26</th>
+      <td>150200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 包头市</td>
+    </tr>
+    <tr>
+      <th> 27</th>
+      <td>150300000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 乌海市</td>
+    </tr>
+    <tr>
+      <th> 28</th>
+      <td>150400000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 赤峰市</td>
+    </tr>
+    <tr>
+      <th> 29</th>
+      <td>150500000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 通辽市</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>314</th>
+      <td>622900000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 临夏回族自治州</td>
+    </tr>
+    <tr>
+      <th> 315</th>
+      <td>623000000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 甘南藏族自治州</td>
+    </tr>
+    <tr>
+      <th> 316</th>
+      <td>630100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 西宁市</td>
+    </tr>
+    <tr>
+      <th> 317</th>
+      <td>630200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 海东市</td>
+    </tr>
+    <tr>
+      <th> 318</th>
+      <td>632200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 海北藏族自治州</td>
+    </tr>
+    <tr>
+      <th> 319</th>
+      <td>632300000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 黄南藏族自治州</td>
+    </tr>
+    <tr>
+      <th> 320</th>
+      <td>632500000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 海南藏族自治州</td>
+    </tr>
+    <tr>
+      <th> 321</th>
+      <td>632600000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 果洛藏族自治州</td>
+    </tr>
+    <tr>
+      <th> 322</th>
+      <td>632700000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 玉树藏族自治州</td>
+    </tr>
+    <tr>
+      <th> 323</th>
+      <td>632800000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 海西蒙古族藏族自治州</td>
+    </tr>
+    <tr>
+      <th> 324</th>
+      <td>640100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 银川市</td>
+    </tr>
+    <tr>
+      <th> 325</th>
+      <td>640200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 石嘴山市</td>
+    </tr>
+    <tr>
+      <th> 326</th>
+      <td>640300000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 吴忠市</td>
+    </tr>
+    <tr>
+      <th> 327</th>
+      <td>640400000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 固原市</td>
+    </tr>
+    <tr>
+      <th> 328</th>
+      <td>640500000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 中卫市</td>
+    </tr>
+    <tr>
+      <th> 329</th>
+      <td>650100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 乌鲁木齐市</td>
+    </tr>
+    <tr>
+      <th> 330</th>
+      <td>650200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 克拉玛依市</td>
+    </tr>
+    <tr>
+      <th> 331</th>
+      <td>650400000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 吐鲁番市</td>
+    </tr>
+    <tr>
+      <th> 332</th>
+      <td>650500000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 哈密市</td>
+    </tr>
+    <tr>
+      <th> 333</th>
+      <td>652300000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 昌吉回族自治州</td>
+    </tr>
+    <tr>
+      <th> 334</th>
+      <td>652700000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 博尔塔拉蒙古自治州</td>
+    </tr>
+    <tr>
+      <th> 335</th>
+      <td>652800000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 巴音郭楞蒙古自治州</td>
+    </tr>
+    <tr>
+      <th> 336</th>
+      <td>652900000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿克苏地区</td>
+    </tr>
+    <tr>
+      <th> 337</th>
+      <td>653000000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 克孜勒苏柯尔克孜自治州</td>
+    </tr>
+    <tr>
+      <th> 338</th>
+      <td>653100000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 喀什地区</td>
+    </tr>
+    <tr>
+      <th> 339</th>
+      <td>653200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 和田地区</td>
+    </tr>
+    <tr>
+      <th> 340</th>
+      <td>654000000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 伊犁哈萨克自治州</td>
+    </tr>
+    <tr>
+      <th> 341</th>
+      <td>654200000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 塔城地区</td>
+    </tr>
+    <tr>
+      <th> 342</th>
+      <td>654300000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿勒泰地区</td>
+    </tr>
+    <tr>
+      <th> 343</th>
+      <td>659000000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 自治区直辖县级行政区划</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="信息写入-csv-文件-1"><a href="#信息写入-csv-文件-1" class="headerlink" title="信息写入 csv 文件"></a>信息写入 csv 文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_city.to_csv(&#39;city.csv&#39;, sep&#x3D;&#39;,&#39;, header&#x3D;True, index&#x3D;False)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取区级代码函数-—-多线程实现"><a href="#获取区级代码函数-—-多线程实现" class="headerlink" title="获取区级代码函数 — 多线程实现"></a>获取区级代码函数 — 多线程实现</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def getCounty(url_list):</span><br><span class="line">    queue_county &#x3D; Queue() #队列</span><br><span class="line">    thread_num &#x3D; 10 #进程数</span><br><span class="line">    county &#x3D; [] #记录区级信息的字典（全局）</span><br><span class="line">    </span><br><span class="line">    def produce_url(url_list):</span><br><span class="line">        for url in url_list:</span><br><span class="line">            queue_county.put(url) # 生成URL存入队列，等待其他线程提取</span><br><span class="line">    </span><br><span class="line">    def getData():</span><br><span class="line">        while not queue_county.empty(): # 保证url遍历结束后能退出线程</span><br><span class="line">            url &#x3D; queue_county.get() # 从队列中获取URL</span><br><span class="line">            data &#x3D; getUrl(url)</span><br><span class="line">            selector &#x3D; etree.HTML(data)</span><br><span class="line">            countyList &#x3D; selector.xpath(&#39;&#x2F;&#x2F;tr[@class&#x3D;&quot;countytr&quot;]&#39;)</span><br><span class="line">            #下面是爬取每个区的代码、URL</span><br><span class="line">            for i in countyList:</span><br><span class="line">                countyCode &#x3D; i.xpath(&#39;td[1]&#x2F;a&#x2F;text()&#39;)</span><br><span class="line">                countyLink &#x3D; i.xpath(&#39;td[1]&#x2F;a&#x2F;@href&#39;)</span><br><span class="line">                countyName &#x3D; i.xpath(&#39;td[2]&#x2F;a&#x2F;text()&#39;)</span><br><span class="line">                #上面得到的是列表形式的，下面将其每一个用字典存储</span><br><span class="line">                for j in range(len(countyLink)):</span><br><span class="line">                    countyURL &#x3D; url[:-9] + countyLink[j]</span><br><span class="line">                    county.append(&#123;&#39;code&#39;:countyCode[j],&#39;link&#39;:countyURL,&#39;name&#39;:countyName[j]&#125;)</span><br><span class="line">                </span><br><span class="line">    def run(url_list):</span><br><span class="line">        produce_url(url_list)</span><br><span class="line">    </span><br><span class="line">        ths &#x3D; []</span><br><span class="line">        for _ in range(thread_num):</span><br><span class="line">            th &#x3D; Thread(target &#x3D; getData)</span><br><span class="line">            th.start()</span><br><span class="line">            ths.append(th)</span><br><span class="line">        for th in ths:</span><br><span class="line">            th.join()</span><br><span class="line">            </span><br><span class="line">    run(url_list)</span><br><span class="line">    return county</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">county &#x3D; getCounty(df_city[&#39;link&#39;])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_county &#x3D; pd.DataFrame(county)</span><br><span class="line">df_county</span><br></pre></td></tr></table></figure>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>link</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>130702000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 桥东区</td>
+    </tr>
+    <tr>
+      <th> 1</th>
+      <td>130703000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 桥西区</td>
+    </tr>
+    <tr>
+      <th> 2</th>
+      <td>130705000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 宣化区</td>
+    </tr>
+    <tr>
+      <th> 3</th>
+      <td>130706000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 下花园区</td>
+    </tr>
+    <tr>
+      <th> 4</th>
+      <td>130708000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 万全区</td>
+    </tr>
+    <tr>
+      <th> 5</th>
+      <td>130709000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 崇礼区</td>
+    </tr>
+    <tr>
+      <th> 6</th>
+      <td>130722000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 张北县</td>
+    </tr>
+    <tr>
+      <th> 7</th>
+      <td>130723000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 康保县</td>
+    </tr>
+    <tr>
+      <th> 8</th>
+      <td>130724000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 沽源县</td>
+    </tr>
+    <tr>
+      <th> 9</th>
+      <td>130725000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 尚义县</td>
+    </tr>
+    <tr>
+      <th> 10</th>
+      <td>130726000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 蔚县</td>
+    </tr>
+    <tr>
+      <th> 11</th>
+      <td>130727000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阳原县</td>
+    </tr>
+    <tr>
+      <th> 12</th>
+      <td>130602000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 竞秀区</td>
+    </tr>
+    <tr>
+      <th> 13</th>
+      <td>130606000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 莲池区</td>
+    </tr>
+    <tr>
+      <th> 14</th>
+      <td>130607000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 满城区</td>
+    </tr>
+    <tr>
+      <th> 15</th>
+      <td>130608000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 清苑区</td>
+    </tr>
+    <tr>
+      <th> 16</th>
+      <td>130609000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 徐水区</td>
+    </tr>
+    <tr>
+      <th> 17</th>
+      <td>130623000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 涞水县</td>
+    </tr>
+    <tr>
+      <th> 18</th>
+      <td>130624000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阜平县</td>
+    </tr>
+    <tr>
+      <th> 19</th>
+      <td>130626000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 定兴县</td>
+    </tr>
+    <tr>
+      <th> 20</th>
+      <td>130627000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 唐县</td>
+    </tr>
+    <tr>
+      <th> 21</th>
+      <td>130628000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 高阳县</td>
+    </tr>
+    <tr>
+      <th> 22</th>
+      <td>130629000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 容城县</td>
+    </tr>
+    <tr>
+      <th> 23</th>
+      <td>130630000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 涞源县</td>
+    </tr>
+    <tr>
+      <th> 24</th>
+      <td>130631000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 望都县</td>
+    </tr>
+    <tr>
+      <th> 25</th>
+      <td>130632000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 安新县</td>
+    </tr>
+    <tr>
+      <th> 26</th>
+      <td>130633000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 易县</td>
+    </tr>
+    <tr>
+      <th> 27</th>
+      <td>130634000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 曲阳县</td>
+    </tr>
+    <tr>
+      <th> 28</th>
+      <td>130635000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 蠡县</td>
+    </tr>
+    <tr>
+      <th> 29</th>
+      <td>130636000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 顺平县</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2822</th>
+      <td>653128000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 岳普湖县</td>
+    </tr>
+    <tr>
+      <th> 2823</th>
+      <td>653129000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 伽师县</td>
+    </tr>
+    <tr>
+      <th> 2824</th>
+      <td>654221000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 额敏县</td>
+    </tr>
+    <tr>
+      <th> 2825</th>
+      <td>652901000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿克苏市</td>
+    </tr>
+    <tr>
+      <th> 2826</th>
+      <td>654223000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 沙湾县</td>
+    </tr>
+    <tr>
+      <th> 2827</th>
+      <td>652922000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 温宿县</td>
+    </tr>
+    <tr>
+      <th> 2828</th>
+      <td>653130000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 巴楚县</td>
+    </tr>
+    <tr>
+      <th> 2829</th>
+      <td>654224000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 托里县</td>
+    </tr>
+    <tr>
+      <th> 2830</th>
+      <td>652923000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 库车县</td>
+    </tr>
+    <tr>
+      <th> 2831</th>
+      <td>654225000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 裕民县</td>
+    </tr>
+    <tr>
+      <th> 2832</th>
+      <td>653131000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 塔什库尔干塔吉克自治县</td>
+    </tr>
+    <tr>
+      <th> 2833</th>
+      <td>654226000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 和布克赛尔蒙古自治县</td>
+    </tr>
+    <tr>
+      <th> 2834</th>
+      <td>652924000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 沙雅县</td>
+    </tr>
+    <tr>
+      <th> 2835</th>
+      <td>652925000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 新和县</td>
+    </tr>
+    <tr>
+      <th> 2836</th>
+      <td>652926000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 拜城县</td>
+    </tr>
+    <tr>
+      <th> 2837</th>
+      <td>652927000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 乌什县</td>
+    </tr>
+    <tr>
+      <th> 2838</th>
+      <td>652928000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿瓦提县</td>
+    </tr>
+    <tr>
+      <th> 2839</th>
+      <td>652929000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 柯坪县</td>
+    </tr>
+    <tr>
+      <th> 2840</th>
+      <td>659001000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 石河子市</td>
+    </tr>
+    <tr>
+      <th> 2841</th>
+      <td>659002000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿拉尔市</td>
+    </tr>
+    <tr>
+      <th> 2842</th>
+      <td>659003000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 图木舒克市</td>
+    </tr>
+    <tr>
+      <th> 2843</th>
+      <td>659004000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 五家渠市</td>
+    </tr>
+    <tr>
+      <th> 2844</th>
+      <td>659006000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 铁门关市</td>
+    </tr>
+    <tr>
+      <th> 2845</th>
+      <td>654301000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿勒泰市</td>
+    </tr>
+    <tr>
+      <th> 2846</th>
+      <td>654321000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 布尔津县</td>
+    </tr>
+    <tr>
+      <th> 2847</th>
+      <td>654322000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 富蕴县</td>
+    </tr>
+    <tr>
+      <th> 2848</th>
+      <td>654323000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 福海县</td>
+    </tr>
+    <tr>
+      <th> 2849</th>
+      <td>654324000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 哈巴河县</td>
+    </tr>
+    <tr>
+      <th> 2850</th>
+      <td>654325000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 青河县</td>
+    </tr>
+    <tr>
+      <th> 2851</th>
+      <td>654326000000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 吉木乃县</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>由于多线程的关系，数据的顺序已经被打乱，所以这里按照区代码进行 “升序” 排序。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_county_sorted &#x3D; df_county.sort_values(by &#x3D; [&#39;code&#39;]) #按1列进行升序排序</span><br></pre></td></tr></table></figure>
+
+<h2 id="信息写入-csv-文件-2"><a href="#信息写入-csv-文件-2" class="headerlink" title="信息写入 csv 文件"></a>信息写入 csv 文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_county_sorted.to_csv(&#39;county.csv&#39;, sep&#x3D;&#39;,&#39;, header&#x3D;True, index&#x3D;False)</span><br></pre></td></tr></table></figure>
+<h2 id="获取街道代码函数-—-多线程实现"><a href="#获取街道代码函数-—-多线程实现" class="headerlink" title="获取街道代码函数 — 多线程实现"></a>获取街道代码函数 — 多线程实现</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def getTown(url_list):</span><br><span class="line">    queue_town &#x3D; Queue() #队列</span><br><span class="line">    thread_num &#x3D; 50 #进程数</span><br><span class="line">    town &#x3D; [] #记录街道信息的字典（全局）</span><br><span class="line">    </span><br><span class="line">    def produce_url(url_list):</span><br><span class="line">        for url in url_list:</span><br><span class="line">            queue_town.put(url) # 生成URL存入队列，等待其他线程提取</span><br><span class="line">    </span><br><span class="line">    def getData():</span><br><span class="line">        while not queue_town.empty(): # 保证url遍历结束后能退出线程</span><br><span class="line">            url &#x3D; queue_town.get() # 从队列中获取URL</span><br><span class="line">            data &#x3D; getUrl(url)</span><br><span class="line">            selector &#x3D; etree.HTML(data)</span><br><span class="line">            townList &#x3D; selector.xpath(&#39;&#x2F;&#x2F;tr[@class&#x3D;&quot;towntr&quot;]&#39;)</span><br><span class="line">            #下面是爬取每个区的代码、URL</span><br><span class="line">            for i in townList:</span><br><span class="line">                townCode &#x3D; i.xpath(&#39;td[1]&#x2F;a&#x2F;text()&#39;)</span><br><span class="line">                townLink &#x3D; i.xpath(&#39;td[1]&#x2F;a&#x2F;@href&#39;)</span><br><span class="line">                townName &#x3D; i.xpath(&#39;td[2]&#x2F;a&#x2F;text()&#39;)</span><br><span class="line">                #上面得到的是列表形式的，下面将其每一个用字典存储</span><br><span class="line">                for j in range(len(townLink)):</span><br><span class="line">                    townURL &#x3D; url[:-11] + townLink[j]</span><br><span class="line">                    town.append(&#123;&#39;code&#39;:townCode[j],&#39;link&#39;:townURL,&#39;name&#39;:townName[j]&#125;)</span><br><span class="line">                </span><br><span class="line">    def run(url_list):</span><br><span class="line">        produce_url(url_list)</span><br><span class="line">    </span><br><span class="line">        ths &#x3D; []</span><br><span class="line">        for _ in range(thread_num):</span><br><span class="line">            th &#x3D; Thread(target &#x3D; getData)</span><br><span class="line">            th.start()</span><br><span class="line">            ths.append(th)</span><br><span class="line">        for th in ths:</span><br><span class="line">            th.join()</span><br><span class="line">            </span><br><span class="line">    run(url_list)</span><br><span class="line">    return town</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">town &#x3D; getTown(df_county[&#39;link&#39;])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_town &#x3D; pd.DataFrame(town)</span><br><span class="line">df_town	</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>link</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>130706001000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 城镇街道办事处</td>
+    </tr>
+    <tr>
+      <th> 1</th>
+      <td>130706002000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 煤矿街道办事处</td>
+    </tr>
+    <tr>
+      <th> 2</th>
+      <td>130706200000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 花园乡</td>
+    </tr>
+    <tr>
+      <th> 3</th>
+      <td>130706201000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 辛庄子乡</td>
+    </tr>
+    <tr>
+      <th> 4</th>
+      <td>130706202000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 定方水乡</td>
+    </tr>
+    <tr>
+      <th> 5</th>
+      <td>130706203000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 段家堡乡</td>
+    </tr>
+    <tr>
+      <th> 6</th>
+      <td>130702001000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 红旗楼街道办事处</td>
+    </tr>
+    <tr>
+      <th> 7</th>
+      <td>130702002000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 胜利北路街道办事处</td>
+    </tr>
+    <tr>
+      <th> 8</th>
+      <td>130702003000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 五一路街道办事处</td>
+    </tr>
+    <tr>
+      <th> 9</th>
+      <td>130702004000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 花园街街道办事处</td>
+    </tr>
+    <tr>
+      <th> 10</th>
+      <td>130702005000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 工业路街道办事处</td>
+    </tr>
+    <tr>
+      <th> 11</th>
+      <td>130702101000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 姚家庄镇</td>
+    </tr>
+    <tr>
+      <th> 12</th>
+      <td>130623001000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 城区社区管理办公室街道办事处</td>
+    </tr>
+    <tr>
+      <th> 13</th>
+      <td>130624100000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阜平镇</td>
+    </tr>
+    <tr>
+      <th> 14</th>
+      <td>130624101000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 龙泉关镇</td>
+    </tr>
+    <tr>
+      <th> 15</th>
+      <td>130626100000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 定兴镇</td>
+    </tr>
+    <tr>
+      <th> 16</th>
+      <td>130623100000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 涞水镇</td>
+    </tr>
+    <tr>
+      <th> 17</th>
+      <td>130624102000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 平阳镇</td>
+    </tr>
+    <tr>
+      <th> 18</th>
+      <td>130624103000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 城南庄镇</td>
+    </tr>
+    <tr>
+      <th> 19</th>
+      <td>130624104000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 天生桥镇</td>
+    </tr>
+    <tr>
+      <th> 20</th>
+      <td>130624105000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 王林口镇</td>
+    </tr>
+    <tr>
+      <th> 21</th>
+      <td>130624202000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 台峪乡</td>
+    </tr>
+    <tr>
+      <th> 22</th>
+      <td>130624203000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 大台乡</td>
+    </tr>
+    <tr>
+      <th> 23</th>
+      <td>130624204000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 史家寨乡</td>
+    </tr>
+    <tr>
+      <th> 24</th>
+      <td>130624205000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 砂窝乡</td>
+    </tr>
+    <tr>
+      <th> 25</th>
+      <td>130724100000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 平定堡镇</td>
+    </tr>
+    <tr>
+      <th> 26</th>
+      <td>130724101000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 小厂镇</td>
+    </tr>
+    <tr>
+      <th> 27</th>
+      <td>130724102000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 黄盖淖镇</td>
+    </tr>
+    <tr>
+      <th> 28</th>
+      <td>130724103000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 九连城镇</td>
+    </tr>
+    <tr>
+      <th> 29</th>
+      <td>130724200000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 高山堡乡</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>42532</th>
+      <td>659002509000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团十六团</td>
+    </tr>
+    <tr>
+      <th> 42533</th>
+      <td>659002511000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团第一师水利水电工程处</td>
+    </tr>
+    <tr>
+      <th> 42534</th>
+      <td>659002512000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团第一师塔里木灌区水利管理处</td>
+    </tr>
+    <tr>
+      <th> 42535</th>
+      <td>659002513000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿拉尔农场</td>
+    </tr>
+    <tr>
+      <th> 42536</th>
+      <td>659002514000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团第一师幸福农场</td>
+    </tr>
+    <tr>
+      <th> 42537</th>
+      <td>659002515000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 中心监狱</td>
+    </tr>
+    <tr>
+      <th> 42538</th>
+      <td>659002516000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团一团</td>
+    </tr>
+    <tr>
+      <th> 42539</th>
+      <td>659002517000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团农一师沙井子水利管理处</td>
+    </tr>
+    <tr>
+      <th> 42540</th>
+      <td>659002518000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 西工业园区管理委员会</td>
+    </tr>
+    <tr>
+      <th> 42541</th>
+      <td>659002519000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团二团</td>
+    </tr>
+    <tr>
+      <th> 42542</th>
+      <td>659002520000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 兵团三团</td>
+    </tr>
+    <tr>
+      <th> 42543</th>
+      <td>522701001000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 广惠街道办事处</td>
+    </tr>
+    <tr>
+      <th> 42544</th>
+      <td>522701002000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 文峰街道办事处</td>
+    </tr>
+    <tr>
+      <th> 42545</th>
+      <td>522701004000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 小围寨街道办事处</td>
+    </tr>
+    <tr>
+      <th> 42546</th>
+      <td>522701005000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 沙包堡街道办事处</td>
+    </tr>
+    <tr>
+      <th> 42547</th>
+      <td>522701006000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 绿茵湖街道办事处</td>
+    </tr>
+    <tr>
+      <th> 42548</th>
+      <td>522701106000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 墨冲镇</td>
+    </tr>
+    <tr>
+      <th> 42549</th>
+      <td>522701107000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 平浪镇</td>
+    </tr>
+    <tr>
+      <th> 42550</th>
+      <td>522701110000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 毛尖镇</td>
+    </tr>
+    <tr>
+      <th> 42551</th>
+      <td>522701111000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 匀东镇</td>
+    </tr>
+    <tr>
+      <th> 42552</th>
+      <td>522701208000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 归兰水族乡</td>
+    </tr>
+    <tr>
+      <th> 42553</th>
+      <td>652928100000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿瓦提镇</td>
+    </tr>
+    <tr>
+      <th> 42554</th>
+      <td>652928101000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 乌鲁却勒镇</td>
+    </tr>
+    <tr>
+      <th> 42555</th>
+      <td>652928102000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 拜什艾日克镇</td>
+    </tr>
+    <tr>
+      <th> 42556</th>
+      <td>652928200000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿依巴格乡</td>
+    </tr>
+    <tr>
+      <th> 42557</th>
+      <td>652928201000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 塔木托格拉克乡</td>
+    </tr>
+    <tr>
+      <th> 42558</th>
+      <td>652928202000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 英艾日克乡</td>
+    </tr>
+    <tr>
+      <th> 42559</th>
+      <td>652928203000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 多浪乡</td>
+    </tr>
+    <tr>
+      <th> 42560</th>
+      <td>652928204000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 巴格托格拉克乡</td>
+    </tr>
+    <tr>
+      <th> 42561</th>
+      <td>652928405000</td>
+      <td>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhf...</td>
+      <td> 阿克苏监狱</td>
+    </tr>
+  </tbody>
+</table>    
+
+<h2 id="排序-1"><a href="#排序-1" class="headerlink" title="排序"></a>排序</h2><p>由于多线程的关系，数据的顺序已经被打乱，所以这里按照街道代码进行 “升序” 排序。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_town_sorted &#x3D; df_town.sort_values(by &#x3D; [&#39;code&#39;]) #按1列进行升序排序</span><br></pre></td></tr></table></figure>
+<p>信息写入 csv 文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df_town_sorted.to_csv(&#39;town.csv&#39;, sep&#x3D;&#39;,&#39;, header&#x3D;True, index&#x3D;False)</span><br></pre></td></tr></table></figure>
+<h2 id="获取居委会代码函数-—-多线程实现"><a href="#获取居委会代码函数-—-多线程实现" class="headerlink" title="获取居委会代码函数 — 多线程实现"></a>获取居委会代码函数 — 多线程实现</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def getVillage(url_list):</span><br><span class="line">    queue_village &#x3D; Queue() #队列</span><br><span class="line">    thread_num &#x3D; 200 #进程数</span><br><span class="line">    town &#x3D; [] #记录街道信息的字典（全局）</span><br><span class="line">    </span><br><span class="line">    def produce_url(url_list):</span><br><span class="line">        for url in url_list:</span><br><span class="line">            queue_village.put(url) # 生成URL存入队列，等待其他线程提取</span><br><span class="line">    </span><br><span class="line">    def getData():</span><br><span class="line">        while not queue_village.empty(): # 保证url遍历结束后能退出线程</span><br><span class="line">            url &#x3D; queue_village.get() # 从队列中获取URL</span><br><span class="line">            data &#x3D; getUrl(url)</span><br><span class="line">            selector &#x3D; etree.HTML(data)</span><br><span class="line">            villageList &#x3D; selector.xpath(&#39;&#x2F;&#x2F;tr[@class&#x3D;&quot;villagetr&quot;]&#39;)</span><br><span class="line">            #下面是爬取每个区的代码、URL</span><br><span class="line">            for i in villageList:</span><br><span class="line">                villageCode &#x3D; i.xpath(&#39;td[1]&#x2F;text()&#39;)</span><br><span class="line">                UrbanRuralCode &#x3D; i.xpath(&#39;td[2]&#x2F;text()&#39;)</span><br><span class="line">                villageName &#x3D; i.xpath(&#39;td[3]&#x2F;text()&#39;)</span><br><span class="line">                #上面得到的是列表形式的，下面将其每一个用字典存储</span><br><span class="line">                for j in range(len(villageCode)):</span><br><span class="line">                    town.append(&#123;&#39;code&#39;:villageCode[j],&#39;UrbanRuralCode&#39;:UrbanRuralCode[j],&#39;name&#39;:villageName[j]&#125;)</span><br><span class="line">                </span><br><span class="line">    def run(url_list):</span><br><span class="line">        produce_url(url_list)</span><br><span class="line">    </span><br><span class="line">        ths &#x3D; []</span><br><span class="line">        for _ in range(thread_num):</span><br><span class="line">            th &#x3D; Thread(target &#x3D; getData)</span><br><span class="line">            th.start()</span><br><span class="line">            ths.append(th)</span><br><span class="line">        for th in ths:</span><br><span class="line">            th.join()</span><br><span class="line">            </span><br><span class="line">    run(url_list)</span><br><span class="line">    return town</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">village &#x3D; getVillage(df_town[&#39;link&#39;])</span><br></pre></td></tr></table></figure>
+
+<pre><code>http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/14/07/24/140724204.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/14/07/27/140727400.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/14/10/29/141029204.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/01/04/150104008.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/14/09/81/140981102.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/01/02/150102001.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/14/09/81/140981210.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/04/21/150421202.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/04/25/150425100.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/04/22/150422401.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/04/02/150402402.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/04/30/150430207.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/01/21/150121105.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/07/22/150722105.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/15/25/26/152526103.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/21/04/21/210421209.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/21/04/22/210422108.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/21/05/02/210502002.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/21/06/03/210603007.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/21/05/02/210502010.html
+requests fail, retry!
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/21/05/03/210503005.html
+requests fail, retry!</code></pre>
+<p>由于数据量很大，所以这里我没有爬取完毕。    </p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>实战</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+        <tag>实战</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国家统计局统计用区划代码和城乡划分代码爬虫 -（一）页面分析</title>
+    <url>/archives/d4af1e8a.html</url>
+    <content><![CDATA[<p>本文详细分析了国家统计局统计用区划代码和城乡划分代码爬虫的实现过程，这是第一篇，首先先分析一下页面，为后面的页面解析做准备。</p>
+<p>详细的代码开源在 GitHub 上：<a href="https://github.com/dta0502/NBSPRC-spider">NBSPRC-spider</a>。</p>
+<p>这里我就拿2016年的页面做下分析：<a href="http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html">2016 年统计用区划代码和城乡划分代码</a>。</p>
+<h1 id="省级页面分析"><a href="#省级页面分析" class="headerlink" title="省级页面分析"></a>省级页面分析</h1><h2 id="省级信息提取"><a href="#省级信息提取" class="headerlink" title="省级信息提取"></a>省级信息提取</h2><p>我们进入到<a href="http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html">2016 年统计用区划代码和城乡划分代码</a>这个页面，然后用 chrome 的 “检查” 工具看下我们要找的信息在哪。</p>
+<p>这里我们需要爬取省级名称、省内市级信息的子链接这两个参数。</p>
+<p>我们从图中可以发现，左边页面每一行对应的 XPath 路径为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;tr[@class&#x3D;&quot;provincetr&quot;]</span><br></pre></td></tr></table></figure>
+<p>然后一行中每个省的信息在下一级的 td 标签内：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">td&#x2F;a&#x2F;text()</span><br><span class="line">td&#x2F;a&#x2F;@href</span><br><span class="line">省级页面分析</span><br><span class="line">省级页面分析</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pacsuivj1.webp"></p>
+<h2 id="下级链接获取"><a href="#下级链接获取" class="headerlink" title="下级链接获取"></a>下级链接获取</h2><p>省级页面的 URL：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;index.html</span><br></pre></td></tr></table></figure>
+
+<p>下级页面的 URL（我这里以<code>浙江省</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;33.html</span><br></pre></td></tr></table></figure>
+
+<p>页面中提取到的信息（我这里以<code>浙江省</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">33.html</span><br></pre></td></tr></table></figure>
+
+<p>所以我们可以通过如下方式获取真实的 URL 保存到一个列表中：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url &#x3D; &quot;http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;index.html&quot;</span><br><span class="line"># provinceLink &#x3D; &quot;33.html&quot;</span><br><span class="line">provinceURL &#x3D; url[:-10] + provinceLink</span><br></pre></td></tr></table></figure>
+
+<h1 id="市级页面分析"><a href="#市级页面分析" class="headerlink" title="市级页面分析"></a>市级页面分析</h1><h2 id="市级信息提取"><a href="#市级信息提取" class="headerlink" title="市级信息提取"></a>市级信息提取</h2><p>我们进入到<a href="http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/33.html">浙江省</a>中。具体的分析跟上面的省级页面分析类似，不再赘述。下面是市级页面分析图：<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pacsuivj2.webp"></p>
+<h2 id="下级链接获取-1"><a href="#下级链接获取-1" class="headerlink" title="下级链接获取"></a>下级链接获取</h2><p>市级页面的 URL：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;33.html</span><br></pre></td></tr></table></figure>
+
+<p>下级页面的 URL（我这里以<code>杭州市</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;33&#x2F;3301.html</span><br></pre></td></tr></table></figure>
+
+<p>页面中提取到的信息（我这里以<code>杭州市</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">33&#x2F;3301.html</span><br></pre></td></tr></table></figure>
+
+<h1 id="区级页面分析"><a href="#区级页面分析" class="headerlink" title="区级页面分析"></a>区级页面分析</h1><h2 id="区级信息提取"><a href="#区级信息提取" class="headerlink" title="区级信息提取"></a>区级信息提取</h2><p>我们进入到<a href="http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/33/3301.html">杭州市</a>中。具体的分析跟上面的省级页面分析类似，不再赘述。下面是区级页面分析图：<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pacsuivj3.webp"></p>
+<h2 id="下级链接获取-2"><a href="#下级链接获取-2" class="headerlink" title="下级链接获取"></a>下级链接获取</h2><p>区级页面的 URL：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;33&#x2F;3301.html</span><br></pre></td></tr></table></figure>
+
+<p>下级页面的 URL（我这里以<code>上城区</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;33&#x2F;01&#x2F;330102.html</span><br></pre></td></tr></table></figure>
+
+<p>页面中提取到的信息（我这里以<code>上城区</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">01&#x2F;330102.html</span><br></pre></td></tr></table></figure>
+
+<h1 id="街道页面分析"><a href="#街道页面分析" class="headerlink" title="街道页面分析"></a>街道页面分析</h1><h2 id="街道信息提取"><a href="#街道信息提取" class="headerlink" title="街道信息提取"></a>街道信息提取</h2><p>我们进入到<a href="http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/33/01/330102.html">上城区</a>中。具体的分析跟上面的省级页面分析类似，不再赘述。下面是街道页面分析图：<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pacsuivj4.webp"></p>
+<h2 id="下级链接获取-3"><a href="#下级链接获取-3" class="headerlink" title="下级链接获取"></a>下级链接获取</h2><p>街道页面的 URL：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;33&#x2F;01&#x2F;330102.html</span><br></pre></td></tr></table></figure>
+
+<p>街道页面的 URL（我这里以<code>湖滨街道</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.stats.gov.cn&#x2F;tjsj&#x2F;tjbz&#x2F;tjyqhdmhcxhfdm&#x2F;2016&#x2F;33&#x2F;01&#x2F;02&#x2F;330102003.html</span><br></pre></td></tr></table></figure>
+
+<p>页面中提取到的信息（我这里以<code>湖滨街道</code>为例）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">02&#x2F;330102003.html</span><br></pre></td></tr></table></figure>
+
+<h1 id="居委会页面分析"><a href="#居委会页面分析" class="headerlink" title="居委会页面分析"></a>居委会页面分析</h1><h2 id="居委会信息提取"><a href="#居委会信息提取" class="headerlink" title="居委会信息提取"></a>居委会信息提取</h2><p>我们进入到<a href="http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/33/01/02/330102003.html">湖滨街道</a>中。具体的分析跟上面的省级页面分析类似，不再赘述。下面是居委会页面分析图：<br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pacsuivj5.webp"><br>这里已经到了最底层，没有下级链接了。</p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>实战</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+        <tag>实战</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scrapy 框架的使用之 Item Pipeline 的用法</title>
+    <url>/archives/f3666482.html</url>
+    <content><![CDATA[<p>本文简单介绍一下 Scrapy 框架中的 Item Pipeline 的用法。</p>
+<p>Item Pipeline 的调用发生在 Spider 产生 Item 之后。当 Spider 解析完 Response 之后，Item 就会传递到 Item Pipeline，被定义的 Item Pipeline 组件会顺次调用，完成一连串的处理过程，比如数据清洗、存储等。</p>
+<p>Item Pipeline 的主要功能有如下 4 点。</p>
+<ul>
+<li>清理 HTML 数据。</li>
+<li>验证爬取数据，检查爬取字段。</li>
+<li>查重并丢弃重复内容。</li>
+<li>将爬取结果保存到数据库。</li>
+</ul>
+<h1 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h1><p>我们可以自定义 Item Pipeline，只需要实现指定的方法，其中必须要实现的一个方法是：<code>process_item(item, spider)</code>。</p>
+<p>另外还有如下几个比较实用的方法。</p>
+<ul>
+<li><code>open_spider(spider)</code></li>
+<li><code>close_spider(spider)</code></li>
+<li><code>from_crawler(cls, crawler)</code></li>
+</ul>
+<p>下面我们详细介绍这几个方法的用法。</p>
+<h2 id="process-item-item-spider"><a href="#process-item-item-spider" class="headerlink" title="process_item(item, spider)"></a><code>process_item(item, spider)</code></h2><p><code>process_item()</code>是必须要实现的方法，被定义的 Item Pipeline 会默认调用这个方法对 Item 进行处理。比如，我们可以进行数据处理或者将数据写入到数据库等操作。它必须返回 Item 类型的值或者抛出一个 DropItem 异常。</p>
+<p><code>process_item()</code>方法的参数有如下两个。</p>
+<ul>
+<li>item，是 Item 对象，即被处理的 Item。</li>
+<li>spider，是 Spider 对象，即生成该 Item 的 Spider。</li>
+</ul>
+<p><code>process_item()</code>方法的返回类型归纳如下。</p>
+<ul>
+<li>如果它返回的是 Item 对象，那么此 Item 会被低优先级的 Item Pipeline 的<code>process_item()</code>方法处理，直到所有的方法被调用完毕。</li>
+<li>如果它抛出的是 DropItem 异常，那么此 Item 会被丢弃，不再进行处理。</li>
+</ul>
+<h2 id="open-spider-self-spider"><a href="#open-spider-self-spider" class="headerlink" title="open_spider(self, spider)"></a><code>open_spider(self, spider)</code></h2><p><code>open_spider()</code>方法是在 Spider 开启的时候被自动调用的。在这里我们可以做一些初始化操作，如开启数据库连接等。其中，参数 spider 就是被开启的 Spider 对象。</p>
+<h2 id="close-spider-spider"><a href="#close-spider-spider" class="headerlink" title="close_spider(spider)"></a><code>close_spider(spider)</code></h2><p>close_spider() 方法是在 Spider 关闭的时候自动调用的。在这里我们可以做一些收尾工作，如关闭数据库连接等。其中，参数 spider 就是被关闭的 Spider 对象。</p>
+<h2 id="from-crawler-cls-crawler"><a href="#from-crawler-cls-crawler" class="headerlink" title="from_crawler(cls, crawler)"></a><code>from_crawler(cls, crawler)</code></h2><p><code>from_crawler()</code>方法是一个类方法，用<code>@classmethod</code>标识，是一种依赖注入的方式。它的参数是 crawler，通过 crawler 对象，我们可以拿到 Scrapy 的所有核心组件，如全局配置的每个信息，然后创建一个 Pipeline 实例。参数 cls 就是 Class，最后返回一个 Class 实例。</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="MongoDB-Pipeline"><a href="#MongoDB-Pipeline" class="headerlink" title="MongoDB Pipeline"></a>MongoDB Pipeline</h2><p>我们用一个 MongoPipeline 将信息保存到 MongoDB，在<code>pipelines.py</code>里添加如下类的实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import pymongo</span><br><span class="line"></span><br><span class="line">class MongoPipeline(object):</span><br><span class="line">    def __init__(self, mongo_uri, mongo_db):</span><br><span class="line">        self.mongo_uri &#x3D; mongo_uri</span><br><span class="line">        self.mongo_db &#x3D; mongo_db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def from_crawler(cls, crawler):</span><br><span class="line">        return cls(</span><br><span class="line">            mongo_uri&#x3D;crawler.settings.get(&#39;MONGO_URI&#39;),</span><br><span class="line">            mongo_db&#x3D;crawler.settings.get(&#39;MONGO_DB&#39;)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def open_spider(self, spider):</span><br><span class="line">        self.client &#x3D; pymongo.MongoClient(self.mongo_uri)</span><br><span class="line">        self.db &#x3D; self.client[self.mongo_db]</span><br><span class="line"></span><br><span class="line">    def process_item(self, item, spider):</span><br><span class="line">        self.db[item.collection].insert(dict(item))</span><br><span class="line">        return item</span><br><span class="line"></span><br><span class="line">    def close_spider(self, spider):</span><br><span class="line">        self.client.close()</span><br></pre></td></tr></table></figure>
+
+<p>这里需要用到两个变量，MONGO_URI 和 MONGO_DB，即存储到 MongoDB 的链接地址和数据库名称。我们在 settings.py 里添加这两个变量，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MONGO_URI &#x3D; &#39;localhost&#39;</span><br><span class="line">MONGO_DB &#x3D; &#39;images360&#39;</span><br></pre></td></tr></table></figure>
+
+<p>样一个保存到 MongoDB 的 Pipeline 的就创建好了。这里最主要的方法是<code>process_item()</code>方法，直接调用 Collection 对象的<code>insert()</code>方法即可完成数据的插入，最后返回 Item 对象。</p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+        <tag>Scrapy</tag>
+        <tag>Pipeline</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python 内建容器类型</title>
     <url>/archives/93eb5e7e.html</url>
     <content><![CDATA[<p>在 Python 中，有四类最常见的内建容器类型：列表（list）、元组（tuple）、字典（dict）、集合（set）。通过单独或是组合使用它们，可以高效的完成很多事情。</p>
