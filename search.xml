@@ -102,7 +102,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">比如说如果修改了docker-compose.yml文件后，执行命令：</span><br><span class="line">docker stack deploy -c docker-compose.yml getstartedlab</span><br><span class="line">再次运行以部署这些更改即可</span><br><span class="line">比如说前面提到的移除应用程序：docker stack rm getstartedlab</span><br><span class="line">离开群：docker swarm leave –force</span><br><span class="line">重新启动已停止的虚拟机，执行：</span><br><span class="line">docker-machine start &lt;machine-name&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/dockerwin71.webp"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/dockerwin71.webp"><br>我的博客即将同步至腾讯云+社区，邀请大家一同入驻：<a href="https://cloud.tencent.com/developer/support-plan?invite_code=3bmjgxkdylogc">https://cloud.tencent.com/developer/support-plan?invite_code=3bmjgxkdylogc</a></p>
 ]]></content>
       <categories>
         <category>Win10</category>
