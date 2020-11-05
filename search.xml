@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>一人之下--张楚岚VS冯宝宝片段</title>
+    <url>/archives/67a51172.html</url>
+    <content><![CDATA[<div class="note green icon flat"><i class="note-icon fas fa-bullhorn"></i><p>罗天大醮张楚岚VS冯宝宝。</p>
+</div>
+<iframe  id="yirfvixw" src="https://player.bilibili.com/player.html?aid=457698151&bvid=BV1U5411L74P&cid=252756436&page=1&high_quality=1" 
+    onload="adjustIframe(id);" width="" height="" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> 
+</iframe>]]></content>
+      <categories>
+        <category>娱乐</category>
+        <category>电影剪辑</category>
+      </categories>
+      <tags>
+        <tag>剪辑片段</tag>
+        <tag>一人之下</tag>
+        <tag>搞笑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Win10中Docker的安装与使用</title>
     <url>/archives/e94fadbe.html</url>
     <content><![CDATA[<h1 id="docker的安装"><a href="#docker的安装" class="headerlink" title="docker的安装"></a>docker的安装</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>Docker for Windows是一个Docker Community Edition（CE）应用程序。Docker for Windows安装包包含了在Windows系统上运行Docker所需的一切。如果你不想装虚拟机，想直接在你的Windows操作系统中安装与学习使用docker，那么你首先得查看你的系统是否满足Docker for Windows的安装与使用要求。</p>

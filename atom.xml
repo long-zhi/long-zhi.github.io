@@ -6,7 +6,7 @@
   <link href="https://matthew84.cf/atom.xml" rel="self"/>
   
   <link href="https://matthew84.cf/"/>
-  <updated>2020-11-04T03:27:09.718Z</updated>
+  <updated>2020-11-05T05:53:18.598Z</updated>
   <id>https://matthew84.cf/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一人之下--张楚岚VS冯宝宝片段</title>
+    <link href="https://matthew84.cf/archives/67a51172.html"/>
+    <id>https://matthew84.cf/archives/67a51172.html</id>
+    <published>2020-11-05T05:31:29.000Z</published>
+    <updated>2020-11-05T05:53:18.598Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note green icon flat"><i class="note-icon fas fa-bullhorn"></i><p>罗天大醮张楚岚VS冯宝宝。</p></div><iframe  id="yirfvixw" src="https://player.bilibili.com/player.html?aid=457698151&bvid=BV1U5411L74P&cid=252756436&page=1&high_quality=1"     onload="adjustIframe(id);" width="" height="" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+    
+    
+    <summary type="html">一人之下，罗天大醮张楚岚VS冯宝宝片段</summary>
+    
+    
+    
+    <category term="娱乐" scheme="https://matthew84.cf/categories/%E5%A8%B1%E4%B9%90/"/>
+    
+    <category term="电影剪辑" scheme="https://matthew84.cf/categories/%E5%A8%B1%E4%B9%90/%E7%94%B5%E5%BD%B1%E5%89%AA%E8%BE%91/"/>
+    
+    
+    <category term="剪辑片段" scheme="https://matthew84.cf/tags/%E5%89%AA%E8%BE%91%E7%89%87%E6%AE%B5/"/>
+    
+    <category term="一人之下" scheme="https://matthew84.cf/tags/%E4%B8%80%E4%BA%BA%E4%B9%8B%E4%B8%8B/"/>
+    
+    <category term="搞笑" scheme="https://matthew84.cf/tags/%E6%90%9E%E7%AC%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Win10中Docker的安装与使用</title>
@@ -572,34 +599,6 @@
     <category term="悬停" scheme="https://matthew84.cf/tags/%E6%82%AC%E5%81%9C/"/>
     
     <category term="图片" scheme="https://matthew84.cf/tags/%E5%9B%BE%E7%89%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>deepin装回windows系统</title>
-    <link href="https://matthew84.cf/archives/aacea3b.html"/>
-    <id>https://matthew84.cf/archives/aacea3b.html</id>
-    <published>2020-11-03T00:44:10.000Z</published>
-    <updated>2020-11-03T13:08:58.585Z</updated>
-    
-    <content type="html"><![CDATA[<div class="note info flat"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前网上无意间看到deepin这个国产pc操作系统，初见deepin时给人一种初恋般的怦然心动的感觉。正好这时家里有一台5年前的笔记本电脑，安装windows已经能感到明显的卡顿，所以我在笔记本上安装上了deepin。安装完后，界面颜值真是秒杀windows，而流畅度相比之前安装的windows7也有肉眼可见的提升。有人要问了，这个系统这么好，那你为啥还要装回windows了？说到这里就要说到国产操作系统的通病了：生态。由于一些工作软件在deepin上的匮乏，用wine安装windows程序体验不好，所以索性直接安装回windows了。</p></div><a id="more"></a><div class="note default flat"><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>请参考别处或者我的上一篇博客</p></div><div class="note primary flat"><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>完成以上步骤之后，从U盘启动windows7引导程序，继续将系统安装在C盘的时候报错：无法在驱动器0的分区安装windows。<br>原因分析：<br>deepin本质上是linux系统，安装deepin时默认都是UEFI引导和GPT硬盘，传统的引导方式为Legacy引导和MBR硬盘，UEFI必须跟GPT对应，同理Legacy必须跟MBR对应。如果BIOS开启UEFI，而硬盘分区表格式为MBR则无法安装；BIOS关闭UEFI而硬盘分区表格式为GPT也是无法安装Windows。总而言之，言而总之就是一句话：由于linux和windows差异，安装的硬盘格式不同，导致原来安装linux的硬盘格式无法安装windows系统，所以我们需要更改硬盘格式为MBR。</p></div><div class="note warning flat"><h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><ul><li><strong>分区表转换是针对整块硬盘，一块硬盘包含C、D、E盘等若干分区；</strong></li><li><strong>GPT与MBR之间的转换会清空硬盘所有数据，需转移硬盘数据；</strong>   </li></ul></div><div class="note success flat"><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><ul><li><strong>在安装系统界面或提示无法安装界面，按下Shift+F10打开命令提示符(如果是笔记本电脑，可能需要加上Fn)</strong></li><li><strong>输入diskpart，按回车执行</strong><br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/001.png"></li><li><strong>进入DISKPART命令模式，输入list disk回车，列出当前磁盘信息</strong></li><li><strong>要转换磁盘0格式，则输入select disk 0回车，再输入clean，删除磁盘分区</strong><br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/002.png"></li><li><strong>输入convert mbr，回车，将磁盘转换为MBR</strong><br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/003.png"></li><li><strong>输入create partition primary size = 102400，创建100G的主分区，1G=1024M；这里的主分区相当于我们的C盘，大小可以随意指定，剩下的硬盘空间在安装完系统之后，进入系统在磁盘管理中可以自行分配</strong><br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/004.png"></li><li><strong>输入format fs=ntfs quick回车，格式化主分区；windows磁盘的文件系统一般都是NTFS格式，所以这里我们要格式化为NTFS格式</strong><br><img src= "/img/loading.gif" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/005.png"></li><li><strong>看到命令提示符中显示【成功格式化该卷】的时候说明就成功了</strong></li><li><strong>最后输入exit回车退出命令提示符，可以愉快的继续安装windows系统了</strong></li></ul></div><div class="note danger flat"><h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>其实从系统美观性和流畅性来说，deepin都不比windows差。奈何windows系统经过多年的沉淀，在生态上可谓秒杀一切的存在，基本所以常用的不常用的或者是些稀奇古怪的应用都能在windows平台找到。反观deepin在这方面则弱势很多，这也是我换回windows的主要原因。但是从deepin的身上我看到国产操作系统的坚持和努力，真心希望能有一天我们的操作系统生态能日益成熟，到时候我们将不再受制于人。</p></div>]]></content>
-    
-    
-    <summary type="html">&lt;div class=&quot;note info flat&quot;&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;之前网上无意间看到deepin这个国产pc操作系统，初见deepin时给人一种初恋般的怦然心动的感觉。正好这时家里有一台5年前的笔记本电脑，安装windows已经能感到明显的卡顿，所以我在笔记本上安装上了deepin。安装完后，界面颜值真是秒杀windows，而流畅度相比之前安装的windows7也有肉眼可见的提升。有人要问了，这个系统这么好，那你为啥还要装回windows了？说到这里就要说到国产操作系统的通病了：生态。由于一些工作软件在deepin上的匮乏，用wine安装windows程序体验不好，所以索性直接安装回windows了。&lt;/p&gt;
-&lt;/div&gt;</summary>
-    
-    
-    
-    <category term="文章" scheme="https://matthew84.cf/categories/article/"/>
-    
-    <category term="教程" scheme="https://matthew84.cf/categories/article/tutorial/"/>
-    
-    
-    <category term="win10" scheme="https://matthew84.cf/tags/win10/"/>
-    
-    <category term="deepin" scheme="https://matthew84.cf/tags/deepin/"/>
-    
-    <category term="重装系统" scheme="https://matthew84.cf/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
