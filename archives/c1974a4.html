@@ -1,4 +1,21 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>原码、反码、补码详解 | longzhiの个人博客</title><meta name="keywords" content="计算机基础,计算机原理"><meta name="author" content="longzhi"><meta name="copyright" content="longzhi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="本文简单总结了原码、反码、补码的计算以及由来。"><meta property="og:type" content="article"><meta property="og:title" content="原码、反码、补码详解"><meta property="og:url" content="https://matthew84.cf/archives/c1974a4.html"><meta property="og:site_name" content="longzhiの个人博客"><meta property="og:description" content="本文简单总结了原码、反码、补码的计算以及由来。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp"><meta property="article:published_time" content="2020-11-03T12:25:58.000Z"><meta property="article:modified_time" content="2020-11-03T12:40:23.909Z"><meta property="article:author" content="longzhi"><meta property="article:tag" content="计算机基础"><meta property="article:tag" content="计算机原理"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp"><link rel="shortcut icon" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-16x16-tiger.png"><link rel="canonical" href="https://matthew84.cf/archives/c1974a4"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-1844799190725276",enable_page_level_ads:"true"})</script><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>原码、反码、补码详解 | longzhiの个人博客</title><meta name="keywords" content="计算机基础,计算机原理"><meta name="author" content="longzhi"><meta name="copyright" content="longzhi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="本文简单总结了原码、反码、补码的计算以及由来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原码、反码、补码详解">
+<meta property="og:url" content="https://matthew84.cf/archives/c1974a4.html">
+<meta property="og:site_name" content="longzhiの个人博客">
+<meta property="og:description" content="本文简单总结了原码、反码、补码的计算以及由来。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp">
+<meta property="article:published_time" content="2020-11-03T12:25:58.000Z">
+<meta property="article:modified_time" content="2020-11-03T12:40:23.909Z">
+<meta property="article:author" content="longzhi">
+<meta property="article:tag" content="计算机基础">
+<meta property="article:tag" content="计算机原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp"><link rel="shortcut icon" href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/favicon-16x16-tiger.png"><link rel="canonical" href="https://matthew84.cf/archives/c1974a4"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-1844799190725276',
+  enable_page_level_ads: 'true'
+});</script><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -61,7 +78,25 @@ var saveToLocal = {
     }
     return item.value
   }
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE={isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2020-11-03 20:40:23"}</script><noscript><style type="text/css">#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(function () {
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-03 20:40:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {
   window.activateDarkMode = function () {
     document.documentElement.setAttribute('data-theme', 'dark')
     if (document.querySelector('meta[name="theme-color"]') !== null) {
@@ -110,7 +145,232 @@ var saveToLocal = {
     if (t === 'dark') activateDarkMode()
     else if (t === 'light') activateLightMode()
   }
-})()</script><link rel="stylesheet" href="/custom/css/styles.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="longzhiの个人博客" type="application/atom+xml"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/avatar.webp" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i> <span>分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i> <span>标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i> <span>归档</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i> <span>关于我</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/words/"><i class="fa-fw fas fa-heart"></i> <span>我喜欢</span></a></li><li><a class="site-page" href="/resume/"><i class="fa-fw fas fa-address-card"></i> <span>个人简历</span></a></li><li><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i> <span>关于</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i> <span>我的影单</span></a></li><li><a class="site-page" href="/calendar/"><i class="fa-fw fas fa-calendar"></i> <span>日历</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i> <span>其它</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/sitemap.xml"><i class="fa-fw fas fa-sitemap"></i> <span>站点地图</span></a></li><li><a class="site-page" href="/404/"><i class="fa-fw fas fa-heartbeat"></i> <span>公益</span></a></li></ul></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">longzhiの个人博客</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i> <span>分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i> <span>标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i> <span>归档</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i> <span>关于我</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/words/"><i class="fa-fw fas fa-heart"></i> <span>我喜欢</span></a></li><li><a class="site-page" href="/resume/"><i class="fa-fw fas fa-address-card"></i> <span>个人简历</span></a></li><li><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i> <span>关于</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i> <span>我的影单</span></a></li><li><a class="site-page" href="/calendar/"><i class="fa-fw fas fa-calendar"></i> <span>日历</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i> <span>其它</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/sitemap.xml"><i class="fa-fw fas fa-sitemap"></i> <span>站点地图</span></a></li><li><a class="site-page" href="/404/"><i class="fa-fw fas fa-heartbeat"></i> <span>公益</span></a></li></ul></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">原码、反码、补码详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-03T12:25:58.000Z" title="发表于 2020-11-03 20:25:58">2020-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-03T12:40:23.909Z" title="更新于 2020-11-03 20:40:23">2020-11-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/">计算机原理</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="机器数和真值"><a href="#机器数和真值" class="headerlink" title="机器数和真值"></a>机器数和真值</h1><h2 id="机器数"><a href="#机器数" class="headerlink" title="机器数"></a>机器数</h2><p>一个数在计算机中的<strong>二进制表示形式</strong>，叫做这个数的机器数。机器数是<strong>带符号的</strong>，在计算机用一个数的最高位存放符号，正数为 0，负数为 1。</p><p>比如，十进制中的数 +3 ，计算机字长为 8 位，转换成二进制就是 00000011。如果是 -3 ，就是 10000011。这里的 00000011 和 10000011 就是机器数。</p><h2 id="真值"><a href="#真值" class="headerlink" title="真值"></a>真值</h2><p>因为第一位是符号位，所以机器数的形式值就不等于真正的数值。例如上面的有符号数 10000011，其最高位 1 代表负，其真正数值是 -3 而不是形式值 131（10000011 转换成十进制等于 131）。为区别起见，将带符号位的机器数对应的真正数值称为机器数的真值。</p><h1 id="原码、反码、补码的基础概念和计算方法"><a href="#原码、反码、补码的基础概念和计算方法" class="headerlink" title="原码、反码、补码的基础概念和计算方法"></a>原码、反码、补码的基础概念和计算方法</h1><p>原码、反码、补码是机器存储一个具体数字的编码方式。</p><h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>原码就是符号位加上真值的绝对值，即用第一位表示符号，其余位表示值。比如如果是 8 位二进制：</p><ul><li><code>[+1]原 = 0000 0001</code></li><li><code>-1]原 = 1000 0001</code></li></ul><p>因为第一位是符号位，所以 8 位二进制数的取值范围就是：<code>[1111 1111 , 0111 1111]</code>，即<code>[-127 , 127]</code>。</p><p>原码是人脑最容易理解和计算的表示方式。</p><h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><ul><li>正数的反码是其本身。</li><li>负数的反码是在其原码的基础上，符号位不变，其余各个位取反。</li></ul><p>下面是一个例子：</p><ul><li><code>[+1] = [00000001]原 = [00000001]反</code></li><li><code>[-1] = [10000001]原 = [11111110]反</code></li></ul><p>可见如果一个反码表示的是负数，人脑无法直观的看出来它的数值，通常要将其转换成原码再计算。</p><h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><ul><li>正数的补码就是其本身。</li><li>负数的补码是在其原码的基础上，符号位不变，其余各位取反，最后 + 1。(即在反码的基础上 + 1)</li></ul><p>下面是一个例子：</p><ul><li><code>[+1] = [00000001]原 = [00000001]反 = [00000001]补</code></li><li><code>[-1] = [10000001]原 = [11111110]反 = [11111111]补</code></li></ul><p>对于负数，补码表示方式也是人脑无法直观看出其数值的，通常也需要转换成原码再计算其数值。</p><h1 id="原码、反码、补码的由来"><a href="#原码、反码、补码的由来" class="headerlink" title="原码、反码、补码的由来"></a>原码、反码、补码的由来</h1><p>人脑可以知道第一位是符号位，在计算的时候我们会根据符号位，选择对真值区域的加减。但是对于计算机，加减乘数已经是最基础的运算，要设计的尽量简单。计算机辨别” 符号位” 显然会让计算机的基础电路设计变得十分复杂！于是人们想出了将符号位也参与运算的方法。我们知道，根据运算法则减去一个正数等于加上一个负数，即:<code>1 - 1 = 1 + (-1) = 0</code>。因此，机器可以只有加法而没有减法，这样计算机运算的设计就更简单了。</p><p>原码：</p><table><thead><tr><th>正数</th><th>正数（原码）</th><th>负数</th><th>负数（原码）</th></tr></thead><tbody><tr><td>0</td><td>0000</td><td>0</td><td>1000</td></tr><tr><td>1</td><td>0001</td><td>-1</td><td>1001</td></tr><tr><td>2</td><td>0010</td><td>-2</td><td>1010</td></tr><tr><td>3</td><td>0011</td><td>-3</td><td>1011</td></tr><tr><td>4</td><td>0100</td><td>-4</td><td>1100</td></tr><tr><td>5</td><td>0101</td><td>-5</td><td>1101</td></tr><tr><td>6</td><td>0110</td><td>-6</td><td>1110</td></tr><tr><td>7</td><td>0111</td><td>-7</td><td>1111</td></tr></tbody></table><p>我们希望 + 1 和 - 1 相加是 0，但计算机只能算出<code>0001+1001=1010 (-2)</code>。</p><p>为了解决 “正负相加等于 0” 的问题，在 “原码” 的基础上，人们发明了 “反码”：</p><table><thead><tr><th>正数</th><th>正数（反码）</th><th>负数</th><th>负数（反码）</th></tr></thead><tbody><tr><td>0</td><td>0000</td><td>0</td><td>1111</td></tr><tr><td>1</td><td>0001</td><td>-1</td><td>1110</td></tr><tr><td>2</td><td>0010</td><td>-2</td><td>1101</td></tr><tr><td>3</td><td>0011</td><td>-3</td><td>1100</td></tr><tr><td>4</td><td>0100</td><td>-4</td><td>1011</td></tr><tr><td>5</td><td>0101</td><td>-5</td><td>1010</td></tr><tr><td>6</td><td>0110</td><td>-6</td><td>1001</td></tr><tr><td>7</td><td>0111</td><td>-7</td><td>1000</td></tr></tbody></table><p>“原码” 变成 “反码” 时，完美的解决了 “正负相加等于 0” 的问题，过去的 + 1 和 - 1 相加，变成了<code>0001+1101=1111</code>，刚好反码表示方式中，1111 象征 - 0。</p><p>人们总是进益求精，历史遗留下来的问题 —— 有两个零存在，+0 和 -0。我们希望只有一个 0，所以发明了” 补码”，同样是针对” 负数” 做处理的。从原来” 反码” 的基础上，补充一个新的代码，（+1）。</p><table><thead><tr><th>正数</th><th>正数（补码）</th><th>负数</th><th>负数（补码）</th></tr></thead><tbody><tr><td>0</td><td>0000</td><td><del>0</del></td><td><del>0000</del></td></tr><tr><td>1</td><td>0001</td><td>-1</td><td>1111</td></tr><tr><td>2</td><td>0010</td><td>-2</td><td>1110</td></tr><tr><td>3</td><td>0011</td><td>-3</td><td>1101</td></tr><tr><td>4</td><td>0100</td><td>-4</td><td>1100</td></tr><tr><td>5</td><td>0101</td><td>-5</td><td>1011</td></tr><tr><td>6</td><td>0110</td><td>-6</td><td>1010</td></tr><tr><td>7</td><td>0111</td><td>-7</td><td>1001</td></tr><tr><td></td><td></td><td>-8</td><td>1000</td></tr></tbody></table> 有得必有失，在补一位 1 的时候，要丢掉最高位。我们要处理” 反码” 中的”-0”，当 1111 再补上一个 1 之后，变成了 10000，丢掉最高位就是 0000，刚好和左边正数的 0 完美融合。这样就解决了 + 0 和 - 0 同时存在的问题。<p>另外” 正负数相加等于 0” 的问题，同样得到满足，举例，3 和（-3）相加，<code>0011 + 1101 =10000</code>，丢掉最高位，就是 0000（0）。</p><p>以上就是” 补码” 的存在方式。</p></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者:</span> <span class="post-copyright-info"><a href="mailto:undefined">longzhi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接:</span> <span class="post-copyright-info"><a href="https://matthew84.cf/archives/c1974a4.html">https://matthew84.cf/archives/c1974a4.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明:</span> <span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://matthew84.cf" target="_blank">longzhiの个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/">计算机原理</a></div><div class="post_share"><div class="social-share" data-image="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer="defer"></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/wechatpay.webp" target="_blank"><img class="post-qr-code-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/wechatpay.webp"></a><div class="post-qr-code-desc"></div></li><li class="reward-item"><a href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/alipay.webp" target="_blank"><img class="post-qr-code-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/alipay.webp"></a><div class="post-qr-code-desc"></div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/e7d843e1.html"><img class="prev-cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic20.webp" onerror='onerror=null,src="/img/404.jpg"'><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux线程浅析</div></div></a></div><div class="next-post pull-right"><a href="/archives/16c5940f.html"><img class="next-cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic18.webp" onerror='onerror=null,src="/img/404.jpg"'><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">P2P 技术科普</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i> <span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/16c5940f.html" title="P2P 技术科普"><img class="cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic18.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-03</div><div class="title">P2P 技术科普</div></div></a></div><div><a href="/archives/42010ce.html" title="排序算法的 Python 实现以及时间复杂度分析"><img class="cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic8.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-03</div><div class="title">排序算法的 Python 实现以及时间复杂度分析</div></div></a></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/avatar.webp" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"><div class="author-info__name">longzhi</div><div class="author-info__description">缘分，妙不可言</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/long-zhi/long-zhi.github.io"><i class="fab fa-github"></i><span>Follow Me on GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/long.dizhi@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="//twitter.com/long_ditian" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a><a class="social-icon" href="//t.me/long_zhi" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">谢谢你那么好看还来看我ヾﾉ≧∀≦)o</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%95%B0%E5%92%8C%E7%9C%9F%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">机器数和真值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">机器数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%9F%E5%80%BC"><span class="toc-number">1.2.</span> <span class="toc-text">真值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">原码、反码、补码的基础概念和计算方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">原码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">反码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">补码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="toc-number">3.</span> <span class="toc-text">原码、反码、补码的由来</span></a></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/67a51172.html" title="一人之下--张楚岚VS冯宝宝片段"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic33.webp" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="一人之下--张楚岚VS冯宝宝片段"></a><div class="content"><a class="title" href="/archives/67a51172.html" title="一人之下--张楚岚VS冯宝宝片段">一人之下--张楚岚VS冯宝宝片段</a><time datetime="2020-11-05T05:31:29.000Z" title="发表于 2020-11-05 13:31:29">2020-11-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e94fadbe.html" title="Win10中Docker的安装与使用"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic25.webp" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Win10中Docker的安装与使用"></a><div class="content"><a class="title" href="/archives/e94fadbe.html" title="Win10中Docker的安装与使用">Win10中Docker的安装与使用</a><time datetime="2020-11-03T13:15:41.000Z" title="发表于 2020-11-03 21:15:41">2020-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/532c0323.html" title="Docker入门"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic24.webp" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Docker入门"></a><div class="content"><a class="title" href="/archives/532c0323.html" title="Docker入门">Docker入门</a><time datetime="2020-11-03T13:15:23.000Z" title="发表于 2020-11-03 21:15:23">2020-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/db30bcc7.html" title="MATLAB——软件及基本操作介绍"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic23.webp" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="MATLAB——软件及基本操作介绍"></a><div class="content"><a class="title" href="/archives/db30bcc7.html" title="MATLAB——软件及基本操作介绍">MATLAB——软件及基本操作介绍</a><time datetime="2020-11-03T13:15:00.000Z" title="发表于 2020-11-03 21:15:00">2020-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/4ad73f8e.html" title="Linux命令大全"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic22.webp" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Linux命令大全"></a><div class="content"><a class="title" href="/archives/4ad73f8e.html" title="Linux命令大全">Linux命令大全</a><time datetime="2020-11-03T13:14:42.000Z" title="发表于 2020-11-03 21:14:42">2020-11-03</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By longzhi</div><div class="footer_custom_text">本站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener"><img align="absmiddle" width="60px" height="30px" src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/ypy_logo5.png"></a>提供加速服务<br>缘分，妙不可言</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49b1f5">hexo-generator-search</a> <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+})()</script><link rel="stylesheet" href="/custom/css/styles.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="longzhiの个人博客" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 关于我</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/words/"><i class="fa-fw fas fa-heart"></i><span> 我喜欢</span></a></li><li><a class="site-page" href="/resume/"><i class="fa-fw fas fa-address-card"></i><span> 个人简历</span></a></li><li><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 我的影单</span></a></li><li><a class="site-page" href="/calendar/"><i class="fa-fw fas fa-calendar"></i><span> 日历</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其它</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/sitemap.xml"><i class="fa-fw fas fa-sitemap"></i><span> 站点地图</span></a></li><li><a class="site-page" href="/404/"><i class="fa-fw fas fa-heartbeat"></i><span> 公益</span></a></li></ul></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">longzhiの个人博客</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 关于我</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/words/"><i class="fa-fw fas fa-heart"></i><span> 我喜欢</span></a></li><li><a class="site-page" href="/resume/"><i class="fa-fw fas fa-address-card"></i><span> 个人简历</span></a></li><li><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 我的影单</span></a></li><li><a class="site-page" href="/calendar/"><i class="fa-fw fas fa-calendar"></i><span> 日历</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其它</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/sitemap.xml"><i class="fa-fw fas fa-sitemap"></i><span> 站点地图</span></a></li><li><a class="site-page" href="/404/"><i class="fa-fw fas fa-heartbeat"></i><span> 公益</span></a></li></ul></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">原码、反码、补码详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-03T12:25:58.000Z" title="发表于 2020-11-03 20:25:58">2020-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-03T12:40:23.909Z" title="更新于 2020-11-03 20:40:23">2020-11-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/">计算机原理</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="机器数和真值"><a href="#机器数和真值" class="headerlink" title="机器数和真值"></a>机器数和真值</h1><h2 id="机器数"><a href="#机器数" class="headerlink" title="机器数"></a>机器数</h2><p>一个数在计算机中的<strong>二进制表示形式</strong>，叫做这个数的机器数。机器数是<strong>带符号的</strong>，在计算机用一个数的最高位存放符号，正数为 0，负数为 1。</p>
+<p>比如，十进制中的数 +3 ，计算机字长为 8 位，转换成二进制就是 00000011。如果是 -3 ，就是 10000011。这里的 00000011 和 10000011 就是机器数。</p>
+<h2 id="真值"><a href="#真值" class="headerlink" title="真值"></a>真值</h2><p>因为第一位是符号位，所以机器数的形式值就不等于真正的数值。例如上面的有符号数 10000011，其最高位 1 代表负，其真正数值是 -3 而不是形式值 131（10000011 转换成十进制等于 131）。为区别起见，将带符号位的机器数对应的真正数值称为机器数的真值。</p>
+<h1 id="原码、反码、补码的基础概念和计算方法"><a href="#原码、反码、补码的基础概念和计算方法" class="headerlink" title="原码、反码、补码的基础概念和计算方法"></a>原码、反码、补码的基础概念和计算方法</h1><p>原码、反码、补码是机器存储一个具体数字的编码方式。</p>
+<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>原码就是符号位加上真值的绝对值，即用第一位表示符号，其余位表示值。比如如果是 8 位二进制：</p>
+<ul>
+<li><code>[+1]原 = 0000 0001</code></li>
+<li><code>-1]原 = 1000 0001</code></li>
+</ul>
+<p>因为第一位是符号位，所以 8 位二进制数的取值范围就是：<code>[1111 1111 , 0111 1111]</code>，即<code>[-127 , 127]</code>。</p>
+<p>原码是人脑最容易理解和计算的表示方式。</p>
+<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><ul>
+<li>正数的反码是其本身。</li>
+<li>负数的反码是在其原码的基础上，符号位不变，其余各个位取反。</li>
+</ul>
+<p>下面是一个例子：</p>
+<ul>
+<li><code>[+1] = [00000001]原 = [00000001]反</code></li>
+<li><code>[-1] = [10000001]原 = [11111110]反</code></li>
+</ul>
+<p>可见如果一个反码表示的是负数，人脑无法直观的看出来它的数值，通常要将其转换成原码再计算。</p>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><ul>
+<li>正数的补码就是其本身。</li>
+<li>负数的补码是在其原码的基础上，符号位不变，其余各位取反，最后 + 1。(即在反码的基础上 + 1)</li>
+</ul>
+<p>下面是一个例子：</p>
+<ul>
+<li><code>[+1] = [00000001]原 = [00000001]反 = [00000001]补</code></li>
+<li><code>[-1] = [10000001]原 = [11111110]反 = [11111111]补</code></li>
+</ul>
+<p>对于负数，补码表示方式也是人脑无法直观看出其数值的，通常也需要转换成原码再计算其数值。</p>
+<h1 id="原码、反码、补码的由来"><a href="#原码、反码、补码的由来" class="headerlink" title="原码、反码、补码的由来"></a>原码、反码、补码的由来</h1><p>人脑可以知道第一位是符号位，在计算的时候我们会根据符号位，选择对真值区域的加减。但是对于计算机，加减乘数已经是最基础的运算，要设计的尽量简单。计算机辨别” 符号位” 显然会让计算机的基础电路设计变得十分复杂！于是人们想出了将符号位也参与运算的方法。我们知道，根据运算法则减去一个正数等于加上一个负数，即:<code>1 - 1 = 1 + (-1) = 0</code>。因此，机器可以只有加法而没有减法，这样计算机运算的设计就更简单了。</p>
+<p>原码：</p>
+<table>
+<thead>
+<tr>
+<th>正数</th>
+<th>正数（原码）</th>
+<th>负数</th>
+<th>负数（原码）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td>0</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>-1</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>-2</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>-3</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>-4</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>-5</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>-6</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>-7</td>
+<td>1111</td>
+</tr>
+</tbody></table>
+
+<p>我们希望 + 1 和 - 1 相加是 0，但计算机只能算出<code>0001+1001=1010 (-2)</code>。</p>
+<p>为了解决 “正负相加等于 0” 的问题，在 “原码” 的基础上，人们发明了 “反码”：</p>
+<table>
+<thead>
+<tr>
+<th>正数</th>
+<th>正数（反码）</th>
+<th>负数</th>
+<th>负数（反码）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td>0</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>-1</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>-2</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>-3</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>-4</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>-5</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>-6</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>-7</td>
+<td>1000</td>
+</tr>
+</tbody></table>
+
+<p>“原码” 变成 “反码” 时，完美的解决了 “正负相加等于 0” 的问题，过去的 + 1 和 - 1 相加，变成了<code>0001+1101=1111</code>，刚好反码表示方式中，1111 象征 - 0。</p>
+<p>人们总是进益求精，历史遗留下来的问题 —— 有两个零存在，+0 和 -0。我们希望只有一个 0，所以发明了” 补码”，同样是针对” 负数” 做处理的。从原来” 反码” 的基础上，补充一个新的代码，（+1）。</p>
+<table>
+<thead>
+<tr>
+<th>正数</th>
+<th>正数（补码）</th>
+<th>负数</th>
+<th>负数（补码）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td><del>0</del></td>
+<td><del>0000</del></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>-1</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>-2</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>-3</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>-4</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>-5</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>-6</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>-7</td>
+<td>1001</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>-8</td>
+<td>1000</td>
+</tr>
+</tbody></table>
+有得必有失，在补一位 1 的时候，要丢掉最高位。我们要处理” 反码” 中的”-0”，当 1111 再补上一个 1 之后，变成了 10000，丢掉最高位就是 0000，刚好和左边正数的 0 完美融合。这样就解决了 + 0 和 - 0 同时存在的问题。
+
+<p>另外” 正负数相加等于 0” 的问题，同样得到满足，举例，3 和（-3）相加，<code>0011 + 1101 =10000</code>，丢掉最高位，就是 0000（0）。</p>
+<p>以上就是” 补码” 的存在方式。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">longzhi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://matthew84.cf/archives/c1974a4.html">https://matthew84.cf/archives/c1974a4.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://matthew84.cf" target="_blank">longzhiの个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/">计算机原理</a></div><div class="post_share"><div class="social-share" data-image="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic19.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/wechatpay.webp" target="_blank"><img class="post-qr-code-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/wechatpay.webp"/></a><div class="post-qr-code-desc"></div></li><li class="reward-item"><a href="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/alipay.webp" target="_blank"><img class="post-qr-code-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/alipay.webp"/></a><div class="post-qr-code-desc"></div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/e7d843e1.html"><img class="prev-cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic20.webp" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux线程浅析</div></div></a></div><div class="next-post pull-right"><a href="/archives/16c5940f.html"><img class="next-cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic18.webp" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">P2P 技术科普</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/16c5940f.html" title="P2P 技术科普"><img class="cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic18.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-03</div><div class="title">P2P 技术科普</div></div></a></div><div><a href="/archives/42010ce.html" title="排序算法的 Python 实现以及时间复杂度分析"><img class="cover" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic8.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-03</div><div class="title">排序算法的 Python 实现以及时间复杂度分析</div></div></a></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">longzhi</div><div class="author-info__description">缘分，妙不可言</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/long-zhi/long-zhi.github.io"><i class="fab fa-github"></i><span>Follow Me on GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/long.dizhi@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="//twitter.com/long_ditian" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a><a class="social-icon" href="//t.me/long_zhi" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">谢谢你那么好看还来看我ヾﾉ≧∀≦)o</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%95%B0%E5%92%8C%E7%9C%9F%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">机器数和真值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">机器数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%9F%E5%80%BC"><span class="toc-number">1.2.</span> <span class="toc-text">真值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">原码、反码、补码的基础概念和计算方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">原码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">反码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">补码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="toc-number">3.</span> <span class="toc-text">原码、反码、补码的由来</span></a></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/67a51172.html" title="一人之下--张楚岚VS冯宝宝片段"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic33.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一人之下--张楚岚VS冯宝宝片段"/></a><div class="content"><a class="title" href="/archives/67a51172.html" title="一人之下--张楚岚VS冯宝宝片段">一人之下--张楚岚VS冯宝宝片段</a><time datetime="2020-11-05T05:31:29.000Z" title="发表于 2020-11-05 13:31:29">2020-11-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e94fadbe.html" title="Win10中Docker的安装与使用"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic25.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Win10中Docker的安装与使用"/></a><div class="content"><a class="title" href="/archives/e94fadbe.html" title="Win10中Docker的安装与使用">Win10中Docker的安装与使用</a><time datetime="2020-11-03T13:15:41.000Z" title="发表于 2020-11-03 21:15:41">2020-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/532c0323.html" title="Docker入门"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic24.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker入门"/></a><div class="content"><a class="title" href="/archives/532c0323.html" title="Docker入门">Docker入门</a><time datetime="2020-11-03T13:15:23.000Z" title="发表于 2020-11-03 21:15:23">2020-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/db30bcc7.html" title="MATLAB——软件及基本操作介绍"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic23.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MATLAB——软件及基本操作介绍"/></a><div class="content"><a class="title" href="/archives/db30bcc7.html" title="MATLAB——软件及基本操作介绍">MATLAB——软件及基本操作介绍</a><time datetime="2020-11-03T13:15:00.000Z" title="发表于 2020-11-03 21:15:00">2020-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/4ad73f8e.html" title="Linux命令大全"><img data-lazy-src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/img/pic22.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux命令大全"/></a><div class="content"><a class="title" href="/archives/4ad73f8e.html" title="Linux命令大全">Linux命令大全</a><time datetime="2020-11-03T13:14:42.000Z" title="发表于 2020-11-03 21:14:42">2020-11-03</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By longzhi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">缘分，妙不可言</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")
@@ -121,4 +381,4 @@ var saveToLocal = {
 
   }
 }
-window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/js/xkTool.js"></script><script src="/custom/js/custom.js"></script></div><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/hijiki.model.json"},display:{position:"right",width:150,height:150},mobile:{show:!0},log:!1})</script></body></html>
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="//cdn.jsdelivr.net/gh/long-zhi/static@latest/js/xkTool.js"></script><script src="/custom/js/custom.js"></script></div><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":150},"mobile":{"show":true},"log":false});</script></body></html>
