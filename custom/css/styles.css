@@ -1,4 +1,10 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 页脚footer */
+/* 页脚footer */
+#web_bg {  
+  /* 背景图像不重复 */
+  background-repeat: no-repeat;
+  /* 背景图像大小 */
+  background-size: cover;
+}
 /* 页脚透明 */
 #footer {
     background: rgba(255,255,255,0);

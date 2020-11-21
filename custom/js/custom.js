@@ -1,8 +1,8 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/*去掉 Banner 图*/
 var full_page = document.getElementsByClassName("full_page");
 if (full_page.length != 0) {
-  full_page[0].style.background = "transparent";}
-/* 页脚养鱼*/
+  full_page[0].style.background = "transparent";
+}
+
 var xiaokang = new xkTool();
 xiaokang.footFish();
 
